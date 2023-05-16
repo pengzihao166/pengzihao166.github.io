@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-05-15T18:44:53.195Z</updated>
+  <updated>2023-05-16T07:28:46.505Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>备份hexo-_o-U盘篇</title>
+    <link href="http://xiaobazeo.github.io/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/"/>
+    <id>http://xiaobazeo.github.io/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/</id>
+    <published>2023-05-16T07:06:32.000Z</published>
+    <updated>2023-05-16T07:28:46.505Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="新机环境搭建"><a href="#新机环境搭建" class="headerlink" title="新机环境搭建"></a>新机环境搭建</h2><p>​    1、安装Node.js</p><p>​    2、安装Git</p><p>​    3、新建存放Blog的文件夹</p><h2 id="拷贝旧机器中得文件-文件夹"><a href="#拷贝旧机器中得文件-文件夹" class="headerlink" title="拷贝旧机器中得文件/文件夹"></a>拷贝旧机器中得文件/文件夹</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"><span class="keyword">package</span>.json</span><br><span class="line">scaffolds/</span><br><span class="line"><span class="keyword">source</span>/</span><br><span class="line">themes/</span><br><span class="line">其中/代表拷贝的是文件夹</span><br></pre></td></tr></table></figure><h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>右键打开Git bash，依次输入下列命令之后，安装相关依赖</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>安装hexo</span><br><span class="line">   <span class="built_in">npm</span> install -g hexo</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>本地测试的时候需要用hexo server</span><br><span class="line">   <span class="built_in">npm</span> i hexo-server</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>将文章部署到github上的模块</span><br><span class="line">   <span class="built_in">npm</span> install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>安装RSS插件</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>添加Sitemap,加速网页收录速度</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure><h2 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo s -g == hexo g + hexo s</span><br></pre></td></tr></table></figure><p>在浏览器打开<a href="http://localhost:4000/">http://localhost:4000</a>查看效果</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;新机环境搭建&quot;&gt;&lt;a href=&quot;#新机环境搭建&quot; class=&quot;headerlink&quot; title=&quot;新机环境搭建&quot;&gt;&lt;/a&gt;新机环境搭建&lt;/h2&gt;&lt;p&gt;​    1、安装Node.js&lt;/p&gt;
+&lt;p&gt;​    2、安装Git&lt;/p&gt;
+&lt;p&gt;​    3、新建存</summary>
+      
+    
+    
+    
+    
+    <category term="备份" scheme="http://xiaobazeo.github.io/tags/%E5%A4%87%E4%BB%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网络基础篇</title>
     <link href="http://xiaobazeo.github.io/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
     <id>http://xiaobazeo.github.io/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/</id>
     <published>2023-05-15T18:25:03.000Z</published>
-    <updated>2023-05-15T18:44:53.195Z</updated>
+    <updated>2023-05-16T07:03:52.437Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="TCP-IP网络模型有哪几层？"><a href="#TCP-IP网络模型有哪几层？" class="headerlink" title="TCP/IP网络模型有哪几层？"></a>TCP/IP网络模型有哪几层？</h2><h3 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h3><p>&emsp;&emsp;用户直接接触到的就是<strong>应用层</strong>，应用层专注于用户提供应用功能，例如：HTTP、FTP、DNS、Telnet、SMTP等。</p><p>&emsp;&emsp;应用层工作在操作系统中得<strong>用户态</strong>，<strong>传输层及以下</strong>则工作在<strong>内核态</strong>。</p><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>&emsp;&emsp;应用层的数据包会传给传输层，传输层是为应用层提供网络支持。传输层的两个协议：TCP和UDP。</p><p>&emsp;&emsp;TCP（传输控制协议），TCP相较于UDP的特性，比如：<strong>流量控制，超时重传，拥塞控制</strong>等，为了保证数据包能可靠的传输给对方。</p><p>&emsp;&emsp;UDP只负责发送数据包，<strong>不保证</strong>数据包是否能抵达对方，但是<strong>实时性</strong>相对较好，<strong>传输效率</strong>也较高。如果要实现UDP的可靠传输，可以把TCP的特性在应用层实现。</p><p>&emsp;&emsp;应用传输数据过大，传输层的数据包大小超过MSS(TCP最大报文段长度)，需要将数据包分块，如果中途有一个分块丢失或损坏，只需重新发送此分块即可，而不需要发送整个数据包。在TCP协议中，每个分块称为一个TCP段（TCP Segment）。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="TCP-IP网络模型有哪几层？"><a href="#TCP-IP网络模型有哪几层？" class="headerlink" title="TCP/IP网络模型有哪几层？"></a>TCP/IP网络模型有哪几层？</h2><h3 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h3><p>&emsp;&emsp;用户直接接触到的就是<strong>应用层</strong>，应用层专注于用户提供应用功能，例如：HTTP、FTP、DNS、Telnet、SMTP等。</p><p>&emsp;&emsp;应用层工作在操作系统中得<strong>用户态</strong>，<strong>传输层及以下</strong>则工作在<strong>内核态</strong>。</p><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>&emsp;&emsp;应用层的数据包会传给传输层，传输层是为应用层提供网络支持。传输层的两个协议：<strong>TCP</strong>和<strong>UDP</strong>。</p><p>&emsp;&emsp;TCP（传输控制协议），TCP相较于UDP的特性，比如：<strong>流量控制，超时重传，拥塞控制</strong>等，为了保证数据包能可靠的传输给对方。</p><p>&emsp;&emsp;UDP只负责发送数据包，<strong>不保证</strong>数据包是否能抵达对方，但是<strong>实时性</strong>相对较好，<strong>传输效率</strong>也较高。如果要实现UDP的可靠传输，可以把TCP的特性在应用层实现。</p><p>&emsp;&emsp;应用传输数据过大，传输层的数据包大小超过MSS(TCP最大报文段长度)，需要将数据包分块，如果中途有一个分块丢失或损坏，只需重新发送此分块即可，而不需要发送整个数据包。在TCP协议中，<strong>每个分块称为一个TCP段</strong>（TCP Segment）。</p><p>&emsp;&emsp;传输层负责把数据包传给应用，但是一台设备上可能会有很多应用在接收或者传输数据，此时需要用一个编号将应用区分开，这个编号就是端口。例如：Web服务器通常使用80端口，22端口通常是远程登录服务器的端口。</p><h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>&emsp;&emsp;实现传输功能的是<strong>网络层</strong>，传输层只是作为数据传输的媒介，帮助应用到应用的通信。</p><p>&emsp;&emsp;常见协议是IP协议（Internet Protocol），IP协议会将传输层的报文作为数据部分，再加上IP包头部组装成IP报文，如果IP报文大小超过MTU（一般默认1500Bytes）会<strong>再次进行分片</strong>，得到一个即将发送的到网络的IP报文。</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/12.jpg" alt="选自小林coding"></p>]]></content>
     
     
       
@@ -334,9 +358,9 @@
     
     
     
-    <category term="回忆" scheme="http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
-    
     <category term="程序人生" scheme="http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="回忆" scheme="http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
     
   </entry>
   
@@ -458,30 +482,6 @@
     
     
     <category term="程序人生" scheme="http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>初识TCP/IP协议族</title>
-    <link href="http://xiaobazeo.github.io/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/"/>
-    <id>http://xiaobazeo.github.io/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/</id>
-    <published>2021-12-30T08:16:48.000Z</published>
-    <updated>2022-01-06T10:38:45.860Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP%20IP%E5%8D%8F%E8%AE%AE%E6%97%8F.png?versionId=CAEQGRiBgMDG4eKp8BciIDc4YjRlNWZiOTUwNzRlNGY5OTFiNmQzYjBlZWZkODRk"></p><p>&emsp;  你好，我是小八。今天我们来讲一下TCP/IP协议族。</p><h2 id="初识TCP-IP协议族"><a href="#初识TCP-IP协议族" class="headerlink" title="初识TCP/IP协议族"></a>初识TCP/IP协议族</h2><p>&emsp; HTTP属于TCP/IP的一个子类，通常使用的网络（包括互联网）都是在TCP/IP协议族的基础上运作。</p><h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h3><p>&emsp;计算机网络设备之间进行信息交互就需要基于相同的方法或者说是同一种协议才能进行通信。就比如：我们需要进行通信的时候，就需要知道如何探测到通信的目标、从哪一边开始发起通信请求、使用什么语言通信、怎么结束通信请求等所制定的规则，便被成为协议（protocol）。</p><p>&emsp;<strong>而TCP/IP协议族就是互联网相关的各类协议族的总称。</strong>对于TCP/IP协议族，通常有两种说法，一是指TCP和IP这两种协议，二是指TCP/IP在IP协议的通信中，使用到的协议族的统称。</p><p>TCP/IP协议族如下图：</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%97%8F%E7%BE%A4%E5%9B%BE.png?versionId=CAEQGRiBgIDE4eKp8BciIDdkZjU1ZTAzOTEzYTQ3ZWFhY2IxMzIyMTU5OTNlMjBi" alt="image-20211230151831761"></p><h3 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h3><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/TCP%20IP%E5%88%86%E5%B1%82%E7%AE%A1%E7%90%86.png?versionId=CAEQGRiBgICU4eKp8BciIGU0OTczOWY0YmE5YjRjYmRhMjRiNTdhOGUwOTAzOTEz" alt="image-20211230151253140"></p><p>&emsp;协议族通过分层化，可以高效管理改变不同层次设计的任务，把每个层次之间的不同接口规划好之后，每个层次的内部设计也可以自由改动，而不需要替换所有部分整体。</p><p>&emsp;<strong>应用层：</strong></p><p>&emsp;&emsp;预存各类通用的应用服务，决定了向用户提供应用服务时通信的活动。其中HTTP（超文本传输协议）、FTP（文件传输协议）、DNS（域名协议）等服务在此层</p><p>&emsp;<strong>传输层：</strong></p><p>&emsp;&emsp;对应用层提供处于<strong>网络连接中</strong>的两台计算机的<strong>数据传输</strong>。在此层中有两种不同性质的协议：TCP（传输控制协议）和UDP（用户数据报协议）</p><p>&emsp;<strong>网络层：</strong></p><p>&emsp;&emsp;用来处理在网络上流动的数据包，该层规定与对方计算机进行传输时，通过选择某一种路径（或者说是某一条传输路线）到达对方计算机，并且把数据包传给对方。因此此层又被称为<strong>网络互连层</strong>。</p><p>&emsp;&emsp;<strong>数据包</strong>是网络传输的最小数据单位。</p><p>&emsp;<strong>链路层：</strong></p><p>&emsp;&emsp;用来处理连接网络的硬件部分的层次，包括控制操作系统，硬件设备驱动，NIC（网络适配器，即网卡）等一系列可见的物理传输硬件设备（媒介）。</p><h3 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h3><p>&emsp;&emsp;当我们使用TCP/IP族协议进行通信时，会通过分层顺序进行通信。即：发送请求端：应用层-&gt;传输端-&gt;网络端-&gt;链路端，而服务器的接收端：链路端-&gt;网络端-&gt;传输端-&gt;应用层。在获取到客户端发送的HTTP请求之后，服务端再原路返回将数据反馈给客户端。如下图：</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE1.png?versionId=CAEQGRiBgICz4eKp8BciIDEwNjI2MzQ2NDA0ZDQ2OWFhZGY1YjUwOWNhODRlOWU3" alt="image-20211230155905764"></p><p>&emsp;发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。 这种把数据信息包装起来的做法称为<strong>封装（encapsulate）</strong>（就类似于C++类的使用，将类中的成员和数据进行封装）。下图为例：</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE2.png?versionId=CAEQGRiBgICx4eKp8BciIDIzNDlkYjhjYWM1YjQyYTRiNTVjOTk4NmVhYmE0YWEz" alt="image-20211230160020206"></p><p>&emsp;</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP</summary>
-      
-    
-    
-    
-    
-    <category term="计网" scheme="http://xiaobazeo.github.io/tags/%E8%AE%A1%E7%BD%91/"/>
-    
-    <category term="TCP/IP" scheme="http://xiaobazeo.github.io/tags/TCP-IP/"/>
     
   </entry>
   
