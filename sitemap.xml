@@ -272,14 +272,21 @@
 
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</loc>
+    <loc>http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/</loc>
+    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
+    <lastmod>2023-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -293,7 +300,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
+    <loc>http://xiaobazeo.github.io/tags/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -321,7 +328,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</loc>
+    <loc>http://xiaobazeo.github.io/tags/TCP-IP/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -329,13 +336,6 @@
   
   <url>
     <loc>http://xiaobazeo.github.io/tags/leetcode/</loc>
-    <lastmod>2023-07-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiaobazeo.github.io/tags/TCP-IP/</loc>
     <lastmod>2023-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
