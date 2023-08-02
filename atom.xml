@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-07-31T05:33:35.133Z</updated>
+  <updated>2023-08-02T03:39:30.946Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面经-七牛云测试开发实习一二面</title>
+    <link href="http://xiaobazeo.github.io/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/"/>
+    <id>http://xiaobazeo.github.io/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/</id>
+    <published>2023-08-02T03:37:32.000Z</published>
+    <updated>2023-08-02T03:39:30.946Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="微布校园的分工如何？"><a href="#微布校园的分工如何？" class="headerlink" title="微布校园的分工如何？"></a>微布校园的分工如何？</h3><h3 id="在开发过程中学到了什么？遇到了什么难的问题？"><a href="#在开发过程中学到了什么？遇到了什么难的问题？" class="headerlink" title="在开发过程中学到了什么？遇到了什么难的问题？"></a>在开发过程中学到了什么？遇到了什么难的问题？</h3><h3 id="如何解决缓存雪崩、缓存与数据库一致性问题？"><a href="#如何解决缓存雪崩、缓存与数据库一致性问题？" class="headerlink" title="如何解决缓存雪崩、缓存与数据库一致性问题？"></a>如何解决缓存雪崩、缓存与数据库一致性问题？</h3><h3 id="查询响应速度从超时响应加快到900ms-1s是如何实现的？"><a href="#查询响应速度从超时响应加快到900ms-1s是如何实现的？" class="headerlink" title="查询响应速度从超时响应加快到900ms~1s是如何实现的？"></a>查询响应速度从超时响应加快到900ms~1s是如何实现的？</h3><h3 id="讲一下雪花算法（当时从组成、为什么可以、为什么可以作为分布式id、）"><a href="#讲一下雪花算法（当时从组成、为什么可以、为什么可以作为分布式id、）" class="headerlink" title="讲一下雪花算法（当时从组成、为什么可以、为什么可以作为分布式id、）"></a>讲一下雪花算法（当时从组成、为什么可以、为什么可以作为分布式id、）</h3><h3 id="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"><a href="#使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。" class="headerlink" title="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"></a>使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。</h3><h3 id="Redis在哪一部分用的比较多？"><a href="#Redis在哪一部分用的比较多？" class="headerlink" title="Redis在哪一部分用的比较多？"></a>Redis在哪一部分用的比较多？</h3><h3 id="讲一下http的三次握手、四次挥手？"><a href="#讲一下http的三次握手、四次挥手？" class="headerlink" title="讲一下http的三次握手、四次挥手？"></a>讲一下http的三次握手、四次挥手？</h3><h3 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h3><h3 id="介绍一下udp和tcp之间的区别"><a href="#介绍一下udp和tcp之间的区别" class="headerlink" title="介绍一下udp和tcp之间的区别"></a>介绍一下udp和tcp之间的区别</h3><h3 id="什么时候用UDP？什么时候用TCP？"><a href="#什么时候用UDP？什么时候用TCP？" class="headerlink" title="什么时候用UDP？什么时候用TCP？"></a>什么时候用UDP？什么时候用TCP？</h3><h3 id="介绍一下对HTTP的理解"><a href="#介绍一下对HTTP的理解" class="headerlink" title="介绍一下对HTTP的理解"></a>介绍一下对HTTP的理解</h3><h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><h3 id="介绍一下token"><a href="#介绍一下token" class="headerlink" title="介绍一下token"></a>介绍一下token</h3><h3 id="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"><a href="#讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？" class="headerlink" title="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"></a>讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？</h3><h3 id="介绍一下Redis的数据类型和持久化"><a href="#介绍一下Redis的数据类型和持久化" class="headerlink" title="介绍一下Redis的数据类型和持久化"></a>介绍一下Redis的数据类型和持久化</h3><h3 id="如何通过Redis实现分布式锁？"><a href="#如何通过Redis实现分布式锁？" class="headerlink" title="如何通过Redis实现分布式锁？"></a>如何通过Redis实现分布式锁？</h3><h3 id="Redis的淘汰策略有哪些？"><a href="#Redis的淘汰策略有哪些？" class="headerlink" title="Redis的淘汰策略有哪些？"></a>Redis的淘汰策略有哪些？</h3><h3 id="介绍一下对多线程的理解"><a href="#介绍一下对多线程的理解" class="headerlink" title="介绍一下对多线程的理解"></a>介绍一下对多线程的理解</h3><h3 id="什么是线程池、为什么要使用线程池？"><a href="#什么是线程池、为什么要使用线程池？" class="headerlink" title="什么是线程池、为什么要使用线程池？"></a>什么是线程池、为什么要使用线程池？</h3><h3 id="Java的异常有哪些？如何捕获异常？"><a href="#Java的异常有哪些？如何捕获异常？" class="headerlink" title="Java的异常有哪些？如何捕获异常？"></a>Java的异常有哪些？如何捕获异常？</h3><h3 id="对文件的上传、下载分别有哪些测试功能点？"><a href="#对文件的上传、下载分别有哪些测试功能点？" class="headerlink" title="对文件的上传、下载分别有哪些测试功能点？"></a>对文件的上传、下载分别有哪些测试功能点？</h3><h3 id="算法题：把两个无序的数组合并成一个有序的数组"><a href="#算法题：把两个无序的数组合并成一个有序的数组" class="headerlink" title="算法题：把两个无序的数组合并成一个有序的数组"></a>算法题：把两个无序的数组合并成一个有序的数组</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="为什么要选择面试测试开发这个岗位？"><a href="#为什么要选择面试测试开发这个岗位？" class="headerlink" title="为什么要选择面试测试开发这个岗位？"></a>为什么要选择面试测试开发这个岗位？</h3><h3 id="你觉得测开需要学习些什么方面的东西？"><a href="#你觉得测开需要学习些什么方面的东西？" class="headerlink" title="你觉得测开需要学习些什么方面的东西？"></a>你觉得测开需要学习些什么方面的东西？</h3><h3 id="netty和直接裸写socket有什么区别？"><a href="#netty和直接裸写socket有什么区别？" class="headerlink" title="netty和直接裸写socket有什么区别？"></a>netty和直接裸写socket有什么区别？</h3><h3 id="什么是NIO？"><a href="#什么是NIO？" class="headerlink" title="什么是NIO？"></a>什么是NIO？</h3><h3 id="为什么IO多路复用比多线程更高效？"><a href="#为什么IO多路复用比多线程更高效？" class="headerlink" title="为什么IO多路复用比多线程更高效？"></a>为什么IO多路复用比多线程更高效？</h3><h3 id="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"><a href="#Redis是单线程还是多线程的？为什么是单线程还能这么高效？" class="headerlink" title="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"></a>Redis是单线程还是多线程的？为什么是单线程还能这么高效？</h3><h3 id="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"><a href="#在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？" class="headerlink" title="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"></a>在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？</h3><h3 id="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"><a href="#使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）" class="headerlink" title="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"></a>使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）</h3><h3 id="netty的广播怎么实现的？"><a href="#netty的广播怎么实现的？" class="headerlink" title="netty的广播怎么实现的？"></a>netty的广播怎么实现的？</h3><h3 id="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"><a href="#如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？" class="headerlink" title="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"></a>如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？</h3><h3 id="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"><a href="#如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？" class="headerlink" title="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"></a>如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？</h3><h3 id="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"><a href="#介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？" class="headerlink" title="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"></a>介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？</h3><h3 id="说几个Maven的常用命令"><a href="#说几个Maven的常用命令" class="headerlink" title="说几个Maven的常用命令"></a>说几个Maven的常用命令</h3><h3 id="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"><a href="#常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）" class="headerlink" title="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"></a>常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）</h3><h3 id="怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"><a href="#怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？" class="headerlink" title="怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"></a>怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？</h3><h3 id="Java的新特性（介绍的Java8的新特性）"><a href="#Java的新特性（介绍的Java8的新特性）" class="headerlink" title="Java的新特性（介绍的Java8的新特性）"></a>Java的新特性（介绍的Java8的新特性）</h3><h3 id="编码：实现a，b两个线程顺序交替执行"><a href="#编码：实现a，b两个线程顺序交替执行" class="headerlink" title="编码：实现a，b两个线程顺序交替执行"></a>编码：实现a，b两个线程顺序交替执行</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h2&gt;&lt;h3 id=&quot;微布校园的分工如何？&quot;&gt;&lt;a href=&quot;#微布校园的分工如何？&quot; class=&quot;headerlink&quot; title=&quot;微布校园的</summary>
+      
+    
+    
+    
+    
+    <category term="面经" scheme="http://xiaobazeo.github.io/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>面经-万物心选php开发实习</title>
@@ -447,35 +469,9 @@
     
     
     
-    <category term="回忆" scheme="http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
-    
     <category term="程序人生" scheme="http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
     
-  </entry>
-  
-  <entry>
-    <title>URI</title>
-    <link href="http://xiaobazeo.github.io/2022/02/04/URI/"/>
-    <id>http://xiaobazeo.github.io/2022/02/04/URI/</id>
-    <published>2022-02-04T07:10:36.000Z</published>
-    <updated>2022-02-04T07:18:02.632Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>时隔一周，我终于抽空又来分享一些知识了<del>承蒙关注，希望各位小伙伴点赞加关注</del></p></blockquote><p>你好，我是小八，一个分享学习知识和经验的在读大学生。</p><p>前几期我们已经讲了 tcp/ip 协议族、IP，TCP，DNS 的作用，我们再来讲讲我们经常上网都会使用到的 URI 和 URL 吧~</p><h2 id="URL-和-URI"><a href="#URL-和-URI" class="headerlink" title="URL 和 URI"></a>URL 和 URI</h2><p><strong>URL</strong>（Uniform Resource Locator）：统一资源定位符。也就是我们口中所称的网址。</p><p><strong>URI</strong>（Uniform Resource Identifier）：URI 用字符串表示某一互联网资源，而 URL 表示资源的地点（互联网上所处的位置）。</p><p>也就是说 URL 是 URI 的子集。</p><blockquote><p>所以我们下面讲一讲 URI 的格式，也就能理解什么是 URL 了~</p></blockquote><h2 id="URI-格式"><a href="#URI-格式" class="headerlink" title="URI 格式"></a>URI 格式</h2><p>URI 需要涵盖全部必要信息的绝对 URI、绝对 URL 以及相对 URL，这时候大家肯定很疑惑，什么是<strong>相对</strong>，什么是<strong>绝对</strong>？其实很好理解。</p><p><strong>绝对 URL</strong>（比如说一个完整的通信地址，包含国家，省，市，小区门牌号，姓名。） 包含了指向目录或文件的完整信息，包括指向目录或文件的完整信息，包括模式、主机名和路径。</p><p>绝对 url 本身与被引用的文件实际位置无关，无论在哪个主机上的网页中，某一文件的绝对 URL 都是完全一样的。因此，当引用别人服务器上的文件时，应该总是使用绝对 URL。</p><p><strong>相对 URL</strong> 指出的位置是以信息提供者的位置为参照的。（假设 A 的位置标记为在 B 的向左十米，那么这个位置就是相对地址，相对于 B 的位置而言的）相对 URL 以包含 URL 本身的文件位置为参照点，描述目标文件的位置。因此，相对 URL 可以表达像“指向本页面同一目录的那个文件”的意思。</p><p>下面就是绝对 URI 的格式：</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220124170905495.png" alt="绝对URI格式"></p><p>当然上面的协议方案名也不止一种，还有 https、ftp、mailto、file 等 30 种左右</p><p>说了这么多，我再来解释一下上面的各个小模块的意思吧</p><h3 id="登录信息（认证）"><a href="#登录信息（认证）" class="headerlink" title="登录信息（认证）"></a>登录信息（认证）</h3><p>其实就是为了当你在访问服务器资源的时候，通过用户名账号和密码对你的身份信息进行认证。</p><h3 id="服务器地址"><a href="#服务器地址" class="headerlink" title="服务器地址"></a>服务器地址</h3><p>使用绝对 URI 必须指定待访问的服务器地址。</p><ul><li><p>可以是类似 <a href="https://pengzihao166.work/">pengzihao166.work</a> 这种 DNS 可解析的地址</p></li><li><p>也可以是 192.168.1.1 这类 IPv4 地址</p></li><li><p>再或者是类似[0:0:0:0:0:0:0:1]这种 IPv6 地址名</p></li></ul><h3 id="服务器端口号"><a href="#服务器端口号" class="headerlink" title="服务器端口号"></a>服务器端口号</h3><p>此项和登录信息一样是可选项，可以指定服务器连接的网络端口号，如果省略就会自动使用默认的端口号。</p><h3 id="带层次的文件路径"><a href="#带层次的文件路径" class="headerlink" title="带层次的文件路径"></a>带层次的文件路径</h3><p>就和电脑某个文件的<strong>路径</strong>类似，指定服务器上的文件路径来定位特指的资源。</p><h3 id="查询字符串"><a href="#查询字符串" class="headerlink" title="查询字符串"></a>查询字符串</h3><p>对已指定的文件路径内资源，可以使用查询字符串传入任意参数。</p><h3 id="片段标识符"><a href="#片段标识符" class="headerlink" title="片段标识符"></a>片段标识符</h3><p>使用片段标识符通常可<strong>标记</strong>出已获取资源中的子资源（文档内的某个位置）。</p><p><strong>注意</strong>：登录信息、查询字符号、服务器端口号、片段标识符都是可选项~</p><p>好了~今天的知识分享就到此结束了</p><hr><p>你好，我是小八，承蒙厚爱，能不能点赞加个关注呢~</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;时隔一周，我终于抽空又来分享一些知识了&lt;del&gt;承蒙关注，希望各位小伙伴点赞加关注&lt;/del&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;你好，我是小八，一个分享学习知识和经验的在读大学生。&lt;/p&gt;
-&lt;p&gt;前几期我们已经讲了 tcp/ip 协议族、</summary>
-      
-    
-    
-    
-    
-    <category term="计网" scheme="http://xiaobazeo.github.io/tags/%E8%AE%A1%E7%BD%91/"/>
+    <category term="回忆" scheme="http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
     
   </entry>
   
