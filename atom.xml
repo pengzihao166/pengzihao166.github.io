@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-08-03T02:25:11.254Z</updated>
+  <updated>2023-08-03T02:40:29.430Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微布开发-二手市场开发思路(小程序+Java后端 尚未完更)</title>
+    <link href="http://xiaobazeo.github.io/2023/08/03/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E4%BA%8C%E6%89%8B%E5%B8%82%E5%9C%BA%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
+    <id>http://xiaobazeo.github.io/2023/08/03/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E4%BA%8C%E6%89%8B%E5%B8%82%E5%9C%BA%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</id>
+    <published>2023-08-03T02:39:05.000Z</published>
+    <updated>2023-08-03T02:40:29.430Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="小程序端"><a href="#小程序端" class="headerlink" title="小程序端"></a>小程序端</h3><p>categoryBid：二级分类类别的主键id</p><p>allList：全部商品列表</p><p>sellList：转卖商品列表</p><p>askBuyList：求购商品列表</p><p>type：一级分类</p><h4 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h4><ol><li>默认获取全部所有的商品list用于初始化加载页面</li><li>滑动一级分类，确认一级分类type类型<ol><li>Type = 转卖<ol><li>初始化<ol><li>默认转卖一级分类的所有商品列表</li><li>滑动到二级分类，根据二级分类类型对应的categoryBid拉取列表</li></ol></li><li>下拉刷新<ol><li>若为一级分类的所有商品列表，categoryBid = null</li><li>若具体到二级分类的具体类型，categoryBid = 对应的二级分类bid</li></ol></li><li>上滑加载<ol><li>根据一级分类和二级分类(categoryBid )的类别确定获取什么类型的list并且赋值到allList/sellList/askBuyList</li></ol></li></ol></li><li>Type = 求购<ol><li>初始化<ol><li>默认求购一级分类的所有商品列表</li><li>滑动到二级分类，根据二级分类类型对应的categoryBid拉取列表</li></ol></li><li>下拉刷新<ol><li>若为一级分类的所有商品列表，categoryBid = null</li><li>若具体到二级分类的具体类型，categoryBid = 对应的二级分类bid</li></ol></li><li>上滑加载<ol><li>根据一级分类和二级分类的类别确定获取什么类型的list并且赋值到allList/sellList/askBuyList</li></ol></li></ol></li></ol></li></ol><h4 id="Java后端："><a href="#Java后端：" class="headerlink" title="Java后端："></a>Java后端：</h4>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;小程序端&quot;&gt;&lt;a href=&quot;#小程序端&quot; class=&quot;headerlink&quot; title=&quot;小程序端&quot;&gt;&lt;/a&gt;小程序端&lt;/h3&gt;&lt;p&gt;categoryBid：二级分类类别的主键id&lt;/p&gt;
+&lt;p&gt;allList：全部商品列表&lt;/p&gt;
+&lt;p&gt;sellList：</summary>
+      
+    
+    
+    
+    
+    <category term="微布开发思路总结" scheme="http://xiaobazeo.github.io/tags/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>微布开发-微信三方接口文本校验校验开发思路</title>
@@ -435,32 +459,6 @@
 &lt;/blockquote&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
 &lt;h1</summary>
-      
-    
-    
-    
-    
-    <category term="leetcode" scheme="http://xiaobazeo.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>力扣刷题之两数之和</title>
-    <link href="http://xiaobazeo.github.io/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
-    <id>http://xiaobazeo.github.io/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
-    <published>2022-10-26T12:38:24.000Z</published>
-    <updated>2023-07-23T08:21:35.483Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Problem: <a href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和</a></p></blockquote><p>[TOC]</p><h1 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h1><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20221026204201974.png" alt="两数之和"></p><h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote><p>看到这一题我首先想到的就是通过类似于冒泡排序的思想，通过两个for循环对数组里面的值进行一一相加并跟target进行比较，如果值等于target那么就返回，否则就进行下一次循环，也就是所谓的暴力解法，不过这样真的非常损耗时间复杂度</p></blockquote><h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote><p>这里面要注意的是，同一个数x不能进行重复相加，那么就需要我们进行一一枚举，即在数组nums中寻找中有没有一个数是target - x，且当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。如果找到了这个target - x则返回x和target - x的下标index即可</p></blockquote><p>代码</p><h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul><li><p>时间复杂度: </p><blockquote><p> $O(N2)$</p></blockquote></li><li><p>空间复杂度: </p><blockquote><p> $O(1)$</p></blockquote></li></ul><h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><figcaption><span>[]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Problem: &lt;a href=&quot;https://leetcode.cn/problems/two-sum/description/&quot;&gt;1. 两数之和&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;[TOC]&lt;/p&gt;
-&lt;h1 id=&quot;题目如下</summary>
       
     
     

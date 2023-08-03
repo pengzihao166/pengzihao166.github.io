@@ -42,6 +42,47 @@
       </tags>
   </entry>
   <entry>
+    <title>Docker使用</title>
+    <url>/2023/05/29/Docker%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="帮助启动类命令"><a href="#帮助启动类命令" class="headerlink" title="帮助启动类命令"></a>帮助启动类命令</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230529235020493.png" alt="image-20230529235020493"></p>
+<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><ul>
+<li>docker images</li>
+</ul>
+<blockquote>
+<p>罗列出docker的所有的镜像相关信息</p>
+</blockquote>
+<ul>
+<li>docker search 某个xxx镜像的名字</li>
+</ul>
+<blockquote>
+<p>在hub仓库查询是否有相关的镜像 –limit 默认罗列前25个</p>
+</blockquote>
+<ul>
+<li>docker pull 某个xxx镜像名[:tag]</li>
+</ul>
+<blockquote>
+<p>tag:表示版本号    </p>
+</blockquote>
+<ul>
+<li><p>docker system df 查看镜像/容器/数据卷所占空间</p>
+</li>
+<li><p>docker rmi 某个xxx镜像的id或者名字  -f强制删除</p>
+<blockquote>
+<p>docker rmi hello-world 或 docker rmi 9c7a54a9a43c<br>删除多个:</p>
+<pre><code>docker rmi -f 镜像名1:tag 镜像名2:tag....
+docker rmi -f $(docker images -qa)
+</code></pre>
+</blockquote>
+<p>什么叫虚悬镜像？</p>
+<p>仓库名、标签都是<none>的，俗称虚悬镜像，通常会把他删掉</none></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2107的小崽子们</title>
     <url>/2021/12/01/2107%E7%9A%84%E5%B0%8F%E5%B4%BD%E5%AD%90%E4%BB%AC/</url>
     <content><![CDATA[<h3 id="Hello，大家好啊，我是小八"><a href="#Hello，大家好啊，我是小八" class="headerlink" title="Hello，大家好啊，我是小八"></a>Hello，大家好啊，我是小八</h3><span id="more"></span>
@@ -66,6 +107,99 @@
 <p>&ensp;&ensp;最后小助想对你们说：“大学嘛，是一个新的开始，希望你们在这已经过去的几个月，早已丢掉了初来乍到时的迷茫、焦虑、失望、堕落，而是找到了自己的生活方式和学习方式，记住，在大学，不要在任何东西面前失去自我，哪怕是别人的目光，哪怕是别人对你感情的插手，就是希望你们都能拥有自由而有趣的灵魂，很荣幸能和你们一起在2107共同战斗过，以后有啥需要帮助的，小助也随时可以给你们提供帮助，希望你们在大一的一年中能够带着稚气、迷惑和理想，完成你们曾在大学许下的梦！！！最重要的就是，千万别挂科，才能有可能选到自己想选的专业，当初这件事，我在班会上面也给你们强调过很多次，也就不多说了。加油加油！！！”</p>
 <p>&ensp;&ensp; 好了，差不多回忆完了，我要去学习了，今天的分享就到此结束吧。</p>
  <p align="right">———————————你们的小班助-小八</p>]]></content>
+      <tags>
+        <tag>程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot开发规范(二)</title>
+    <url>/2023/02/04/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-%E4%BA%8C/</url>
+    <content><![CDATA[<h3 id="PO即persistant-Object-持久对象："><a href="#PO即persistant-Object-持久对象：" class="headerlink" title="PO即persistant Object 持久对象："></a><strong>PO即persistant Object 持久对象：</strong></h3><p>&emsp;在O/R 映射（即ORM-ObjectRelationMapping）中出现的概念，通常对应数据模型（数据库），是与数据库汇总的表想影射的java对象，最简单的PO就是对应数据库中某个表中的一条记录，多个记录则用PO的集合。PO中不应该包含任何对数据库的操作。</p>
+<h3 id="DO即Domain-Object-领域对象："><a href="#DO即Domain-Object-领域对象：" class="headerlink" title="DO即Domain Object 领域对象："></a><strong>DO即Domain Object 领域对象：</strong></h3><p>&emsp;是从现实世界中抽象出来的有形或无形的业务实体。</p>
+<h3 id="TO即Transfer-Object数据传输对象："><a href="#TO即Transfer-Object数据传输对象：" class="headerlink" title="TO即Transfer Object数据传输对象："></a><strong>TO即Transfer Object数据传输对象：</strong></h3><p>&emsp;不同应用程序之间传输的对象</p>
+<h3 id="DTO即Data-Transfer-Object-数据传输对象："><a href="#DTO即Data-Transfer-Object-数据传输对象：" class="headerlink" title="DTO即Data Transfer Object:数据传输对象："></a><strong>DTO即Data Transfer Object:数据传输对象：</strong></h3><p>&emsp;泛指用于展示层与服务层之间的数据传输对象</p>
+<h3 id="VO即value-Object："><a href="#VO即value-Object：" class="headerlink" title="VO即value Object："></a><strong>VO即value Object：</strong></h3><p>&emsp;通常用于业务层之间的数据传递，和PO一样仅包含数据，但是抽象出的业务对象，可以和表对应，用new 关键字创建，GC回收</p>
+<h3 id="BO即Business-Object-业务对象"><a href="#BO即Business-Object-业务对象" class="headerlink" title="BO即Business Object 业务对象:"></a><strong>BO即Business Object 业务对象:</strong></h3><p>&emsp;主要是将业务逻辑封装为一个对象，这个对象可以包含一个或多个其他对象，如一个简历中包含教育经历、工作经历、社会关系等，可以将一个教育经历对应一个PO、工作经历对应一个PO、设计关系对应一个PO，然后简历一个对应简历的BO兑现处理简历，每个BO包含这个PO这样处理业务逻辑是，可以针对BO去处理。封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作。</p>
+<h3 id="POJO即Plain-Ordinary-Java-Object"><a href="#POJO即Plain-Ordinary-Java-Object" class="headerlink" title="POJO即Plain Ordinary Java Object:"></a><strong>POJO即Plain Ordinary Java Object:</strong></h3><p>&emsp;简单无规则的java对性，即在一些O/R 映射工具中，能做到维护数据库表记录的PO完全是一个符合Java Bean规范的纯java对象</p>
+]]></content>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>终于熬过来了！！！</title>
+    <url>/2022/01/06/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/</url>
+    <content><![CDATA[<p>大家好，我是小八，好久不见啊，我今天终于熬完了课设和汇编备考。</p>
+<p>现在来分享一下我的<strong>战斗经历</strong></p>
+<p>我们课设的小组成员由 5 个人组成：周**、小八、赵.**、陈**、曹**</p>
+<p>因为复习汇编的时间和课设的时间挤在了一起，导致我们寝室小组最近都经常肝到凌晨两三点，<strong>划重点：不建议学弟学妹们这么做！！！</strong> 属实很累。</p>
+<p>经过是这样的，我们小组确定的课设题目是 <strong>校园助手</strong> 。</p>
+<p>既然是校园助手，肯定得有查成绩、查课表、查地图、聊天、修改个人信息等功能，这样的话，因为我最近在学习前端，组长也在学习服务器开发，于是我们小组就一拍即合，做一个前后端分离的 demo，并且得有一个像校园助手的样子，自然就不能继续用控制台，用黑框框来展示我们的成果了，果断选择 QT 平台。</p>
+<p>毕竟要做，就要做一个牛逼的东西！！！先给你们看看登录界面的展示效果吧。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/mainwindow1.png?versionId=CAEQGRiBgID80f.28RciIGE4OWU3ZDI1OGJmNzRiNGM4ZjQ4ZjEwYzgzZGYyYWRj"></p>
+<p>下面的是我们客户端的图标，有没有想到湖工大考试平台的图标呢？？</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/myico.png?versionId=CAEQGRiBgIC7.ZS48RciIGZlZDVhM2MxYzE4NTRkNzliYjk2MjE5MjJlOTlhNTZm"></p>
+<p>这个界面看似简单，但实际上，后面很多的功能实现、界面跳转、跟服务器的数据请求以及初始化数据都是在这个界面的代码块进行实现，简简单单看看代码就知道了，这个 demo 好歹也是做了大半个月呢。</p>
+<p>截图如下：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/code.png?versionId=CAEQGRiBgMDPis.38RciIDhkMjgyM2UyMGQwMDQ1MWE5ZDA1NzZlMDhmMzBkMjBl"></p>
+<h2 id="最大瓶颈出现"><a href="#最大瓶颈出现" class="headerlink" title="最大瓶颈出现"></a>最大瓶颈出现</h2><p>而这也仅仅是主界面的一个很小的功能模块的代码块罢了，我还记得当时我们遇到的最大的一个瓶颈就是，实现两台不同设备之间的向服务器端发送请求，并且记录对方 IP，通过服务器作为中转站交互信息。我们小组一直在接触服务器开发的也就是我们的组长——周**，而我也最近才只是刚刚入门计网，我和他也只能仅仅讨论一下，解决的想法。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>遇到这个问题的时候，我和组长刚开始毫无思路，我就在一个在字节、腾讯、快手等大佬汇集的群里问一问经验和解决方案。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat1.png?versionId=CAEQGRiBgIDF1f238RciIGRhYWEyMTc2MmZkNDQ3MDU4ZDQ0MjY1NWZkMTA1YTg5"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat2.png?versionId=CAEQGRiBgMDH1f238RciIDgwODZlMWU3NmRiMzRhY2NiZTAyNzM1ZGFkMzk1NWIx"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat3.png?versionId=CAEQGRiBgMDN1f238RciIDM1M2RkNWNlZWNhZjQ5YjJiMWMwNjE5YWEyMzc2Yjll"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat4.png?versionId=CAEQGRiBgMDZ1f238RciIDVmMGZkNmMyZWU4YjQwZWU5NmZkYzg0ZTdiNDYzMjBi"></p>
+<p>当时毕竟很晚了他们应该已经睡觉了，没有人回我，后来才回复了我。</p>
+<p>过了一会，我和组长突然想到了一个办法，那就是通过每个人的固定学号绑定到每个用户的 IP，并固定 IP，就是说等我们连接到服务器之后，再分别在 cmd 里面 ipconfig /all 一下两台设备的 IP，最后改一下服务器端的代码块里面的 IP 地址，岂不是走了一波小捷径？毕竟不知道怎么获取 IP 地址，并实时更新对应用户的 IP，因为 IP 一直是会更新的，一般随着路由的分配形成一个局域网，重连一次网络 DHCP 就会重新分配一次新的 IP，而且咱也实力有限,能想到这个想法，个人觉得已经很不错了。</p>
+<p>这虽然说是服务器端的任务，前端只需要直接从服务器获取数据就行了，但这样我对计网也有了更加深层次的了解，知道怎么在实际需求中，进行构思解决方案，并且我还发现，后端要跟着前端的需求走，前端需要什么，后端就得实时进行更新并处理数据，所以感觉后端好惨。</p>
+<blockquote>
+<p><strong>划重点</strong>：以后还是要转后端学习的我，先让组长替我受受苦吧，hhhhhhhh。</p>
+</blockquote>
+<p>当然当时这个 demo 的问题还有很多，比如，修改个人信息栏如何实现<strong>换行</strong>，而不是在一行里面显示，导致显示溢出的问题，当时不知道怎么解决，我就写了一个判断语句，来控制那个信息栏输入字符长度，让个人信息就显示在一行，但不会溢出，就类似于 QQ 个性签名文字个数限制一样。</p>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>刚刚介绍的只是我们前后端交互当时遇到的一个最大的问题，而我们前端，当时有很多功能，比如：登录，注册，修改密码，显示课程表，班级成员成绩等，都需要从后端获取相应的数据之后，在前端进行逻辑实现，并反馈给服务器。</p>
+<p>比如：你在登录的时候，需要输入账号密码之后，将用户数据发送到服务器进行用户信息的遍历，找到是否有匹配的用户，如果没有，那么服务器就会反馈 NO 的信息给前端，自然也就登录不进去，如果有，那么反馈给前端一个 YES，则就能登入客户端，进行查看课表、查成绩等功能。</p>
+<p>登录失败前端反馈如下图：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logNO.png?versionId=CAEQGRiBgMCW9MO48RciIDdmYjJkYzU4YTZlNjQ1YmU5ZDA5OGEwM2M1NjRjN2Jm"></p>
+<p>登录成功便进入此界面：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logYES.png?versionId=CAEQGRiBgMCX9MO48RciIDJlN2VmOGNjOWJkYjQ4YjU4MGI3MjA3Y2E3ZTM3NGJl"></p>
+<p>服务器这边的反馈信息如下：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/houduan.png?versionId=CAEQGRiBgIC368q48RciIDQzOThjZDE3OTNiMDRkNGNhZWI0NjdjOTIwYzc2MTlk"></p>
+<p>有一说一，看到这个后端是不是觉得很牛逼，我也确实佩服我的组长，一个人能完成所有的前端发来的数据处理，在下属实佩服，不知道你们怎么觉得，反正我还很菜，目前还做不出来一个服务器。</p>
+<p>当然还有其他的功能，我就不一一展示了，比如：注册、修改个人信息、忘记密码、展示工大地图、查询成绩等。都是其他小组成员分别负责的几个小模块。</p>
+<p>这里科普一下：只要服务器一开，我们打开客户端的时候，对服务器就会<strong>三次握手</strong>发送连接请求（有兴趣的小伙伴可以去了解一下）。</p>
+<h2 id="答辩过程"><a href="#答辩过程" class="headerlink" title="答辩过程"></a>答辩过程</h2><p>昨天上午我们找到老师进行了答辩，而且我们小组因为敢于尝试 QT 平台和实现了前后端分离，小组成绩获得了所有小组中的最高分</p>
+<p>还记得当时有挺多人来围观我们的课设，小组成员在答辩的时候附近声音属实嘈杂。</p>
+<p>当组长答辩完他写的服务器之后，便到我进行对自己的功能模块的答辩了，首先我对老师介绍了我的功能模块，能够实现什么？能够干些什么？</p>
+<p>我的解答就是，我的负责的模块可以分为三大块：</p>
+<h4 id="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）"><a href="#1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）" class="headerlink" title="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）"></a>1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）</h4><p>比如这一块就是通过信号和槽来实现对数据传递，并跳转出成绩查询窗口。</p>
+<p>代码如下：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">void MainWindow1::<span class="built_in">on_serch_clicked</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">connect</span>(dialog1, SIGNAL(sendNum(QString)), this, <span class="built_in">SLOT</span>(getNum(QString)));</span><br><span class="line">    <span class="comment">//查询成绩</span></span><br><span class="line">    dialog1-&gt;<span class="built_in">setModal</span>(true);</span><br><span class="line">    dialog1-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、在主窗口对服务器发送数据，接收服务器数据"><a href="#2、在主窗口对服务器发送数据，接收服务器数据" class="headerlink" title="2、在主窗口对服务器发送数据，接收服务器数据"></a>2、在主窗口对服务器发送数据，接收服务器数据</h4><p>比如下面的代码就是登录之后，将登录用户数据发送给服务器。</p>
+<p>代码如下：</p>
+<figure class="highlight xl"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">this</span>-&gt;</span><span class="function"><span class="title">clint_Login</span>-&gt;</span>write(user_msg);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、登录功能、课表的查询展示"><a href="#3、登录功能、课表的查询展示" class="headerlink" title="3、登录功能、课表的查询展示"></a>3、登录功能、课表的查询展示</h4><p>介绍完之后，老师问了我一个问题，下面的代码是什么意思：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">QJsonDocument <span class="attr">doc</span> <span class="operator">=</span> QJsonDocument::fromJson(UserInfo, <span class="variable">&amp;json_error</span>)<span class="punctuation">;</span></span><br></pre></td></tr></table></figure>
+
+<p>我的回答无疑就是解释它的是怎么用的，通过定义一个QJsonDocument的 doc 对象，把 userinfo 里面的信息进行解析出来获取数据放到 doc 中。</p>
+<p>毕竟当时是一边学 QT 一边做的，并不是很了解深层原理，也就只好这么回答了。但老师好像就是要我剖析它的深层原理，对我的答案，并不是很满意，只怪自己当初并没有花更多的时间去研究 QT 吧。</p>
+<p>再就是问了一下我的课表是怎么实现的，实现代码在哪？</p>
+<p>我的回答就是，其实真的很简单，就是一个插图的办法实现的，通过 new 一个课表类的对象 Class_Schedule 初始化课表，再进行窗口模糊 setModal 和窗口展示 show 进行实现。</p>
+<p>跳转代码段如下：</p>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">void</span> <span class="variable">MainWindow1</span>::<span class="function"><span class="title">on_scotmtb_clicked</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">Class_Schedule</span>-&gt;<span class="function"><span class="title">setModal</span>(<span class="variable"><span class="literal">true</span></span>);</span></span><br><span class="line"><span class="function">    <span class="variable">Class_Schedule</span>-&gt;<span class="title">show</span>();</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>不过这有很大<strong>局限性</strong>：因为只能查到自己班的课表。嘻嘻嘻~</p>
+<p>我的课设答辩差不多就这样结束了。</p>
+<p>不过当时有一个学生在那里跟我们的课设指指点点，我当时就在想：能不能尊重一下我？是我在答辩，不是你！你当你能像毛主席一样指点江山？</p>
+<p>希望关注我的小伙伴们以后不会遇到这种人。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>说了这么多，总结以下几点：</p>
+<p>1、前后端分离，能改善修改代码的效率，不会因为一个小 bug，去修改一整片的代码，从而提高了功能更新的效率。</p>
+<p>2、少熬夜，熬夜伤身。（在这里再立一个 flag，2022 年不仅要好好学习技术，还得少熬夜，跟以前一样 11 点之前就睡觉，没事多锻炼一下身体。）</p>
+<p>3、bug 常常有，有时候一个 bug 一天都修复不了很正常，慢慢去想就行了，不要急躁，切记，敲代码务必要戒骄戒躁。</p>
+<p>4、不知道某个瓶颈怎么解决，可以换一种思路或者方式去解决这个问题，多和同学讨论，或者像大佬请教，上百度找教程等等。<strong>（忌:ctrl c + ctrl v）</strong></p>
+<p>5、最近计网的知识，能够在实际应用中想到相应的解决方案，并跟组员一同分享。</p>
+<p>6、不足就是，组员中除了我都不会用 Git，不然能更高效率实现各功能模块代码的合并，减少很多不必要的麻烦。</p>
+]]></content>
       <tags>
         <tag>程序人生</tag>
       </tags>
@@ -312,59 +446,65 @@
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot开发规范(二)</title>
-    <url>/2023/02/04/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-%E4%BA%8C/</url>
-    <content><![CDATA[<h3 id="PO即persistant-Object-持久对象："><a href="#PO即persistant-Object-持久对象：" class="headerlink" title="PO即persistant Object 持久对象："></a><strong>PO即persistant Object 持久对象：</strong></h3><p>&emsp;在O/R 映射（即ORM-ObjectRelationMapping）中出现的概念，通常对应数据模型（数据库），是与数据库汇总的表想影射的java对象，最简单的PO就是对应数据库中某个表中的一条记录，多个记录则用PO的集合。PO中不应该包含任何对数据库的操作。</p>
-<h3 id="DO即Domain-Object-领域对象："><a href="#DO即Domain-Object-领域对象：" class="headerlink" title="DO即Domain Object 领域对象："></a><strong>DO即Domain Object 领域对象：</strong></h3><p>&emsp;是从现实世界中抽象出来的有形或无形的业务实体。</p>
-<h3 id="TO即Transfer-Object数据传输对象："><a href="#TO即Transfer-Object数据传输对象：" class="headerlink" title="TO即Transfer Object数据传输对象："></a><strong>TO即Transfer Object数据传输对象：</strong></h3><p>&emsp;不同应用程序之间传输的对象</p>
-<h3 id="DTO即Data-Transfer-Object-数据传输对象："><a href="#DTO即Data-Transfer-Object-数据传输对象：" class="headerlink" title="DTO即Data Transfer Object:数据传输对象："></a><strong>DTO即Data Transfer Object:数据传输对象：</strong></h3><p>&emsp;泛指用于展示层与服务层之间的数据传输对象</p>
-<h3 id="VO即value-Object："><a href="#VO即value-Object：" class="headerlink" title="VO即value Object："></a><strong>VO即value Object：</strong></h3><p>&emsp;通常用于业务层之间的数据传递，和PO一样仅包含数据，但是抽象出的业务对象，可以和表对应，用new 关键字创建，GC回收</p>
-<h3 id="BO即Business-Object-业务对象"><a href="#BO即Business-Object-业务对象" class="headerlink" title="BO即Business Object 业务对象:"></a><strong>BO即Business Object 业务对象:</strong></h3><p>&emsp;主要是将业务逻辑封装为一个对象，这个对象可以包含一个或多个其他对象，如一个简历中包含教育经历、工作经历、社会关系等，可以将一个教育经历对应一个PO、工作经历对应一个PO、设计关系对应一个PO，然后简历一个对应简历的BO兑现处理简历，每个BO包含这个PO这样处理业务逻辑是，可以针对BO去处理。封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作。</p>
-<h3 id="POJO即Plain-Ordinary-Java-Object"><a href="#POJO即Plain-Ordinary-Java-Object" class="headerlink" title="POJO即Plain Ordinary Java Object:"></a><strong>POJO即Plain Ordinary Java Object:</strong></h3><p>&emsp;简单无规则的java对性，即在一些O/R 映射工具中，能做到维护数据库表记录的PO完全是一个符合Java Bean规范的纯java对象</p>
+    <title>TCP、IP、DNS</title>
+    <url>/2022/01/16/TCP%E3%80%81IP%E3%80%81DNS/</url>
+    <content><![CDATA[<p>你好，我是小八，最近在备考，考试总算是结束了，终于可以放假，学习更多的技术了<del>干自己想干的事情了</del></p>
+<p>下面分享一些 IP、TCP、DNS 的基础知识点，大家可以看看，绝对通俗易懂！！！</p>
+<h1 id="与-HTTP-关系密切的协议：IP、TCP-和-DNS"><a href="#与-HTTP-关系密切的协议：IP、TCP-和-DNS" class="headerlink" title="与 HTTP 关系密切的协议：IP、TCP 和 DNS"></a>与 HTTP 关系密切的协议：IP、TCP 和 DNS</h1><h4 id="负责传输的-IP-协议："><a href="#负责传输的-IP-协议：" class="headerlink" title="负责传输的 IP 协议："></a>负责传输的 IP 协议：</h4><p>&emsp;&emsp;按层次分，IP（Internet Protocol）网际协议属于网络层。<strong>IP 地址</strong>和<strong>IP</strong>不同，“IP”其实就是一种协议的名称，即：网际协议。</p>
+<p>&emsp;&emsp;IP 协议作用：把各种<strong>数据包</strong>传送给对方，但是必须满足<strong>IP 地址</strong>和<strong>MAC 地址</strong>（Media Access Control Address）两个条件才能确实送到对方那里。</p>
+<p>&emsp;&emsp;<strong>IP 地址</strong>：节点被分配到的地址，</p>
+<p>&emsp;&emsp;<strong>MAC 地址</strong>：网卡所属的固定地址。</p>
+<p>&emsp;&emsp;<strong>注意：</strong> IP 地址可以变换，MAC 地址基本不变。</p>
+<p>&emsp;&emsp;IP 通信依赖 MAC 地址, 因为不同计算机之间通信时，通常是不在一个局域网(LAN)下，此时就需要多个中间计算机和设备（路由器等均可作为中转设备）进行中转，最后连接到你所需要连接的计算机，在中转的过程中，会利用到下一个中转设备的 MAC 地址来寻找到下一个中转目标。这下就要用到了<strong>ARP 协议</strong>(Address Resolution Protocol).</p>
+<p>&emsp;&emsp;<strong>ARP 协议：</strong> 一种解析地址的协议，根据对方的 IP 地址可以反查出对应的 MAC 地址。</p>
+<p>&emsp;&emsp;如果还是不懂的话，就拿快递公司的收发货方式来打一个比方吧，我们要是双十一买了东西（“东西”就是我们在网络上要传递给某个设备的信息），卖家需要把东西寄给我们（”我们“就是接收信息的设备），那么他们就会把自己的货物送到某快递的集散中心，然后集散中心通过核对收件人地址，来确定送到下一个集散中心（这里的“集散中心”就是类似于一个中转设备），最后到达离收件地址最近的集散中心之后，再送到我们手上（这时候就实现了发起设备和接收设备的信息传递）。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/ARP%E5%8D%8F%E8%AE%AE.png?versionId=CAEQGRiBgID_98q58hciIGU2NDAxY2JlNmQ5MzQ2YjViYzQyZTgyZTQ3NmI0ZDY1" alt="img"></p>
+<h4 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h4><p>&emsp;&emsp;TCP 和 UDP 都位于传输层，这个前面说过，其中 TCP 是用来提供可靠的字节流服务。</p>
+<p>&emsp;&emsp;其中 TCP 协议能够准确确定数据是否送达目标处，这样的实现的过程就是通过三次握手（three-way handshaking）策略，其中握手过程中使用了 TCP 的标志（flag）——ACK 和 SYN，原理如下：</p>
+<p>&emsp;&emsp;第一次由发起端首先发送一个 SYN 标志的数据包给接收端，第二次握手就是在接收端接收这个标志之后，接收端再反馈一个 SYN 和 ACK 的数据包给发起端，来表达自己已经接收到了发起端的请求，最后一次握手就是在收到接收端的确认信息之后，发起端回传一个 ACK 的数据包给接收端，代表“握手”结束。</p>
+<p>&emsp;&emsp;如果其中有某一次握手中断，那就会延续上一次握手进行重复的请求，但要是请求超时之后就会重新开始由发送端进行第一次握手。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png?versionId=CAEQGRiBgMDa98q58hciIGZjNTZlZWU4OWI1MzRjYjdhMDIyMzEzYWYyNWNiMGE2" alt="image-20211230200934379"></p>
+<h4 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h4><p>就是当你在访问某个网站的时候，会有一个网址(比如：<code>www.baidu.com</code>也就是此网站的域名)，而在访问某个计算机的时候也可以通过赋予此计算机一个域名，最后通过 DNS 解析域名来获取其 IP 地址，最后访问到此计算机。</p>
+<p>DNS 的作用便是通过域名查找对应的设备的 IP 地址，或者逆向从 IP 地址查域名的服务。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/DNS.png?versionId=CAEQGRiBgMDIlN658hciIGI1YTcxNDhjZjNlMjQxNTdiMTA1OTVkYjJjZjE5ODg5" alt="image-20211230202446976"></p>
+<hr>
+<p>你好，我是小八，一个分享学习经历和知识的在读大学生。</p>
 ]]></content>
       <tags>
-        <tag>SpringBoot</tag>
+        <tag>计网</tag>
       </tags>
   </entry>
   <entry>
-    <title>Docker使用</title>
-    <url>/2023/05/29/Docker%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="帮助启动类命令"><a href="#帮助启动类命令" class="headerlink" title="帮助启动类命令"></a>帮助启动类命令</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230529235020493.png" alt="image-20230529235020493"></p>
-<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><ul>
-<li>docker images</li>
-</ul>
-<blockquote>
-<p>罗列出docker的所有的镜像相关信息</p>
+    <title>力扣刷题之两数之和</title>
+    <url>/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>Problem: <a href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和</a></p>
 </blockquote>
-<ul>
-<li>docker search 某个xxx镜像的名字</li>
-</ul>
-<blockquote>
-<p>在hub仓库查询是否有相关的镜像 –limit 默认罗列前25个</p>
+<p>[TOC]</p>
+<h1 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h1><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20221026204201974.png" alt="两数之和"></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>看到这一题我首先想到的就是通过类似于冒泡排序的思想，通过两个for循环对数组里面的值进行一一相加并跟target进行比较，如果值等于target那么就返回，否则就进行下一次循环，也就是所谓的暴力解法，不过这样真的非常损耗时间复杂度</p>
 </blockquote>
-<ul>
-<li>docker pull 某个xxx镜像名[:tag]</li>
-</ul>
-<blockquote>
-<p>tag:表示版本号    </p>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
+<p>这里面要注意的是，同一个数x不能进行重复相加，那么就需要我们进行一一枚举，即在数组nums中寻找中有没有一个数是target - x，且当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。如果找到了这个target - x则返回x和target - x的下标index即可</p>
 </blockquote>
-<ul>
-<li><p>docker system df 查看镜像/容器/数据卷所占空间</p>
+<p>代码</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度: </p>
+<blockquote>
+<p> $O(N2)$</p>
+</blockquote>
 </li>
-<li><p>docker rmi 某个xxx镜像的id或者名字  -f强制删除</p>
+<li><p>空间复杂度: </p>
 <blockquote>
-<p>docker rmi hello-world 或 docker rmi 9c7a54a9a43c<br>删除多个:</p>
-<pre><code>docker rmi -f 镜像名1:tag 镜像名2:tag....
-docker rmi -f $(docker images -qa)
-</code></pre>
+<p> $O(1)$</p>
 </blockquote>
-<p>什么叫虚悬镜像？</p>
-<p>仓库名、标签都是<none>的，俗称虚悬镜像，通常会把他删掉</none></p>
 </li>
 </ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>Docker</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -413,32 +553,226 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
-    <title>TCP、IP、DNS</title>
-    <url>/2022/01/16/TCP%E3%80%81IP%E3%80%81DNS/</url>
-    <content><![CDATA[<p>你好，我是小八，最近在备考，考试总算是结束了，终于可以放假，学习更多的技术了<del>干自己想干的事情了</del></p>
-<p>下面分享一些 IP、TCP、DNS 的基础知识点，大家可以看看，绝对通俗易懂！！！</p>
-<h1 id="与-HTTP-关系密切的协议：IP、TCP-和-DNS"><a href="#与-HTTP-关系密切的协议：IP、TCP-和-DNS" class="headerlink" title="与 HTTP 关系密切的协议：IP、TCP 和 DNS"></a>与 HTTP 关系密切的协议：IP、TCP 和 DNS</h1><h4 id="负责传输的-IP-协议："><a href="#负责传输的-IP-协议：" class="headerlink" title="负责传输的 IP 协议："></a>负责传输的 IP 协议：</h4><p>&emsp;&emsp;按层次分，IP（Internet Protocol）网际协议属于网络层。<strong>IP 地址</strong>和<strong>IP</strong>不同，“IP”其实就是一种协议的名称，即：网际协议。</p>
-<p>&emsp;&emsp;IP 协议作用：把各种<strong>数据包</strong>传送给对方，但是必须满足<strong>IP 地址</strong>和<strong>MAC 地址</strong>（Media Access Control Address）两个条件才能确实送到对方那里。</p>
-<p>&emsp;&emsp;<strong>IP 地址</strong>：节点被分配到的地址，</p>
-<p>&emsp;&emsp;<strong>MAC 地址</strong>：网卡所属的固定地址。</p>
-<p>&emsp;&emsp;<strong>注意：</strong> IP 地址可以变换，MAC 地址基本不变。</p>
-<p>&emsp;&emsp;IP 通信依赖 MAC 地址, 因为不同计算机之间通信时，通常是不在一个局域网(LAN)下，此时就需要多个中间计算机和设备（路由器等均可作为中转设备）进行中转，最后连接到你所需要连接的计算机，在中转的过程中，会利用到下一个中转设备的 MAC 地址来寻找到下一个中转目标。这下就要用到了<strong>ARP 协议</strong>(Address Resolution Protocol).</p>
-<p>&emsp;&emsp;<strong>ARP 协议：</strong> 一种解析地址的协议，根据对方的 IP 地址可以反查出对应的 MAC 地址。</p>
-<p>&emsp;&emsp;如果还是不懂的话，就拿快递公司的收发货方式来打一个比方吧，我们要是双十一买了东西（“东西”就是我们在网络上要传递给某个设备的信息），卖家需要把东西寄给我们（”我们“就是接收信息的设备），那么他们就会把自己的货物送到某快递的集散中心，然后集散中心通过核对收件人地址，来确定送到下一个集散中心（这里的“集散中心”就是类似于一个中转设备），最后到达离收件地址最近的集散中心之后，再送到我们手上（这时候就实现了发起设备和接收设备的信息传递）。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/ARP%E5%8D%8F%E8%AE%AE.png?versionId=CAEQGRiBgID_98q58hciIGU2NDAxY2JlNmQ5MzQ2YjViYzQyZTgyZTQ3NmI0ZDY1" alt="img"></p>
-<h4 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h4><p>&emsp;&emsp;TCP 和 UDP 都位于传输层，这个前面说过，其中 TCP 是用来提供可靠的字节流服务。</p>
-<p>&emsp;&emsp;其中 TCP 协议能够准确确定数据是否送达目标处，这样的实现的过程就是通过三次握手（three-way handshaking）策略，其中握手过程中使用了 TCP 的标志（flag）——ACK 和 SYN，原理如下：</p>
-<p>&emsp;&emsp;第一次由发起端首先发送一个 SYN 标志的数据包给接收端，第二次握手就是在接收端接收这个标志之后，接收端再反馈一个 SYN 和 ACK 的数据包给发起端，来表达自己已经接收到了发起端的请求，最后一次握手就是在收到接收端的确认信息之后，发起端回传一个 ACK 的数据包给接收端，代表“握手”结束。</p>
-<p>&emsp;&emsp;如果其中有某一次握手中断，那就会延续上一次握手进行重复的请求，但要是请求超时之后就会重新开始由发送端进行第一次握手。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png?versionId=CAEQGRiBgMDa98q58hciIGZjNTZlZWU4OWI1MzRjYjdhMDIyMzEzYWYyNWNiMGE2" alt="image-20211230200934379"></p>
-<h4 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h4><p>就是当你在访问某个网站的时候，会有一个网址(比如：<code>www.baidu.com</code>也就是此网站的域名)，而在访问某个计算机的时候也可以通过赋予此计算机一个域名，最后通过 DNS 解析域名来获取其 IP 地址，最后访问到此计算机。</p>
-<p>DNS 的作用便是通过域名查找对应的设备的 IP 地址，或者逆向从 IP 地址查域名的服务。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/DNS.png?versionId=CAEQGRiBgMDIlN658hciIGI1YTcxNDhjZjNlMjQxNTdiMTA1OTVkYjJjZjE5ODg5" alt="image-20211230202446976"></p>
-<hr>
-<p>你好，我是小八，一个分享学习经历和知识的在读大学生。</p>
+    <title>力扣刷题之无重复字符的最长子串</title>
+    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="题目如下"><a href="#题目如下" class="headerlink" title="题目如下"></a>题目如下</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;abcabcbb&quot;</span></span><br><span class="line"><span class="section">输出: 3 </span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;bbbbb&quot;</span></span><br><span class="line"><span class="section">输出: 1</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;pwwkew&quot;</span></span><br><span class="line"><span class="section">输出: 3</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span></span><br><span class="line">     请注意，你的答案必须是 子串 的长度，<span class="string">&quot;pwke&quot;</span> 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
+</ul>
+<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><p>主要用到的思想就是滑动窗口，通过HashMap集合的key值不可重复原理来判断是否遇到重复的字符。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">//考虑孔字符串的情况</span></span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLength</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//统计最大的子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向子串的第一个字符index</span></span><br><span class="line">        <span class="comment">//以字符串的一个字符作为key,其对应的index作为value</span></span><br><span class="line">        HashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(s.charAt(i)))&#123;<span class="comment">//判断是否i位置下的字符是否有对应的value，如果有那么就说明重复了，此时将左指针定位到对应的value下，因为对应的value保存的就是此时此字符的index</span></span><br><span class="line">                left = Math.max(left,map.get(s.charAt(i)) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(s.charAt(i),i);</span><br><span class="line">            <span class="comment">//此时最大的子串不重复长度就是i - left + 1(即此时正在扫描的子串长度) 和 maxLength(上一串扫描的子串长度) 二者最大值之一。</span></span><br><span class="line">            maxLength = Math.max(maxLength,i - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot开发规范（一）</title>
+    <url>/2022/11/21/springboot-levelFunction/</url>
+    <content><![CDATA[<h2 id="model（entity）"><a href="#model（entity）" class="headerlink" title="model（entity）"></a>model（entity）</h2><p>​        model是模型的意思，与entity、domain、pojo类似，是存放实体的类，类中定义了多个类属性，并与数据库表的字段保持一致，一张表对应一个model类。 主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p>
+<h2 id="dao（mapper）"><a href="#dao（mapper）" class="headerlink" title="dao（mapper）"></a>dao（mapper）</h2><p>​        又被成为mapper层，叫数据持久层，先设计接口，然后在配置文件中进行配置其实现的关联。 dao层的作用为访问数据库，向数据库发送sql语句，完成数据的增删改查任务。 数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate插入到数据库中</p>
+<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>​        业务逻辑层，完成功能的设计 和dao层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用dao层的接口进行业务逻辑应用的处理。 service的impl是把mapper和service进行整合的文件 封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p>
+<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>​        控制层，控制业务逻辑service，控制请求和响应，负责前后端交互 controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/2052481-20210417164128180-1418412203.png" alt="img"></p>
+]]></content>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识TCP/IP协议族</title>
+    <url>/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/</url>
+    <content><![CDATA[<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP%20IP%E5%8D%8F%E8%AE%AE%E6%97%8F.png?versionId=CAEQGRiBgMDG4eKp8BciIDc4YjRlNWZiOTUwNzRlNGY5OTFiNmQzYjBlZWZkODRk"></p>
+<p>&emsp;  你好，我是小八。今天我们来讲一下TCP/IP协议族。</p>
+<h2 id="初识TCP-IP协议族"><a href="#初识TCP-IP协议族" class="headerlink" title="初识TCP/IP协议族"></a>初识TCP/IP协议族</h2><p>&emsp; HTTP属于TCP/IP的一个子类，通常使用的网络（包括互联网）都是在TCP/IP协议族的基础上运作。</p>
+<h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h3><p>&emsp;计算机网络设备之间进行信息交互就需要基于相同的方法或者说是同一种协议才能进行通信。就比如：我们需要进行通信的时候，就需要知道如何探测到通信的目标、从哪一边开始发起通信请求、使用什么语言通信、怎么结束通信请求等所制定的规则，便被成为协议（protocol）。</p>
+<p>&emsp;<strong>而TCP/IP协议族就是互联网相关的各类协议族的总称。</strong>对于TCP/IP协议族，通常有两种说法，一是指TCP和IP这两种协议，二是指TCP/IP在IP协议的通信中，使用到的协议族的统称。</p>
+<p>TCP/IP协议族如下图：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%97%8F%E7%BE%A4%E5%9B%BE.png?versionId=CAEQGRiBgIDE4eKp8BciIDdkZjU1ZTAzOTEzYTQ3ZWFhY2IxMzIyMTU5OTNlMjBi" alt="image-20211230151831761"></p>
+<h3 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h3><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/TCP%20IP%E5%88%86%E5%B1%82%E7%AE%A1%E7%90%86.png?versionId=CAEQGRiBgICU4eKp8BciIGU0OTczOWY0YmE5YjRjYmRhMjRiNTdhOGUwOTAzOTEz" alt="image-20211230151253140"></p>
+<p>&emsp;协议族通过分层化，可以高效管理改变不同层次设计的任务，把每个层次之间的不同接口规划好之后，每个层次的内部设计也可以自由改动，而不需要替换所有部分整体。</p>
+<p>&emsp;<strong>应用层：</strong></p>
+<p>&emsp;&emsp;预存各类通用的应用服务，决定了向用户提供应用服务时通信的活动。其中HTTP（超文本传输协议）、FTP（文件传输协议）、DNS（域名协议）等服务在此层</p>
+<p>&emsp;<strong>传输层：</strong></p>
+<p>&emsp;&emsp;对应用层提供处于<strong>网络连接中</strong>的两台计算机的<strong>数据传输</strong>。在此层中有两种不同性质的协议：TCP（传输控制协议）和UDP（用户数据报协议）</p>
+<p>&emsp;<strong>网络层：</strong></p>
+<p>&emsp;&emsp;用来处理在网络上流动的数据包，该层规定与对方计算机进行传输时，通过选择某一种路径（或者说是某一条传输路线）到达对方计算机，并且把数据包传给对方。因此此层又被称为<strong>网络互连层</strong>。</p>
+<p>&emsp;&emsp;<strong>数据包</strong>是网络传输的最小数据单位。</p>
+<p>&emsp;<strong>链路层：</strong></p>
+<p>&emsp;&emsp;用来处理连接网络的硬件部分的层次，包括控制操作系统，硬件设备驱动，NIC（网络适配器，即网卡）等一系列可见的物理传输硬件设备（媒介）。</p>
+<h3 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h3><p>xxxxxxxxxx class Solution {    public boolean isPalindrome(int x) {        // 特殊情况：        // 如上所述，当 x &lt; 0 时，x 不是回文数。        // 同样地，如果数字的最后一位是 0，为了使该数字为回文，        // 则其第一位数字也应该是 0        // 只有 0 满足这一属性        if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) {            return false;        }​        int revertedNumber = 0;        while (x &gt; revertedNumber) {            revertedNumber = revertedNumber * 10 + x % 10;            x /= 10;        }​        // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。        // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，        // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。        return x == revertedNumber || x == revertedNumber / 10;    }}​作者：力扣官方题解链接：<a href="https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%8A%9B%E6%89%A3%EF%BC%88LeetCode%EF%BC%89%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82java">https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/来源：力扣（LeetCode）著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。java</a></p>
+<p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
+<p>&emsp;发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。 这种把数据信息包装起来的做法称为<strong>封装（encapsulate）</strong>（就类似于C++类的使用，将类中的成员和数据进行封装）。下图为例：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE2.png?versionId=CAEQGRiBgICx4eKp8BciIDIzNDlkYjhjYWM1YjQyYTRiNTVjOTk4NmVhYmE0YWEz" alt="image-20211230160020206"></p>
+<p>&emsp;</p>
 ]]></content>
       <tags>
         <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之两数相加</title>
+    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
+    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[2,4,3]</span>, l2 = <span class="comment">[5,6,4]</span></span><br><span class="line">输出：<span class="comment">[7,0,8]</span></span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[0]</span>, l2 = <span class="comment">[0]</span></span><br><span class="line">输出：<span class="comment">[0]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">输入：l1 = [<span class="number">9,9,9,9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>], l2 = [<span class="number">9,9,9,9</span>]</span><br><span class="line">输出：[<span class="number">8,9,9,9</span>,<span class="number">0,0,0,1</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
+<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+<li>题目数据保证列表表示的数字不含前导零</li>
+</ul>
+<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">carry</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//进位数字</span></span><br><span class="line">        <span class="comment">//定义一个可移动的指针，用来指向存储两个数之和的位置</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">         <span class="comment">//定义一个新联表伪指针，用来指向头指针，返回结果</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> cur;</span><br><span class="line">        <span class="comment">//当l1 不等于null或l2 不等于空时，就进入循环</span></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">null</span> || l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//如果l1 不等于null时，就取他的值，等于null时，就赋值0，保持两个链表具有相同的位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> l1 == <span class="literal">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> l2 == <span class="literal">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            <span class="comment">//将两个链表的值，进行相加，并加上进位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + carry;</span><br><span class="line">            <span class="comment">//计算进位数</span></span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//计算两个数的和，此时排除超过10的请况（大于10，取余数）</span></span><br><span class="line">            sum %= <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//将求和数赋值给新链表的节点，</span></span><br><span class="line">            <span class="comment">//注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。</span></span><br><span class="line">            <span class="comment">//所以这个时候要创一个新的节点，将值赋予节点</span></span><br><span class="line">            cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(sum);</span><br><span class="line">             <span class="comment">//将新链表的节点后移</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="comment">//当链表l1不等于null的时候，将l1 的节点后移</span></span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="literal">null</span>)&#123;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果最后两个数，相加的时候有进位数的时候，就将进位数，赋予链表的新节点。</span></span><br><span class="line">        	<span class="comment">//两数相加最多小于20，所以的的值最大只能时1</span></span><br><span class="line">            <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(carry);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回链表的头节点</span></span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之寻找两个正序数组的中位数</title>
+    <url>/2023/03/21/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</url>
+    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
+<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：nums1 = <span class="comment">[1,3]</span>, nums2 = <span class="comment">[2]</span></span><br><span class="line">输出：2.00000</span><br><span class="line">解释：合并数组 = <span class="comment">[1,2,3]</span> ，中位数 2</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">输入：<span class="symbol">nums1</span> = [<span class="number">1</span>,<span class="number">2</span>], <span class="symbol">nums2</span> = [<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">输出：<span class="number">2.50000</span></span><br><span class="line">解释：合并数组 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] ，中位数 <span class="comment">(2 + 3)</span> / <span class="number">2</span> = <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>nums1.length == m</code></li>
+<li><code>nums2.length == n</code></li>
+<li><code>0 &lt;= m &lt;= 1000</code></li>
+<li><code>0 &lt;= n &lt;= 1000</code></li>
+<li><code>1 &lt;= m + n &lt;= 2000</code></li>
+<li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
+</ul>
+<h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums2.length;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[m+n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">            nums[i] = nums1[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; n; j++)&#123;</span><br><span class="line">            nums[nums1.length + j] = nums2[j];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">if</span>(nums.length % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (nums[(m + n) / <span class="number">2</span> - <span class="number">1</span>] + nums[(m + n) / <span class="number">2</span>]) / <span class="number">2.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> nums[(m + n) / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其他方法还在研究ing。。。。</p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备份hexo-_o-U盘篇</title>
+    <url>/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="新机环境搭建"><a href="#新机环境搭建" class="headerlink" title="新机环境搭建"></a>新机环境搭建</h2><p>​    1、安装Node.js</p>
+<p>​    2、安装Git</p>
+<p>​    3、新建存放Blog的文件夹</p>
+<h2 id="拷贝旧机器中得文件-文件夹"><a href="#拷贝旧机器中得文件-文件夹" class="headerlink" title="拷贝旧机器中得文件/文件夹"></a>拷贝旧机器中得文件/文件夹</h2><figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"><span class="keyword">package</span>.json</span><br><span class="line">scaffolds/</span><br><span class="line"><span class="keyword">source</span>/</span><br><span class="line">themes/</span><br><span class="line">其中/代表拷贝的是文件夹</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>右键打开Git bash，依次输入下列命令之后，安装相关依赖</p>
+<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>安装hexo</span><br><span class="line">   <span class="built_in">npm</span> install -g hexo</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>本地测试的时候需要用hexo server</span><br><span class="line">   <span class="built_in">npm</span> i hexo-server</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>将文章部署到github上的模块</span><br><span class="line">   <span class="built_in">npm</span> install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>安装RSS插件</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>添加Sitemap,加速网页收录速度</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo s -g == hexo g + hexo s</span><br></pre></td></tr></table></figure>
+
+<p>在浏览器打开<a href="http://localhost:4000/">http://localhost:4000</a>查看效果</p>
+]]></content>
+      <tags>
+        <tag>程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之最长回文子串</title>
+    <url>/2023/03/21/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<p>如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">输入：s <span class="operator">=</span> <span class="string">&quot;babad&quot;</span></span><br><span class="line">输出：<span class="string">&quot;bab&quot;</span></span><br><span class="line">解释：<span class="string">&quot;aba&quot;</span> 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">输入：s <span class="operator">=</span> <span class="string">&quot;cbbd&quot;</span></span><br><span class="line">输出：<span class="string">&quot;bb&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 1000</code></li>
+<li><code>s</code> 仅由数字和英文字母组成</li>
+</ul>
+<h2 id="题解如下"><a href="#题解如下" class="headerlink" title="题解如下"></a>题解如下</h2><h4 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a>方法一：动态规划</h4><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230321164819370.png" alt="image-20230321164819370"></p>
+<h5 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">if</span>(len &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="comment">// dp[i][j] 表示 s[i..j] 是否是回文串</span></span><br><span class="line">        <span class="type">boolean</span> [][]dp = <span class="keyword">new</span> <span class="title class_">boolean</span>[len][len];</span><br><span class="line">        <span class="comment">//所有的一个字符的子串都是回文串</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span>[] charArray = s.toCharArray();</span><br><span class="line">        <span class="comment">//记录回文子串的初始位置</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">begin</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//记录回文子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">childLen</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">2</span>; l &lt;= len;l++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">                <span class="comment">//j代表子串的尾字符的index，即确定右边界</span></span><br><span class="line">                <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> l + i - <span class="number">1</span>;</span><br><span class="line">                <span class="comment">//如果尾字符超出字符串最大长度、跳出循环</span></span><br><span class="line">                <span class="keyword">if</span>(j &gt;= len)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(charArray[i]!=charArray[j])&#123;</span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j - i &lt; <span class="number">3</span>)&#123;</span><br><span class="line">                        <span class="comment">//可能是一个或者两个或者三个字符的子串</span></span><br><span class="line">                        dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则就依次递归</span></span><br><span class="line">                        dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//若 dp[i][l] == true 成立，就表示s[i....l]是回文，记录此时回文的长度以及起始位置</span></span><br><span class="line">                <span class="keyword">if</span>(dp[i][j] &amp;&amp; j - i + <span class="number">1</span> &gt; childLen)&#123;</span><br><span class="line">                    childLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(begin,begin + childLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之连续子数组的最大和</title>
+    <url>/2023/02/02/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</url>
+    <content><![CDATA[<p><a href="https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cug7nw1"><em>剑指 Offer 42. 连续子数组的最大和</em></a></p>
+<p>[TOC]</p>
+<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230202220726900.png"></p>
+<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><h3 id="1、动态规划"><a href="#1、动态规划" class="headerlink" title="1、动态规划"></a>1、动态规划</h3><h4 id="推想："><a href="#推想：" class="headerlink" title="推想："></a>推想：</h4><p>​    若nums数组的长度为n，下标则为0~n-1，用f(i)表示以第i个数结尾的<strong>连续子数组的最大和</strong>，故有：</p>
+<p>​<br>$$<br>max{f(i)},0≤i≤n-1<br>$$</p>
+<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>​    求出每段以第i个数结尾的子数组的f(i)，返回最大的f(i)即可</p>
+<h4 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h4><p>​    考虑nums[i]单独成一段还是加入f(i-1)这一段子数组，则可以通过判断nums[i] + f(i-1)和nums[i]的大小实现</p>
+<p>$$<br>f(i) = max{nums[i]+f(i-1),nums[i]}<br>$$</p>
+<h4 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//存储f(i - 1)的值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">maxSum</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : nums)&#123;</span><br><span class="line">           pre = Math.max(x + pre, x);</span><br><span class="line">           maxSum = Math.max(pre , maxSum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、分治法："><a href="#2、分治法：" class="headerlink" title="2、分治法："></a>2、分治法：</h3><p>见<a href="https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/solutions/876881/lian-xu-zi-shu-zu-de-zui-da-he-by-leetco-tiui/">leetcode题解</a>(点击即可查看)</p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之回文数</title>
+    <url>/2022/10/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%9B%9E%E6%96%87%E6%95%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>Problem: <a href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数</a></p>
+</blockquote>
+<p>[TOC]</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>看到这题的第一想法就是把数字x进行反转得到数字reverse，然后与x进行比较是否相等即可，刚开始我想的是把数字转成字符串然后使用反转函数直接反转，最后使用eqauls方法进行比较即可，但是我忘记了怎么将数字转换成String类型的字符串。后来遍知道一个数一个数字进行翻转</p>
+</blockquote>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
+<p>由题可知x&lt;0的时候因为含有负号，故所有小于0的数都不是回文数，直接return false即可，x&gt;0的时候，我用一个temp表示x翻转后的数字，num用于x逐一翻转，直到num/10==0的时候说明翻转完成，得到的结果return num == x的结果即可。</p>
+</blockquote>
+<p>但是，看了题解之后我发现其实翻转一半就行了，就算是奇数个位数，最后return reverse/10 == x即可</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度: </p>
+<blockquote>
+<p>O(logn)</p>
+</blockquote>
+</li>
+<li><p>空间复杂度: </p>
+<blockquote>
+<p>O(1)</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> x;</span><br><span class="line">            <span class="keyword">while</span>(num!=<span class="number">0</span>)&#123;</span><br><span class="line">                temp = temp*<span class="number">10</span>+num%<span class="number">10</span>;</span><br><span class="line">                num = num/<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x == temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="comment">// 特殊情况：</span></span><br><span class="line">        <span class="comment">// 如上所述，当 x &lt; 0 时，x 不是回文数。</span></span><br><span class="line">        <span class="comment">// 同样地，如果数字的最后一位是 0，为了使该数字为回文，</span></span><br><span class="line">        <span class="comment">// 则其第一位数字也应该是 0</span></span><br><span class="line">        <span class="comment">// 只有 0 满足这一属性</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">revertedNumber</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。</span></span><br><span class="line">        <span class="comment">// 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，</span></span><br><span class="line">        <span class="comment">// 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。</span></span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：力扣官方题解</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1252,337 +1586,56 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
-    <title>终于熬过来了！！！</title>
-    <url>/2022/01/06/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/</url>
-    <content><![CDATA[<p>大家好，我是小八，好久不见啊，我今天终于熬完了课设和汇编备考。</p>
-<p>现在来分享一下我的<strong>战斗经历</strong></p>
-<p>我们课设的小组成员由 5 个人组成：周**、小八、赵.**、陈**、曹**</p>
-<p>因为复习汇编的时间和课设的时间挤在了一起，导致我们寝室小组最近都经常肝到凌晨两三点，<strong>划重点：不建议学弟学妹们这么做！！！</strong> 属实很累。</p>
-<p>经过是这样的，我们小组确定的课设题目是 <strong>校园助手</strong> 。</p>
-<p>既然是校园助手，肯定得有查成绩、查课表、查地图、聊天、修改个人信息等功能，这样的话，因为我最近在学习前端，组长也在学习服务器开发，于是我们小组就一拍即合，做一个前后端分离的 demo，并且得有一个像校园助手的样子，自然就不能继续用控制台，用黑框框来展示我们的成果了，果断选择 QT 平台。</p>
-<p>毕竟要做，就要做一个牛逼的东西！！！先给你们看看登录界面的展示效果吧。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/mainwindow1.png?versionId=CAEQGRiBgID80f.28RciIGE4OWU3ZDI1OGJmNzRiNGM4ZjQ4ZjEwYzgzZGYyYWRj"></p>
-<p>下面的是我们客户端的图标，有没有想到湖工大考试平台的图标呢？？</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/myico.png?versionId=CAEQGRiBgIC7.ZS48RciIGZlZDVhM2MxYzE4NTRkNzliYjk2MjE5MjJlOTlhNTZm"></p>
-<p>这个界面看似简单，但实际上，后面很多的功能实现、界面跳转、跟服务器的数据请求以及初始化数据都是在这个界面的代码块进行实现，简简单单看看代码就知道了，这个 demo 好歹也是做了大半个月呢。</p>
-<p>截图如下：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/code.png?versionId=CAEQGRiBgMDPis.38RciIDhkMjgyM2UyMGQwMDQ1MWE5ZDA1NzZlMDhmMzBkMjBl"></p>
-<h2 id="最大瓶颈出现"><a href="#最大瓶颈出现" class="headerlink" title="最大瓶颈出现"></a>最大瓶颈出现</h2><p>而这也仅仅是主界面的一个很小的功能模块的代码块罢了，我还记得当时我们遇到的最大的一个瓶颈就是，实现两台不同设备之间的向服务器端发送请求，并且记录对方 IP，通过服务器作为中转站交互信息。我们小组一直在接触服务器开发的也就是我们的组长——周**，而我也最近才只是刚刚入门计网，我和他也只能仅仅讨论一下，解决的想法。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>遇到这个问题的时候，我和组长刚开始毫无思路，我就在一个在字节、腾讯、快手等大佬汇集的群里问一问经验和解决方案。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat1.png?versionId=CAEQGRiBgIDF1f238RciIGRhYWEyMTc2MmZkNDQ3MDU4ZDQ0MjY1NWZkMTA1YTg5"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat2.png?versionId=CAEQGRiBgMDH1f238RciIDgwODZlMWU3NmRiMzRhY2NiZTAyNzM1ZGFkMzk1NWIx"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat3.png?versionId=CAEQGRiBgMDN1f238RciIDM1M2RkNWNlZWNhZjQ5YjJiMWMwNjE5YWEyMzc2Yjll"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat4.png?versionId=CAEQGRiBgMDZ1f238RciIDVmMGZkNmMyZWU4YjQwZWU5NmZkYzg0ZTdiNDYzMjBi"></p>
-<p>当时毕竟很晚了他们应该已经睡觉了，没有人回我，后来才回复了我。</p>
-<p>过了一会，我和组长突然想到了一个办法，那就是通过每个人的固定学号绑定到每个用户的 IP，并固定 IP，就是说等我们连接到服务器之后，再分别在 cmd 里面 ipconfig /all 一下两台设备的 IP，最后改一下服务器端的代码块里面的 IP 地址，岂不是走了一波小捷径？毕竟不知道怎么获取 IP 地址，并实时更新对应用户的 IP，因为 IP 一直是会更新的，一般随着路由的分配形成一个局域网，重连一次网络 DHCP 就会重新分配一次新的 IP，而且咱也实力有限,能想到这个想法，个人觉得已经很不错了。</p>
-<p>这虽然说是服务器端的任务，前端只需要直接从服务器获取数据就行了，但这样我对计网也有了更加深层次的了解，知道怎么在实际需求中，进行构思解决方案，并且我还发现，后端要跟着前端的需求走，前端需要什么，后端就得实时进行更新并处理数据，所以感觉后端好惨。</p>
-<blockquote>
-<p><strong>划重点</strong>：以后还是要转后端学习的我，先让组长替我受受苦吧，hhhhhhhh。</p>
-</blockquote>
-<p>当然当时这个 demo 的问题还有很多，比如，修改个人信息栏如何实现<strong>换行</strong>，而不是在一行里面显示，导致显示溢出的问题，当时不知道怎么解决，我就写了一个判断语句，来控制那个信息栏输入字符长度，让个人信息就显示在一行，但不会溢出，就类似于 QQ 个性签名文字个数限制一样。</p>
-<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>刚刚介绍的只是我们前后端交互当时遇到的一个最大的问题，而我们前端，当时有很多功能，比如：登录，注册，修改密码，显示课程表，班级成员成绩等，都需要从后端获取相应的数据之后，在前端进行逻辑实现，并反馈给服务器。</p>
-<p>比如：你在登录的时候，需要输入账号密码之后，将用户数据发送到服务器进行用户信息的遍历，找到是否有匹配的用户，如果没有，那么服务器就会反馈 NO 的信息给前端，自然也就登录不进去，如果有，那么反馈给前端一个 YES，则就能登入客户端，进行查看课表、查成绩等功能。</p>
-<p>登录失败前端反馈如下图：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logNO.png?versionId=CAEQGRiBgMCW9MO48RciIDdmYjJkYzU4YTZlNjQ1YmU5ZDA5OGEwM2M1NjRjN2Jm"></p>
-<p>登录成功便进入此界面：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logYES.png?versionId=CAEQGRiBgMCX9MO48RciIDJlN2VmOGNjOWJkYjQ4YjU4MGI3MjA3Y2E3ZTM3NGJl"></p>
-<p>服务器这边的反馈信息如下：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/houduan.png?versionId=CAEQGRiBgIC368q48RciIDQzOThjZDE3OTNiMDRkNGNhZWI0NjdjOTIwYzc2MTlk"></p>
-<p>有一说一，看到这个后端是不是觉得很牛逼，我也确实佩服我的组长，一个人能完成所有的前端发来的数据处理，在下属实佩服，不知道你们怎么觉得，反正我还很菜，目前还做不出来一个服务器。</p>
-<p>当然还有其他的功能，我就不一一展示了，比如：注册、修改个人信息、忘记密码、展示工大地图、查询成绩等。都是其他小组成员分别负责的几个小模块。</p>
-<p>这里科普一下：只要服务器一开，我们打开客户端的时候，对服务器就会<strong>三次握手</strong>发送连接请求（有兴趣的小伙伴可以去了解一下）。</p>
-<h2 id="答辩过程"><a href="#答辩过程" class="headerlink" title="答辩过程"></a>答辩过程</h2><p>昨天上午我们找到老师进行了答辩，而且我们小组因为敢于尝试 QT 平台和实现了前后端分离，小组成绩获得了所有小组中的最高分</p>
-<p>还记得当时有挺多人来围观我们的课设，小组成员在答辩的时候附近声音属实嘈杂。</p>
-<p>当组长答辩完他写的服务器之后，便到我进行对自己的功能模块的答辩了，首先我对老师介绍了我的功能模块，能够实现什么？能够干些什么？</p>
-<p>我的解答就是，我的负责的模块可以分为三大块：</p>
-<h4 id="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）"><a href="#1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）" class="headerlink" title="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）"></a>1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）</h4><p>比如这一块就是通过信号和槽来实现对数据传递，并跳转出成绩查询窗口。</p>
-<p>代码如下：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">void MainWindow1::<span class="built_in">on_serch_clicked</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">connect</span>(dialog1, SIGNAL(sendNum(QString)), this, <span class="built_in">SLOT</span>(getNum(QString)));</span><br><span class="line">    <span class="comment">//查询成绩</span></span><br><span class="line">    dialog1-&gt;<span class="built_in">setModal</span>(true);</span><br><span class="line">    dialog1-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、在主窗口对服务器发送数据，接收服务器数据"><a href="#2、在主窗口对服务器发送数据，接收服务器数据" class="headerlink" title="2、在主窗口对服务器发送数据，接收服务器数据"></a>2、在主窗口对服务器发送数据，接收服务器数据</h4><p>比如下面的代码就是登录之后，将登录用户数据发送给服务器。</p>
-<p>代码如下：</p>
-<figure class="highlight xl"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">this</span>-&gt;</span><span class="function"><span class="title">clint_Login</span>-&gt;</span>write(user_msg);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、登录功能、课表的查询展示"><a href="#3、登录功能、课表的查询展示" class="headerlink" title="3、登录功能、课表的查询展示"></a>3、登录功能、课表的查询展示</h4><p>介绍完之后，老师问了我一个问题，下面的代码是什么意思：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">QJsonDocument <span class="attr">doc</span> <span class="operator">=</span> QJsonDocument::fromJson(UserInfo, <span class="variable">&amp;json_error</span>)<span class="punctuation">;</span></span><br></pre></td></tr></table></figure>
-
-<p>我的回答无疑就是解释它的是怎么用的，通过定义一个QJsonDocument的 doc 对象，把 userinfo 里面的信息进行解析出来获取数据放到 doc 中。</p>
-<p>毕竟当时是一边学 QT 一边做的，并不是很了解深层原理，也就只好这么回答了。但老师好像就是要我剖析它的深层原理，对我的答案，并不是很满意，只怪自己当初并没有花更多的时间去研究 QT 吧。</p>
-<p>再就是问了一下我的课表是怎么实现的，实现代码在哪？</p>
-<p>我的回答就是，其实真的很简单，就是一个插图的办法实现的，通过 new 一个课表类的对象 Class_Schedule 初始化课表，再进行窗口模糊 setModal 和窗口展示 show 进行实现。</p>
-<p>跳转代码段如下：</p>
-<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">void</span> <span class="variable">MainWindow1</span>::<span class="function"><span class="title">on_scotmtb_clicked</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">Class_Schedule</span>-&gt;<span class="function"><span class="title">setModal</span>(<span class="variable"><span class="literal">true</span></span>);</span></span><br><span class="line"><span class="function">    <span class="variable">Class_Schedule</span>-&gt;<span class="title">show</span>();</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>不过这有很大<strong>局限性</strong>：因为只能查到自己班的课表。嘻嘻嘻~</p>
-<p>我的课设答辩差不多就这样结束了。</p>
-<p>不过当时有一个学生在那里跟我们的课设指指点点，我当时就在想：能不能尊重一下我？是我在答辩，不是你！你当你能像毛主席一样指点江山？</p>
-<p>希望关注我的小伙伴们以后不会遇到这种人。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>说了这么多，总结以下几点：</p>
-<p>1、前后端分离，能改善修改代码的效率，不会因为一个小 bug，去修改一整片的代码，从而提高了功能更新的效率。</p>
-<p>2、少熬夜，熬夜伤身。（在这里再立一个 flag，2022 年不仅要好好学习技术，还得少熬夜，跟以前一样 11 点之前就睡觉，没事多锻炼一下身体。）</p>
-<p>3、bug 常常有，有时候一个 bug 一天都修复不了很正常，慢慢去想就行了，不要急躁，切记，敲代码务必要戒骄戒躁。</p>
-<p>4、不知道某个瓶颈怎么解决，可以换一种思路或者方式去解决这个问题，多和同学讨论，或者像大佬请教，上百度找教程等等。<strong>（忌:ctrl c + ctrl v）</strong></p>
-<p>5、最近计网的知识，能够在实际应用中想到相应的解决方案，并跟组员一同分享。</p>
-<p>6、不足就是，组员中除了我都不会用 Git，不然能更高效率实现各功能模块代码的合并，减少很多不必要的麻烦。</p>
-]]></content>
-      <tags>
-        <tag>程序人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot开发规范（一）</title>
-    <url>/2022/11/21/springboot-levelFunction/</url>
-    <content><![CDATA[<h2 id="model（entity）"><a href="#model（entity）" class="headerlink" title="model（entity）"></a>model（entity）</h2><p>​        model是模型的意思，与entity、domain、pojo类似，是存放实体的类，类中定义了多个类属性，并与数据库表的字段保持一致，一张表对应一个model类。 主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p>
-<h2 id="dao（mapper）"><a href="#dao（mapper）" class="headerlink" title="dao（mapper）"></a>dao（mapper）</h2><p>​        又被成为mapper层，叫数据持久层，先设计接口，然后在配置文件中进行配置其实现的关联。 dao层的作用为访问数据库，向数据库发送sql语句，完成数据的增删改查任务。 数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate插入到数据库中</p>
-<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>​        业务逻辑层，完成功能的设计 和dao层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用dao层的接口进行业务逻辑应用的处理。 service的impl是把mapper和service进行整合的文件 封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p>
-<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>​        控制层，控制业务逻辑service，控制请求和响应，负责前后端交互 controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/2052481-20210417164128180-1418412203.png" alt="img"></p>
-]]></content>
-      <tags>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识TCP/IP协议族</title>
-    <url>/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/</url>
-    <content><![CDATA[<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP%20IP%E5%8D%8F%E8%AE%AE%E6%97%8F.png?versionId=CAEQGRiBgMDG4eKp8BciIDc4YjRlNWZiOTUwNzRlNGY5OTFiNmQzYjBlZWZkODRk"></p>
-<p>&emsp;  你好，我是小八。今天我们来讲一下TCP/IP协议族。</p>
-<h2 id="初识TCP-IP协议族"><a href="#初识TCP-IP协议族" class="headerlink" title="初识TCP/IP协议族"></a>初识TCP/IP协议族</h2><p>&emsp; HTTP属于TCP/IP的一个子类，通常使用的网络（包括互联网）都是在TCP/IP协议族的基础上运作。</p>
-<h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h3><p>&emsp;计算机网络设备之间进行信息交互就需要基于相同的方法或者说是同一种协议才能进行通信。就比如：我们需要进行通信的时候，就需要知道如何探测到通信的目标、从哪一边开始发起通信请求、使用什么语言通信、怎么结束通信请求等所制定的规则，便被成为协议（protocol）。</p>
-<p>&emsp;<strong>而TCP/IP协议族就是互联网相关的各类协议族的总称。</strong>对于TCP/IP协议族，通常有两种说法，一是指TCP和IP这两种协议，二是指TCP/IP在IP协议的通信中，使用到的协议族的统称。</p>
-<p>TCP/IP协议族如下图：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%97%8F%E7%BE%A4%E5%9B%BE.png?versionId=CAEQGRiBgIDE4eKp8BciIDdkZjU1ZTAzOTEzYTQ3ZWFhY2IxMzIyMTU5OTNlMjBi" alt="image-20211230151831761"></p>
-<h3 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h3><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/TCP%20IP%E5%88%86%E5%B1%82%E7%AE%A1%E7%90%86.png?versionId=CAEQGRiBgICU4eKp8BciIGU0OTczOWY0YmE5YjRjYmRhMjRiNTdhOGUwOTAzOTEz" alt="image-20211230151253140"></p>
-<p>&emsp;协议族通过分层化，可以高效管理改变不同层次设计的任务，把每个层次之间的不同接口规划好之后，每个层次的内部设计也可以自由改动，而不需要替换所有部分整体。</p>
-<p>&emsp;<strong>应用层：</strong></p>
-<p>&emsp;&emsp;预存各类通用的应用服务，决定了向用户提供应用服务时通信的活动。其中HTTP（超文本传输协议）、FTP（文件传输协议）、DNS（域名协议）等服务在此层</p>
-<p>&emsp;<strong>传输层：</strong></p>
-<p>&emsp;&emsp;对应用层提供处于<strong>网络连接中</strong>的两台计算机的<strong>数据传输</strong>。在此层中有两种不同性质的协议：TCP（传输控制协议）和UDP（用户数据报协议）</p>
-<p>&emsp;<strong>网络层：</strong></p>
-<p>&emsp;&emsp;用来处理在网络上流动的数据包，该层规定与对方计算机进行传输时，通过选择某一种路径（或者说是某一条传输路线）到达对方计算机，并且把数据包传给对方。因此此层又被称为<strong>网络互连层</strong>。</p>
-<p>&emsp;&emsp;<strong>数据包</strong>是网络传输的最小数据单位。</p>
-<p>&emsp;<strong>链路层：</strong></p>
-<p>&emsp;&emsp;用来处理连接网络的硬件部分的层次，包括控制操作系统，硬件设备驱动，NIC（网络适配器，即网卡）等一系列可见的物理传输硬件设备（媒介）。</p>
-<h3 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h3><p>xxxxxxxxxx class Solution {    public boolean isPalindrome(int x) {        // 特殊情况：        // 如上所述，当 x &lt; 0 时，x 不是回文数。        // 同样地，如果数字的最后一位是 0，为了使该数字为回文，        // 则其第一位数字也应该是 0        // 只有 0 满足这一属性        if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) {            return false;        }​        int revertedNumber = 0;        while (x &gt; revertedNumber) {            revertedNumber = revertedNumber * 10 + x % 10;            x /= 10;        }​        // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。        // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，        // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。        return x == revertedNumber || x == revertedNumber / 10;    }}​作者：力扣官方题解链接：<a href="https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%8A%9B%E6%89%A3%EF%BC%88LeetCode%EF%BC%89%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82java">https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/来源：力扣（LeetCode）著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。java</a></p>
-<p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
-<p>&emsp;发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。 这种把数据信息包装起来的做法称为<strong>封装（encapsulate）</strong>（就类似于C++类的使用，将类中的成员和数据进行封装）。下图为例：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE2.png?versionId=CAEQGRiBgICx4eKp8BciIDIzNDlkYjhjYWM1YjQyYTRiNTVjOTk4NmVhYmE0YWEz" alt="image-20211230160020206"></p>
-<p>&emsp;</p>
-]]></content>
-      <tags>
-        <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之两数之和</title>
-    <url>/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
-    <content><![CDATA[<blockquote>
-<p>Problem: <a href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和</a></p>
-</blockquote>
-<p>[TOC]</p>
-<h1 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h1><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20221026204201974.png" alt="两数之和"></p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
-<p>看到这一题我首先想到的就是通过类似于冒泡排序的思想，通过两个for循环对数组里面的值进行一一相加并跟target进行比较，如果值等于target那么就返回，否则就进行下一次循环，也就是所谓的暴力解法，不过这样真的非常损耗时间复杂度</p>
-</blockquote>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
-<p>这里面要注意的是，同一个数x不能进行重复相加，那么就需要我们进行一一枚举，即在数组nums中寻找中有没有一个数是target - x，且当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。如果找到了这个target - x则返回x和target - x的下标index即可</p>
-</blockquote>
-<p>代码</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p> $O(N2)$</p>
-</blockquote>
+    <title>微布开发-二手市场开发思路(小程序+Java后端 尚未完更)</title>
+    <url>/2023/08/03/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E4%BA%8C%E6%89%8B%E5%B8%82%E5%9C%BA%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h3 id="小程序端"><a href="#小程序端" class="headerlink" title="小程序端"></a>小程序端</h3><p>categoryBid：二级分类类别的主键id</p>
+<p>allList：全部商品列表</p>
+<p>sellList：转卖商品列表</p>
+<p>askBuyList：求购商品列表</p>
+<p>type：一级分类</p>
+<h4 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h4><ol>
+<li>默认获取全部所有的商品list用于初始化加载页面</li>
+<li>滑动一级分类，确认一级分类type类型<ol>
+<li>Type = 转卖<ol>
+<li>初始化<ol>
+<li>默认转卖一级分类的所有商品列表</li>
+<li>滑动到二级分类，根据二级分类类型对应的categoryBid拉取列表</li>
+</ol>
 </li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p> $O(1)$</p>
-</blockquote>
+<li>下拉刷新<ol>
+<li>若为一级分类的所有商品列表，categoryBid = null</li>
+<li>若具体到二级分类的具体类型，categoryBid = 对应的二级分类bid</li>
+</ol>
 </li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之两数相加</title>
-    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
-    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
-<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[2,4,3]</span>, l2 = <span class="comment">[5,6,4]</span></span><br><span class="line">输出：<span class="comment">[7,0,8]</span></span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[0]</span>, l2 = <span class="comment">[0]</span></span><br><span class="line">输出：<span class="comment">[0]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">输入：l1 = [<span class="number">9,9,9,9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>], l2 = [<span class="number">9,9,9,9</span>]</span><br><span class="line">输出：[<span class="number">8,9,9,9</span>,<span class="number">0,0,0,1</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-<li><code>0 &lt;= Node.val &lt;= 9</code></li>
-<li>题目数据保证列表表示的数字不含前导零</li>
-</ul>
-<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">carry</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//进位数字</span></span><br><span class="line">        <span class="comment">//定义一个可移动的指针，用来指向存储两个数之和的位置</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">         <span class="comment">//定义一个新联表伪指针，用来指向头指针，返回结果</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> cur;</span><br><span class="line">        <span class="comment">//当l1 不等于null或l2 不等于空时，就进入循环</span></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">null</span> || l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//如果l1 不等于null时，就取他的值，等于null时，就赋值0，保持两个链表具有相同的位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> l1 == <span class="literal">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> l2 == <span class="literal">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            <span class="comment">//将两个链表的值，进行相加，并加上进位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + carry;</span><br><span class="line">            <span class="comment">//计算进位数</span></span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//计算两个数的和，此时排除超过10的请况（大于10，取余数）</span></span><br><span class="line">            sum %= <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//将求和数赋值给新链表的节点，</span></span><br><span class="line">            <span class="comment">//注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。</span></span><br><span class="line">            <span class="comment">//所以这个时候要创一个新的节点，将值赋予节点</span></span><br><span class="line">            cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(sum);</span><br><span class="line">             <span class="comment">//将新链表的节点后移</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="comment">//当链表l1不等于null的时候，将l1 的节点后移</span></span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="literal">null</span>)&#123;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果最后两个数，相加的时候有进位数的时候，就将进位数，赋予链表的新节点。</span></span><br><span class="line">        	<span class="comment">//两数相加最多小于20，所以的的值最大只能时1</span></span><br><span class="line">            <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(carry);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回链表的头节点</span></span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之回文数</title>
-    <url>/2022/10/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%9B%9E%E6%96%87%E6%95%B0/</url>
-    <content><![CDATA[<blockquote>
-<p>Problem: <a href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数</a></p>
-</blockquote>
-<p>[TOC]</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
-<p>看到这题的第一想法就是把数字x进行反转得到数字reverse，然后与x进行比较是否相等即可，刚开始我想的是把数字转成字符串然后使用反转函数直接反转，最后使用eqauls方法进行比较即可，但是我忘记了怎么将数字转换成String类型的字符串。后来遍知道一个数一个数字进行翻转</p>
-</blockquote>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
-<p>由题可知x&lt;0的时候因为含有负号，故所有小于0的数都不是回文数，直接return false即可，x&gt;0的时候，我用一个temp表示x翻转后的数字，num用于x逐一翻转，直到num/10==0的时候说明翻转完成，得到的结果return num == x的结果即可。</p>
-</blockquote>
-<p>但是，看了题解之后我发现其实翻转一半就行了，就算是奇数个位数，最后return reverse/10 == x即可</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p>O(logn)</p>
-</blockquote>
+<li>上滑加载<ol>
+<li>根据一级分类和二级分类(categoryBid )的类别确定获取什么类型的list并且赋值到allList/sellList/askBuyList</li>
+</ol>
 </li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p>O(1)</p>
-</blockquote>
+</ol>
 </li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> x;</span><br><span class="line">            <span class="keyword">while</span>(num!=<span class="number">0</span>)&#123;</span><br><span class="line">                temp = temp*<span class="number">10</span>+num%<span class="number">10</span>;</span><br><span class="line">                num = num/<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x == temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="comment">// 特殊情况：</span></span><br><span class="line">        <span class="comment">// 如上所述，当 x &lt; 0 时，x 不是回文数。</span></span><br><span class="line">        <span class="comment">// 同样地，如果数字的最后一位是 0，为了使该数字为回文，</span></span><br><span class="line">        <span class="comment">// 则其第一位数字也应该是 0</span></span><br><span class="line">        <span class="comment">// 只有 0 满足这一属性</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">revertedNumber</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。</span></span><br><span class="line">        <span class="comment">// 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，</span></span><br><span class="line">        <span class="comment">// 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。</span></span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：力扣官方题解</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-]]></content>
+<li>Type = 求购<ol>
+<li>初始化<ol>
+<li>默认求购一级分类的所有商品列表</li>
+<li>滑动到二级分类，根据二级分类类型对应的categoryBid拉取列表</li>
+</ol>
+</li>
+<li>下拉刷新<ol>
+<li>若为一级分类的所有商品列表，categoryBid = null</li>
+<li>若具体到二级分类的具体类型，categoryBid = 对应的二级分类bid</li>
+</ol>
+</li>
+<li>上滑加载<ol>
+<li>根据一级分类和二级分类的类别确定获取什么类型的list并且赋值到allList/sellList/askBuyList</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="Java后端："><a href="#Java后端：" class="headerlink" title="Java后端："></a>Java后端：</h4>]]></content>
       <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之寻找两个正序数组的中位数</title>
-    <url>/2023/03/21/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%AD%A3%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</url>
-    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。请你找出并返回这两个正序数组的 <strong>中位数</strong> 。</p>
-<p>算法的时间复杂度应该为 <code>O(log (m+n))</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：nums1 = <span class="comment">[1,3]</span>, nums2 = <span class="comment">[2]</span></span><br><span class="line">输出：2.00000</span><br><span class="line">解释：合并数组 = <span class="comment">[1,2,3]</span> ，中位数 2</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">输入：<span class="symbol">nums1</span> = [<span class="number">1</span>,<span class="number">2</span>], <span class="symbol">nums2</span> = [<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">输出：<span class="number">2.50000</span></span><br><span class="line">解释：合并数组 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] ，中位数 <span class="comment">(2 + 3)</span> / <span class="number">2</span> = <span class="number">2.5</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>nums1.length == m</code></li>
-<li><code>nums2.length == n</code></li>
-<li><code>0 &lt;= m &lt;= 1000</code></li>
-<li><code>0 &lt;= n &lt;= 1000</code></li>
-<li><code>1 &lt;= m + n &lt;= 2000</code></li>
-<li><code>-106 &lt;= nums1[i], nums2[i] &lt;= 106</code></li>
-</ul>
-<h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums2.length;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[m+n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">            nums[i] = nums1[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; n; j++)&#123;</span><br><span class="line">            nums[nums1.length + j] = nums2[j];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">if</span>(nums.length % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (nums[(m + n) / <span class="number">2</span> - <span class="number">1</span>] + nums[(m + n) / <span class="number">2</span>]) / <span class="number">2.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> nums[(m + n) / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>其他方法还在研究ing。。。。</p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之无重复字符的最长子串</title>
-    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="题目如下"><a href="#题目如下" class="headerlink" title="题目如下"></a>题目如下</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;abcabcbb&quot;</span></span><br><span class="line"><span class="section">输出: 3 </span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;bbbbb&quot;</span></span><br><span class="line"><span class="section">输出: 1</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;pwwkew&quot;</span></span><br><span class="line"><span class="section">输出: 3</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span></span><br><span class="line">     请注意，你的答案必须是 子串 的长度，<span class="string">&quot;pwke&quot;</span> 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
-<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
-</ul>
-<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><p>主要用到的思想就是滑动窗口，通过HashMap集合的key值不可重复原理来判断是否遇到重复的字符。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">//考虑孔字符串的情况</span></span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLength</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//统计最大的子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向子串的第一个字符index</span></span><br><span class="line">        <span class="comment">//以字符串的一个字符作为key,其对应的index作为value</span></span><br><span class="line">        HashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(s.charAt(i)))&#123;<span class="comment">//判断是否i位置下的字符是否有对应的value，如果有那么就说明重复了，此时将左指针定位到对应的value下，因为对应的value保存的就是此时此字符的index</span></span><br><span class="line">                left = Math.max(left,map.get(s.charAt(i)) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(s.charAt(i),i);</span><br><span class="line">            <span class="comment">//此时最大的子串不重复长度就是i - left + 1(即此时正在扫描的子串长度) 和 maxLength(上一串扫描的子串长度) 二者最大值之一。</span></span><br><span class="line">            maxLength = Math.max(maxLength,i - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之最长回文子串</title>
-    <url>/2023/03/21/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
-<p>如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">输入：s <span class="operator">=</span> <span class="string">&quot;babad&quot;</span></span><br><span class="line">输出：<span class="string">&quot;bab&quot;</span></span><br><span class="line">解释：<span class="string">&quot;aba&quot;</span> 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">输入：s <span class="operator">=</span> <span class="string">&quot;cbbd&quot;</span></span><br><span class="line">输出：<span class="string">&quot;bb&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= s.length &lt;= 1000</code></li>
-<li><code>s</code> 仅由数字和英文字母组成</li>
-</ul>
-<h2 id="题解如下"><a href="#题解如下" class="headerlink" title="题解如下"></a>题解如下</h2><h4 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a>方法一：动态规划</h4><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230321164819370.png" alt="image-20230321164819370"></p>
-<h5 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> s.length();</span><br><span class="line">        <span class="keyword">if</span>(len &lt; <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="comment">// dp[i][j] 表示 s[i..j] 是否是回文串</span></span><br><span class="line">        <span class="type">boolean</span> [][]dp = <span class="keyword">new</span> <span class="title class_">boolean</span>[len][len];</span><br><span class="line">        <span class="comment">//所有的一个字符的子串都是回文串</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">            dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">char</span>[] charArray = s.toCharArray();</span><br><span class="line">        <span class="comment">//记录回文子串的初始位置</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">begin</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//记录回文子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">childLen</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">2</span>; l &lt;= len;l++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; len;i++)&#123;</span><br><span class="line">                <span class="comment">//j代表子串的尾字符的index，即确定右边界</span></span><br><span class="line">                <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> l + i - <span class="number">1</span>;</span><br><span class="line">                <span class="comment">//如果尾字符超出字符串最大长度、跳出循环</span></span><br><span class="line">                <span class="keyword">if</span>(j &gt;= len)&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(charArray[i]!=charArray[j])&#123;</span><br><span class="line">                    dp[i][j] = <span class="literal">false</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j - i &lt; <span class="number">3</span>)&#123;</span><br><span class="line">                        <span class="comment">//可能是一个或者两个或者三个字符的子串</span></span><br><span class="line">                        dp[i][j] = <span class="literal">true</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;<span class="comment">//否则就依次递归</span></span><br><span class="line">                        dp[i][j] = dp[i + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//若 dp[i][l] == true 成立，就表示s[i....l]是回文，记录此时回文的长度以及起始位置</span></span><br><span class="line">                <span class="keyword">if</span>(dp[i][j] &amp;&amp; j - i + <span class="number">1</span> &gt; childLen)&#123;</span><br><span class="line">                    childLen = j - i + <span class="number">1</span>;</span><br><span class="line">                    begin = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(begin,begin + childLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之连续子数组的最大和</title>
-    <url>/2023/02/02/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/</url>
-    <content><![CDATA[<p><a href="https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/?envType=study-plan&id=lcof&plan=lcof&plan_progress=cug7nw1"><em>剑指 Offer 42. 连续子数组的最大和</em></a></p>
-<p>[TOC]</p>
-<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230202220726900.png"></p>
-<h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><h3 id="1、动态规划"><a href="#1、动态规划" class="headerlink" title="1、动态规划"></a>1、动态规划</h3><h4 id="推想："><a href="#推想：" class="headerlink" title="推想："></a>推想：</h4><p>​    若nums数组的长度为n，下标则为0~n-1，用f(i)表示以第i个数结尾的<strong>连续子数组的最大和</strong>，故有：</p>
-<p>​<br>$$<br>max{f(i)},0≤i≤n-1<br>$$</p>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><p>​    求出每段以第i个数结尾的子数组的f(i)，返回最大的f(i)即可</p>
-<h4 id="条件："><a href="#条件：" class="headerlink" title="条件："></a>条件：</h4><p>​    考虑nums[i]单独成一段还是加入f(i-1)这一段子数组，则可以通过判断nums[i] + f(i-1)和nums[i]的大小实现</p>
-<p>$$<br>f(i) = max{nums[i]+f(i-1),nums[i]}<br>$$</p>
-<h4 id="代码实现："><a href="#代码实现：" class="headerlink" title="代码实现："></a>代码实现：</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxSubArray</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pre</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//存储f(i - 1)的值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">maxSum</span> <span class="operator">=</span> nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x : nums)&#123;</span><br><span class="line">           pre = Math.max(x + pre, x);</span><br><span class="line">           maxSum = Math.max(pre , maxSum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、分治法："><a href="#2、分治法：" class="headerlink" title="2、分治法："></a>2、分治法：</h3><p>见<a href="https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/solutions/876881/lian-xu-zi-shu-zu-de-zui-da-he-by-leetco-tiui/">leetcode题解</a>(点击即可查看)</p>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备份hexo-_o-U盘篇</title>
-    <url>/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="新机环境搭建"><a href="#新机环境搭建" class="headerlink" title="新机环境搭建"></a>新机环境搭建</h2><p>​    1、安装Node.js</p>
-<p>​    2、安装Git</p>
-<p>​    3、新建存放Blog的文件夹</p>
-<h2 id="拷贝旧机器中得文件-文件夹"><a href="#拷贝旧机器中得文件-文件夹" class="headerlink" title="拷贝旧机器中得文件/文件夹"></a>拷贝旧机器中得文件/文件夹</h2><figure class="highlight gradle"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"><span class="keyword">package</span>.json</span><br><span class="line">scaffolds/</span><br><span class="line"><span class="keyword">source</span>/</span><br><span class="line">themes/</span><br><span class="line">其中/代表拷贝的是文件夹</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>右键打开Git bash，依次输入下列命令之后，安装相关依赖</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>安装hexo</span><br><span class="line">   <span class="built_in">npm</span> install -g hexo</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>本地测试的时候需要用hexo server</span><br><span class="line">   <span class="built_in">npm</span> i hexo-server</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>将文章部署到github上的模块</span><br><span class="line">   <span class="built_in">npm</span> install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>安装RSS插件</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>添加Sitemap,加速网页收录速度</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo s -g == hexo g + hexo s</span><br></pre></td></tr></table></figure>
-
-<p>在浏览器打开<a href="http://localhost:4000/">http://localhost:4000</a>查看效果</p>
-]]></content>
-      <tags>
-        <tag>程序人生</tag>
+        <tag>微布开发思路总结</tag>
       </tags>
   </entry>
   <entry>
@@ -1827,6 +1880,54 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
+    <title>最近的成长</title>
+    <url>/2022/07/10/%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%90%E9%95%BF/</url>
+    <content><![CDATA[<p>&emsp;&emsp;你好，我是小八，好久不见，不知不觉停更我的<a href="https://xiaobazeo.com/">blog</a>已经将近半年了，不知道的，可能是觉得大二下的我开始颓废了，我可以在这里说NO，你猜错了，我只是最近在闲暇之余花更多的时间在我前面<a href="https://xiaobazeo.com/2022/01/01/2021-backing/">一篇博客</a>提到的项目中——“微布校园”，我们团队开发了一款基于微信生态环境的微信小程序和APP——微布校园，目前也有很多我校大学生在使用我们的产品，而我负责的主要是小程序端开发和Java后端开发，算得上是个前后端啥都干的小菜鸡吧。</p>
+<p>&emsp;&emsp;不知不觉，微布校园的诞生已经半年之久了，用户量也达到了我们的预期估计。在这段参与开发的过程中，通过向几个在大厂工作的学长请教，交流，我发现了很多开发过程中需要注意的小问题，而这些也丰富积累了我的开发经验。比如 刚开始学习使用mina框架开发小程序的我过于小白，其实有些icon只需要写一个class改变其样式即可，而我当时却给每个icon单独写了一个class样式，现在想起来都觉得自己真的好蠢啊，hhhhhhh~</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223856616.png" alt="小白受教ing"></p>
+<p>&emsp;&emsp;还有这样的：当时还记得是因为我们开发的时候，提到了tcp协议，而我又看到过一篇博客说http3.0的TCP被弃用了，就开始了这个话题。。。当时还从计网知识转到了计组的相关探讨，hhhhhhh，而且我才知道一个安卓手机小知识，这里也分享给大家：安卓大多数手机用WiFi给电脑传数据，比用数据线快，因为很多手机接口用的USB2.0协议，虽然协议写的是60M，但一般2.0不超过30M</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223300695.png" alt="请教计网相关问题"></p>
+<p>&emsp;&emsp;好在我们的不断努力下，微布校园APP和小程序都成功诞生啦~</p>
+]]></content>
+      <tags>
+        <tag>程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络基础篇</title>
+    <url>/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
+    <content><![CDATA[<h2 id="TCP-IP网络模型有哪几层？"><a href="#TCP-IP网络模型有哪几层？" class="headerlink" title="TCP/IP网络模型有哪几层？"></a>TCP/IP网络模型有哪几层？</h2><h3 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h3><p>&emsp;&emsp;用户直接接触到的就是<strong>应用层</strong>，应用层专注于用户提供应用功能，例如：HTTP、FTP、DNS、Telnet、SMTP等。</p>
+<p>&emsp;&emsp;应用层工作在操作系统中得<strong>用户态</strong>，<strong>传输层及以下</strong>则工作在<strong>内核态</strong>。</p>
+<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>&emsp;&emsp;应用层的数据包会传给传输层，传输层是为应用层提供网络支持。传输层的两个协议：<strong>TCP</strong>和<strong>UDP</strong>。</p>
+<p>&emsp;&emsp;TCP（传输控制协议），TCP相较于UDP的特性，比如：<strong>流量控制，超时重传，拥塞控制</strong>等，为了保证数据包能可靠的传输给对方。</p>
+<p>&emsp;&emsp;UDP只负责发送数据包，<strong>不保证</strong>数据包是否能抵达对方，但是<strong>实时性</strong>相对较好，<strong>传输效率</strong>也较高。如果要实现UDP的可靠传输，可以把TCP的特性在应用层实现。</p>
+<p>&emsp;&emsp;应用传输数据过大，传输层的数据包大小超过MSS(TCP最大报文段长度)，需要将数据包分块，如果中途有一个分块丢失或损坏，只需重新发送此分块即可，而不需要发送整个数据包。在TCP协议中，<strong>每个分块称为一个TCP段</strong>（TCP Segment）。</p>
+<p>&emsp;&emsp;传输层负责把数据包传给应用，但是一台设备上可能会有很多应用在接收或者传输数据，此时需要用一个编号将应用区分开，这个编号就是端口。例如：Web服务器通常使用80端口，22端口通常是远程登录服务器的端口。</p>
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>&emsp;&emsp;实现传输功能的是<strong>网络层</strong>，传输层只是作为数据传输的媒介，帮助应用到应用的通信。</p>
+<p>&emsp;&emsp;常见协议是IP协议（Internet Protocol），IP协议会将传输层的报文作为数据部分，再加上IP包头部组装成IP报文，如果IP报文大小超过MTU（一般默认1500Bytes）会<strong>再次进行分片</strong>，得到一个即将发送的到网络的IP报文。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/12.jpg" alt="选自小林coding"></p>
+<h4 id="IP协议寻址功能："><a href="#IP协议寻址功能：" class="headerlink" title="IP协议寻址功能："></a>IP协议寻址功能：</h4><p>&emsp;&emsp;由于网络层需要有区分设备的编号，一般使用IP地址给设备进行编号，对于IPv4协议，IP地址共32位，分为四段（比如：192.168.100.1），每段8位。由于IPv4地址有设备上限，无法做到一个设备一个IP地址，所以会将IP地址分成两种意义：</p>
+<ul>
+<li>一个是<strong>网络号</strong>，负责标识该IP地址是属于哪个<strong>子网</strong>的</li>
+<li>一个是<strong>主机号</strong>，负责标识<strong>同一子网</strong>下的<strong>不同主机</strong></li>
+</ul>
+<p>此时需要<strong>子网掩码</strong>才能计算出IP地址的网络号和主机号，比如：10.100.122.0/24，后面的/24表示就是255.255.255.0子网掩码，255.255.255.0二进制就是11111111-11111111-11111111-00000000，24个1，为了简化子网掩码的表示，就会用/24代替255.255.255.0</p>
+<p><strong>网络号</strong>将 10.100.122.2 和 255.255.255.0 <strong>按位与运算</strong>。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/16.jpg" alt="取自小林coding"></p>
+<p><strong>主机号：</strong>将 255.255.255.0 <strong>取反</strong>后与IP地址进行进行<strong>按位与运算</strong>。</p>
+<p>在寻址过程中，先匹配相同的网络号（表示要找到同一个子网），才会去找对应的主机号。</p>
+<h4 id="IP协议路由功能"><a href="#IP协议路由功能" class="headerlink" title="IP协议路由功能"></a>IP协议路由功能</h4><p>当数据包到达一个网络节点，就需要通过路由算法决定下一步走哪条路径。</p>
+<p>IP协议的寻址是告诉我们去往下一个目的地朝哪个方向走，路由是根据下一个目的地选择路径。</p>
+<h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><p>网络接口层会在IP头部的前面加上MAC头部，并封装成数据帧发送到网络上。网络接口层主要是为网络层提供链路级别传输的服务，负责以太网、WiFi这样的底层网络上发送原始数据包，工作在网卡这个层次，使用MAC地址来表示网络上的设备。</p>
+<p>MAC头部是以以太网的头部，包含了接收方和发送方的MAC地址等信息，可以通过ARP协议获取对方的MAC地址。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网络接口层的传输单位是帧，IP的传输单位是包，TCP层传输单位是段，HTTP传输单位是消息或报文，每一层的封装格式如下：</p>
+<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost3@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B5%AE%E7%82%B9/%E5%B0%81%E8%A3%85.png" alt="取自小林coding"></p>
+]]></content>
+      <tags>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>小八学习git从0到基本运用</title>
     <url>/2021/11/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p style="text-indent:20px;">有一说一，刚刚步入计算机大二的我，这个Github在我的认知里面一直只是一个大牛从中copy代码的网站，我对其的了解也仅仅在于抖音的“黑马程序员”里面的人说的这个网站很多大牛，才会使用。</p>
@@ -1945,7 +2046,7 @@ docker rmi -f $(docker images -qa)
 <p>具体怎么添加，请小伙伴们，自行百度学习，具体实现就不说了，小编只在这里讲一下添加时候的一些命令：</p>
 <p>1、在本次仓里面运行命令：</p>
 <blockquote>
-<p>$ git remote add origin <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;</a>:pengzihao166/learngit.git</p>
+<p>$ git remote add origin <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a>:pengzihao166/learngit.git</p>
 </blockquote>
 <p>注意：把上面的pengzihao166替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。</p>
 <p>2、下一步，就可以把本地库的所有内容推送到远程库上：</p>
@@ -1961,9 +2062,9 @@ docker rmi -f $(docker images -qa)
 <p>二、删除远程库</p>
 <p>1、如果添加的时候地址写错了，或者就是想删除远程库，可以用git remote rm <name>命令。使用前，建议先用git remote -v查看远程库信息：</name></p>
 <blockquote>
-<p>$ git remote -v<br>origin  <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:pengzihao166/learn-git.git (fetch)</p>
+<p>$ git remote -v<br>origin  <a href="mailto:&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#105;&#116;&#x40;&#x67;&#105;&#x74;&#x68;&#117;&#x62;&#46;&#99;&#x6f;&#109;</a>:pengzihao166/learn-git.git (fetch)</p>
 </blockquote>
-<p>origin  <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a>:pengzihao166/learn-git.git (push)</p>
+<p>origin  <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#x62;&#x2e;&#99;&#111;&#109;</a>:pengzihao166/learn-git.git (push)</p>
 <p>然后，根据名字删除，比如删除origin：</p>
 <blockquote>
 <p>$ git remote rm origin</p>
@@ -1972,7 +2073,7 @@ docker rmi -f $(docker images -qa)
 <p>1、准备好远程库</p>
 <p>2、现在，远程库已经准备好了，下一步是用命令git clone克隆一个本地库：</p>
 <blockquote>
-<p>$ git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:pengzihao166/gitskills.git</p>
+<p>$ git clone <a href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#x2e;&#99;&#111;&#109;</a>:pengzihao166/gitskills.git</p>
 </blockquote>
 <p>注意把Git库的地址换成你自己的，然后进入gitskills目录看看，已经有README.md文件了。</p>
 <p>Git支持多种协议，包括https，但ssh协议速度最快。</p>
@@ -2110,62 +2211,6 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
-    <title>最近的成长</title>
-    <url>/2022/07/10/%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%90%E9%95%BF/</url>
-    <content><![CDATA[<p>&emsp;&emsp;你好，我是小八，好久不见，不知不觉停更我的<a href="https://xiaobazeo.com/">blog</a>已经将近半年了，不知道的，可能是觉得大二下的我开始颓废了，我可以在这里说NO，你猜错了，我只是最近在闲暇之余花更多的时间在我前面<a href="https://xiaobazeo.com/2022/01/01/2021-backing/">一篇博客</a>提到的项目中——“微布校园”，我们团队开发了一款基于微信生态环境的微信小程序和APP——微布校园，目前也有很多我校大学生在使用我们的产品，而我负责的主要是小程序端开发和Java后端开发，算得上是个前后端啥都干的小菜鸡吧。</p>
-<p>&emsp;&emsp;不知不觉，微布校园的诞生已经半年之久了，用户量也达到了我们的预期估计。在这段参与开发的过程中，通过向几个在大厂工作的学长请教，交流，我发现了很多开发过程中需要注意的小问题，而这些也丰富积累了我的开发经验。比如 刚开始学习使用mina框架开发小程序的我过于小白，其实有些icon只需要写一个class改变其样式即可，而我当时却给每个icon单独写了一个class样式，现在想起来都觉得自己真的好蠢啊，hhhhhhh~</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223856616.png" alt="小白受教ing"></p>
-<p>&emsp;&emsp;还有这样的：当时还记得是因为我们开发的时候，提到了tcp协议，而我又看到过一篇博客说http3.0的TCP被弃用了，就开始了这个话题。。。当时还从计网知识转到了计组的相关探讨，hhhhhhh，而且我才知道一个安卓手机小知识，这里也分享给大家：安卓大多数手机用WiFi给电脑传数据，比用数据线快，因为很多手机接口用的USB2.0协议，虽然协议写的是60M，但一般2.0不超过30M</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223300695.png" alt="请教计网相关问题"></p>
-<p>&emsp;&emsp;好在我们的不断努力下，微布校园APP和小程序都成功诞生啦~</p>
-]]></content>
-      <tags>
-        <tag>程序人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>网络基础篇</title>
-    <url>/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/</url>
-    <content><![CDATA[<h2 id="TCP-IP网络模型有哪几层？"><a href="#TCP-IP网络模型有哪几层？" class="headerlink" title="TCP/IP网络模型有哪几层？"></a>TCP/IP网络模型有哪几层？</h2><h3 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h3><p>&emsp;&emsp;用户直接接触到的就是<strong>应用层</strong>，应用层专注于用户提供应用功能，例如：HTTP、FTP、DNS、Telnet、SMTP等。</p>
-<p>&emsp;&emsp;应用层工作在操作系统中得<strong>用户态</strong>，<strong>传输层及以下</strong>则工作在<strong>内核态</strong>。</p>
-<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>&emsp;&emsp;应用层的数据包会传给传输层，传输层是为应用层提供网络支持。传输层的两个协议：<strong>TCP</strong>和<strong>UDP</strong>。</p>
-<p>&emsp;&emsp;TCP（传输控制协议），TCP相较于UDP的特性，比如：<strong>流量控制，超时重传，拥塞控制</strong>等，为了保证数据包能可靠的传输给对方。</p>
-<p>&emsp;&emsp;UDP只负责发送数据包，<strong>不保证</strong>数据包是否能抵达对方，但是<strong>实时性</strong>相对较好，<strong>传输效率</strong>也较高。如果要实现UDP的可靠传输，可以把TCP的特性在应用层实现。</p>
-<p>&emsp;&emsp;应用传输数据过大，传输层的数据包大小超过MSS(TCP最大报文段长度)，需要将数据包分块，如果中途有一个分块丢失或损坏，只需重新发送此分块即可，而不需要发送整个数据包。在TCP协议中，<strong>每个分块称为一个TCP段</strong>（TCP Segment）。</p>
-<p>&emsp;&emsp;传输层负责把数据包传给应用，但是一台设备上可能会有很多应用在接收或者传输数据，此时需要用一个编号将应用区分开，这个编号就是端口。例如：Web服务器通常使用80端口，22端口通常是远程登录服务器的端口。</p>
-<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>&emsp;&emsp;实现传输功能的是<strong>网络层</strong>，传输层只是作为数据传输的媒介，帮助应用到应用的通信。</p>
-<p>&emsp;&emsp;常见协议是IP协议（Internet Protocol），IP协议会将传输层的报文作为数据部分，再加上IP包头部组装成IP报文，如果IP报文大小超过MTU（一般默认1500Bytes）会<strong>再次进行分片</strong>，得到一个即将发送的到网络的IP报文。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/12.jpg" alt="选自小林coding"></p>
-<h4 id="IP协议寻址功能："><a href="#IP协议寻址功能：" class="headerlink" title="IP协议寻址功能："></a>IP协议寻址功能：</h4><p>&emsp;&emsp;由于网络层需要有区分设备的编号，一般使用IP地址给设备进行编号，对于IPv4协议，IP地址共32位，分为四段（比如：192.168.100.1），每段8位。由于IPv4地址有设备上限，无法做到一个设备一个IP地址，所以会将IP地址分成两种意义：</p>
-<ul>
-<li>一个是<strong>网络号</strong>，负责标识该IP地址是属于哪个<strong>子网</strong>的</li>
-<li>一个是<strong>主机号</strong>，负责标识<strong>同一子网</strong>下的<strong>不同主机</strong></li>
-</ul>
-<p>此时需要<strong>子网掩码</strong>才能计算出IP地址的网络号和主机号，比如：10.100.122.0/24，后面的/24表示就是255.255.255.0子网掩码，255.255.255.0二进制就是11111111-11111111-11111111-00000000，24个1，为了简化子网掩码的表示，就会用/24代替255.255.255.0</p>
-<p><strong>网络号</strong>将 10.100.122.2 和 255.255.255.0 <strong>按位与运算</strong>。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/16.jpg" alt="取自小林coding"></p>
-<p><strong>主机号：</strong>将 255.255.255.0 <strong>取反</strong>后与IP地址进行进行<strong>按位与运算</strong>。</p>
-<p>在寻址过程中，先匹配相同的网络号（表示要找到同一个子网），才会去找对应的主机号。</p>
-<h4 id="IP协议路由功能"><a href="#IP协议路由功能" class="headerlink" title="IP协议路由功能"></a>IP协议路由功能</h4><p>当数据包到达一个网络节点，就需要通过路由算法决定下一步走哪条路径。</p>
-<p>IP协议的寻址是告诉我们去往下一个目的地朝哪个方向走，路由是根据下一个目的地选择路径。</p>
-<h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><p>网络接口层会在IP头部的前面加上MAC头部，并封装成数据帧发送到网络上。网络接口层主要是为网络层提供链路级别传输的服务，负责以太网、WiFi这样的底层网络上发送原始数据包，工作在网卡这个层次，使用MAC地址来表示网络上的设备。</p>
-<p>MAC头部是以以太网的头部，包含了接收方和发送方的MAC地址等信息，可以通过ARP协议获取对方的MAC地址。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网络接口层的传输单位是帧，IP的传输单位是包，TCP层传输单位是段，HTTP传输单位是消息或报文，每一层的封装格式如下：</p>
-<p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost3@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B5%AE%E7%82%B9/%E5%B0%81%E8%A3%85.png" alt="取自小林coding"></p>
-]]></content>
-      <tags>
-        <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面经-七牛云测试开发实习一二面</title>
-    <url>/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/</url>
-    <content><![CDATA[<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="微布校园的分工如何？"><a href="#微布校园的分工如何？" class="headerlink" title="微布校园的分工如何？"></a>微布校园的分工如何？</h3><h3 id="在开发过程中学到了什么？遇到了什么难的问题？"><a href="#在开发过程中学到了什么？遇到了什么难的问题？" class="headerlink" title="在开发过程中学到了什么？遇到了什么难的问题？"></a>在开发过程中学到了什么？遇到了什么难的问题？</h3><h3 id="如何解决缓存雪崩、缓存与数据库一致性问题？"><a href="#如何解决缓存雪崩、缓存与数据库一致性问题？" class="headerlink" title="如何解决缓存雪崩、缓存与数据库一致性问题？"></a>如何解决缓存雪崩、缓存与数据库一致性问题？</h3><h3 id="查询响应速度从超时响应加快到900ms-1s是如何实现的？"><a href="#查询响应速度从超时响应加快到900ms-1s是如何实现的？" class="headerlink" title="查询响应速度从超时响应加快到900ms~1s是如何实现的？"></a>查询响应速度从超时响应加快到900ms~1s是如何实现的？</h3><h3 id="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"><a href="#讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）" class="headerlink" title="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"></a>讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）</h3><h3 id="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"><a href="#使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。" class="headerlink" title="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"></a>使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。</h3><h3 id="Redis在哪一部分用的比较多？"><a href="#Redis在哪一部分用的比较多？" class="headerlink" title="Redis在哪一部分用的比较多？"></a>Redis在哪一部分用的比较多？</h3><h3 id="讲一下http的三次握手、四次挥手？"><a href="#讲一下http的三次握手、四次挥手？" class="headerlink" title="讲一下http的三次握手、四次挥手？"></a>讲一下http的三次握手、四次挥手？</h3><h3 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h3><h3 id="介绍一下udp和tcp之间的区别"><a href="#介绍一下udp和tcp之间的区别" class="headerlink" title="介绍一下udp和tcp之间的区别"></a>介绍一下udp和tcp之间的区别</h3><h3 id="什么时候用UDP？什么时候用TCP？"><a href="#什么时候用UDP？什么时候用TCP？" class="headerlink" title="什么时候用UDP？什么时候用TCP？"></a>什么时候用UDP？什么时候用TCP？</h3><h3 id="介绍一下对HTTP的理解"><a href="#介绍一下对HTTP的理解" class="headerlink" title="介绍一下对HTTP的理解"></a>介绍一下对HTTP的理解</h3><h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><h3 id="介绍一下token"><a href="#介绍一下token" class="headerlink" title="介绍一下token"></a>介绍一下token</h3><h3 id="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"><a href="#讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？" class="headerlink" title="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"></a>讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？</h3><h3 id="介绍一下Redis的数据类型和持久化"><a href="#介绍一下Redis的数据类型和持久化" class="headerlink" title="介绍一下Redis的数据类型和持久化"></a>介绍一下Redis的数据类型和持久化</h3><h3 id="如何通过Redis实现分布式锁？"><a href="#如何通过Redis实现分布式锁？" class="headerlink" title="如何通过Redis实现分布式锁？"></a>如何通过Redis实现分布式锁？</h3><h3 id="Redis的淘汰策略有哪些？"><a href="#Redis的淘汰策略有哪些？" class="headerlink" title="Redis的淘汰策略有哪些？"></a>Redis的淘汰策略有哪些？</h3><h3 id="介绍一下对多线程的理解"><a href="#介绍一下对多线程的理解" class="headerlink" title="介绍一下对多线程的理解"></a>介绍一下对多线程的理解</h3><h3 id="什么是线程池、为什么要使用线程池？"><a href="#什么是线程池、为什么要使用线程池？" class="headerlink" title="什么是线程池、为什么要使用线程池？"></a>什么是线程池、为什么要使用线程池？</h3><h3 id="Java的异常有哪些？如何捕获异常？"><a href="#Java的异常有哪些？如何捕获异常？" class="headerlink" title="Java的异常有哪些？如何捕获异常？"></a>Java的异常有哪些？如何捕获异常？</h3><h3 id="对文件的上传、下载分别有哪些测试功能点？"><a href="#对文件的上传、下载分别有哪些测试功能点？" class="headerlink" title="对文件的上传、下载分别有哪些测试功能点？"></a>对文件的上传、下载分别有哪些测试功能点？</h3><h3 id="算法题：把两个无序的数组合并成一个有序的数组"><a href="#算法题：把两个无序的数组合并成一个有序的数组" class="headerlink" title="算法题：把两个无序的数组合并成一个有序的数组"></a>算法题：把两个无序的数组合并成一个有序的数组</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="为什么要选择面试测试开发这个岗位？"><a href="#为什么要选择面试测试开发这个岗位？" class="headerlink" title="为什么要选择面试测试开发这个岗位？"></a>为什么要选择面试测试开发这个岗位？</h3><h3 id="你觉得测开需要学习些什么方面的东西？"><a href="#你觉得测开需要学习些什么方面的东西？" class="headerlink" title="你觉得测开需要学习些什么方面的东西？"></a>你觉得测开需要学习些什么方面的东西？</h3><h3 id="netty和直接裸写socket有什么区别？"><a href="#netty和直接裸写socket有什么区别？" class="headerlink" title="netty和直接裸写socket有什么区别？"></a>netty和直接裸写socket有什么区别？</h3><h3 id="什么是NIO？"><a href="#什么是NIO？" class="headerlink" title="什么是NIO？"></a>什么是NIO？</h3><h3 id="为什么IO多路复用比多线程更高效？"><a href="#为什么IO多路复用比多线程更高效？" class="headerlink" title="为什么IO多路复用比多线程更高效？"></a>为什么IO多路复用比多线程更高效？</h3><h3 id="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"><a href="#Redis是单线程还是多线程的？为什么是单线程还能这么高效？" class="headerlink" title="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"></a>Redis是单线程还是多线程的？为什么是单线程还能这么高效？</h3><h3 id="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"><a href="#在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？" class="headerlink" title="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"></a>在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？</h3><h3 id="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"><a href="#使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）" class="headerlink" title="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"></a>使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）</h3><h3 id="netty的广播怎么实现的？"><a href="#netty的广播怎么实现的？" class="headerlink" title="netty的广播怎么实现的？"></a>netty的广播怎么实现的？</h3><h3 id="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"><a href="#如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？" class="headerlink" title="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"></a>如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？</h3><h3 id="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"><a href="#如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？" class="headerlink" title="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"></a>如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？</h3><h3 id="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"><a href="#介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？" class="headerlink" title="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"></a>介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？</h3><h3 id="说几个Maven的常用命令"><a href="#说几个Maven的常用命令" class="headerlink" title="说几个Maven的常用命令"></a>说几个Maven的常用命令</h3><h3 id="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"><a href="#常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）" class="headerlink" title="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"></a>常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）</h3><h3 id="怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"><a href="#怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？" class="headerlink" title="怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"></a>怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？</h3><h3 id="Java的新特性（介绍的Java8的新特性）"><a href="#Java的新特性（介绍的Java8的新特性）" class="headerlink" title="Java的新特性（介绍的Java8的新特性）"></a>Java的新特性（介绍的Java8的新特性）</h3><h3 id="编码：实现a，b两个线程顺序交替执行"><a href="#编码：实现a，b两个线程顺序交替执行" class="headerlink" title="编码：实现a，b两个线程顺序交替执行"></a>编码：实现a，b两个线程顺序交替执行</h3>]]></content>
-      <tags>
-        <tag>面经</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>谈谈wx和wss</title>
     <url>/2023/02/02/%E8%B0%88%E8%B0%88wx%E5%92%8Cwss/</url>
     <content><![CDATA[<h2 id="了解WS和WSS"><a href="#了解WS和WSS" class="headerlink" title="了解WS和WSS"></a>了解WS和WSS</h2><p>&emsp;WebSocket （WS）是HTML5一种新的协议，它实现了浏览器与服务器全双工通信，能更好地节省服务器资源和带宽并达到实时通讯。</p>
@@ -2193,6 +2238,14 @@ docker rmi -f $(docker images -qa)
 ]]></content>
       <tags>
         <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面经-七牛云测试开发实习一二面</title>
+    <url>/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/</url>
+    <content><![CDATA[<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="微布校园的分工如何？"><a href="#微布校园的分工如何？" class="headerlink" title="微布校园的分工如何？"></a>微布校园的分工如何？</h3><h3 id="在开发过程中学到了什么？遇到了什么难的问题？"><a href="#在开发过程中学到了什么？遇到了什么难的问题？" class="headerlink" title="在开发过程中学到了什么？遇到了什么难的问题？"></a>在开发过程中学到了什么？遇到了什么难的问题？</h3><h3 id="如何解决缓存雪崩、缓存与数据库一致性问题？"><a href="#如何解决缓存雪崩、缓存与数据库一致性问题？" class="headerlink" title="如何解决缓存雪崩、缓存与数据库一致性问题？"></a>如何解决缓存雪崩、缓存与数据库一致性问题？</h3><h3 id="查询响应速度从超时响应加快到900ms-1s是如何实现的？"><a href="#查询响应速度从超时响应加快到900ms-1s是如何实现的？" class="headerlink" title="查询响应速度从超时响应加快到900ms~1s是如何实现的？"></a>查询响应速度从超时响应加快到900ms~1s是如何实现的？</h3><h3 id="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"><a href="#讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）" class="headerlink" title="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"></a>讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）</h3><h3 id="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"><a href="#使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。" class="headerlink" title="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"></a>使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。</h3><h3 id="Redis在哪一部分用的比较多？"><a href="#Redis在哪一部分用的比较多？" class="headerlink" title="Redis在哪一部分用的比较多？"></a>Redis在哪一部分用的比较多？</h3><h3 id="讲一下http的三次握手、四次挥手？"><a href="#讲一下http的三次握手、四次挥手？" class="headerlink" title="讲一下http的三次握手、四次挥手？"></a>讲一下http的三次握手、四次挥手？</h3><h3 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h3><h3 id="介绍一下udp和tcp之间的区别"><a href="#介绍一下udp和tcp之间的区别" class="headerlink" title="介绍一下udp和tcp之间的区别"></a>介绍一下udp和tcp之间的区别</h3><h3 id="什么时候用UDP？什么时候用TCP？"><a href="#什么时候用UDP？什么时候用TCP？" class="headerlink" title="什么时候用UDP？什么时候用TCP？"></a>什么时候用UDP？什么时候用TCP？</h3><h3 id="介绍一下对HTTP的理解"><a href="#介绍一下对HTTP的理解" class="headerlink" title="介绍一下对HTTP的理解"></a>介绍一下对HTTP的理解</h3><h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><h3 id="介绍一下token"><a href="#介绍一下token" class="headerlink" title="介绍一下token"></a>介绍一下token</h3><h3 id="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"><a href="#讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？" class="headerlink" title="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"></a>讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？</h3><h3 id="介绍一下Redis的数据类型和持久化"><a href="#介绍一下Redis的数据类型和持久化" class="headerlink" title="介绍一下Redis的数据类型和持久化"></a>介绍一下Redis的数据类型和持久化</h3><h3 id="如何通过Redis实现分布式锁？"><a href="#如何通过Redis实现分布式锁？" class="headerlink" title="如何通过Redis实现分布式锁？"></a>如何通过Redis实现分布式锁？</h3><h3 id="Redis的淘汰策略有哪些？"><a href="#Redis的淘汰策略有哪些？" class="headerlink" title="Redis的淘汰策略有哪些？"></a>Redis的淘汰策略有哪些？</h3><h3 id="介绍一下对多线程的理解"><a href="#介绍一下对多线程的理解" class="headerlink" title="介绍一下对多线程的理解"></a>介绍一下对多线程的理解</h3><h3 id="什么是线程池、为什么要使用线程池？"><a href="#什么是线程池、为什么要使用线程池？" class="headerlink" title="什么是线程池、为什么要使用线程池？"></a>什么是线程池、为什么要使用线程池？</h3><h3 id="Java的异常有哪些？如何捕获异常？"><a href="#Java的异常有哪些？如何捕获异常？" class="headerlink" title="Java的异常有哪些？如何捕获异常？"></a>Java的异常有哪些？如何捕获异常？</h3><h3 id="对文件的上传、下载分别有哪些测试功能点？"><a href="#对文件的上传、下载分别有哪些测试功能点？" class="headerlink" title="对文件的上传、下载分别有哪些测试功能点？"></a>对文件的上传、下载分别有哪些测试功能点？</h3><h3 id="算法题：把两个无序的数组合并成一个有序的数组"><a href="#算法题：把两个无序的数组合并成一个有序的数组" class="headerlink" title="算法题：把两个无序的数组合并成一个有序的数组"></a>算法题：把两个无序的数组合并成一个有序的数组</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="为什么要选择面试测试开发这个岗位？"><a href="#为什么要选择面试测试开发这个岗位？" class="headerlink" title="为什么要选择面试测试开发这个岗位？"></a>为什么要选择面试测试开发这个岗位？</h3><h3 id="你觉得测开需要学习些什么方面的东西？"><a href="#你觉得测开需要学习些什么方面的东西？" class="headerlink" title="你觉得测开需要学习些什么方面的东西？"></a>你觉得测开需要学习些什么方面的东西？</h3><h3 id="netty和直接裸写socket有什么区别？"><a href="#netty和直接裸写socket有什么区别？" class="headerlink" title="netty和直接裸写socket有什么区别？"></a>netty和直接裸写socket有什么区别？</h3><h3 id="什么是NIO？"><a href="#什么是NIO？" class="headerlink" title="什么是NIO？"></a>什么是NIO？</h3><h3 id="为什么IO多路复用比多线程更高效？"><a href="#为什么IO多路复用比多线程更高效？" class="headerlink" title="为什么IO多路复用比多线程更高效？"></a>为什么IO多路复用比多线程更高效？</h3><h3 id="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"><a href="#Redis是单线程还是多线程的？为什么是单线程还能这么高效？" class="headerlink" title="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"></a>Redis是单线程还是多线程的？为什么是单线程还能这么高效？</h3><h3 id="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"><a href="#在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？" class="headerlink" title="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"></a>在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？</h3><h3 id="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"><a href="#使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）" class="headerlink" title="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"></a>使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）</h3><h3 id="netty的广播怎么实现的？"><a href="#netty的广播怎么实现的？" class="headerlink" title="netty的广播怎么实现的？"></a>netty的广播怎么实现的？</h3><h3 id="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"><a href="#如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？" class="headerlink" title="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"></a>如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？</h3><h3 id="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"><a href="#如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？" class="headerlink" title="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"></a>如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？</h3><h3 id="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"><a href="#介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？" class="headerlink" title="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"></a>介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？</h3><h3 id="说几个Maven的常用命令"><a href="#说几个Maven的常用命令" class="headerlink" title="说几个Maven的常用命令"></a>说几个Maven的常用命令</h3><h3 id="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"><a href="#常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）" class="headerlink" title="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"></a>常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）</h3><h3 id="怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"><a href="#怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？" class="headerlink" title="怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"></a>怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？</h3><h3 id="Java的新特性（介绍的Java8的新特性）"><a href="#Java的新特性（介绍的Java8的新特性）" class="headerlink" title="Java的新特性（介绍的Java8的新特性）"></a>Java的新特性（介绍的Java8的新特性）</h3><h3 id="编码：实现a，b两个线程顺序交替执行"><a href="#编码：实现a，b两个线程顺序交替执行" class="headerlink" title="编码：实现a，b两个线程顺序交替执行"></a>编码：实现a，b两个线程顺序交替执行</h3>]]></content>
+      <tags>
+        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
