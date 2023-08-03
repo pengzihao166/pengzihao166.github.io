@@ -71,62 +71,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker使用</title>
-    <url>/2023/05/29/Docker%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<h2 id="帮助启动类命令"><a href="#帮助启动类命令" class="headerlink" title="帮助启动类命令"></a>帮助启动类命令</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230529235020493.png" alt="image-20230529235020493"></p>
-<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><ul>
-<li>docker images</li>
-</ul>
-<blockquote>
-<p>罗列出docker的所有的镜像相关信息</p>
-</blockquote>
-<ul>
-<li>docker search 某个xxx镜像的名字</li>
-</ul>
-<blockquote>
-<p>在hub仓库查询是否有相关的镜像 –limit 默认罗列前25个</p>
-</blockquote>
-<ul>
-<li>docker pull 某个xxx镜像名[:tag]</li>
-</ul>
-<blockquote>
-<p>tag:表示版本号    </p>
-</blockquote>
-<ul>
-<li><p>docker system df 查看镜像/容器/数据卷所占空间</p>
-</li>
-<li><p>docker rmi 某个xxx镜像的id或者名字  -f强制删除</p>
-<blockquote>
-<p>docker rmi hello-world 或 docker rmi 9c7a54a9a43c<br>删除多个:</p>
-<pre><code>docker rmi -f 镜像名1:tag 镜像名2:tag....
-docker rmi -f $(docker images -qa)
-</code></pre>
-</blockquote>
-<p>什么叫虚悬镜像？</p>
-<p>仓库名、标签都是<none>的，俗称虚悬镜像，通常会把他删掉</none></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringBoot开发规范(二)</title>
-    <url>/2023/02/04/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-%E4%BA%8C/</url>
-    <content><![CDATA[<h3 id="PO即persistant-Object-持久对象："><a href="#PO即persistant-Object-持久对象：" class="headerlink" title="PO即persistant Object 持久对象："></a><strong>PO即persistant Object 持久对象：</strong></h3><p>&emsp;在O/R 映射（即ORM-ObjectRelationMapping）中出现的概念，通常对应数据模型（数据库），是与数据库汇总的表想影射的java对象，最简单的PO就是对应数据库中某个表中的一条记录，多个记录则用PO的集合。PO中不应该包含任何对数据库的操作。</p>
-<h3 id="DO即Domain-Object-领域对象："><a href="#DO即Domain-Object-领域对象：" class="headerlink" title="DO即Domain Object 领域对象："></a><strong>DO即Domain Object 领域对象：</strong></h3><p>&emsp;是从现实世界中抽象出来的有形或无形的业务实体。</p>
-<h3 id="TO即Transfer-Object数据传输对象："><a href="#TO即Transfer-Object数据传输对象：" class="headerlink" title="TO即Transfer Object数据传输对象："></a><strong>TO即Transfer Object数据传输对象：</strong></h3><p>&emsp;不同应用程序之间传输的对象</p>
-<h3 id="DTO即Data-Transfer-Object-数据传输对象："><a href="#DTO即Data-Transfer-Object-数据传输对象：" class="headerlink" title="DTO即Data Transfer Object:数据传输对象："></a><strong>DTO即Data Transfer Object:数据传输对象：</strong></h3><p>&emsp;泛指用于展示层与服务层之间的数据传输对象</p>
-<h3 id="VO即value-Object："><a href="#VO即value-Object：" class="headerlink" title="VO即value Object："></a><strong>VO即value Object：</strong></h3><p>&emsp;通常用于业务层之间的数据传递，和PO一样仅包含数据，但是抽象出的业务对象，可以和表对应，用new 关键字创建，GC回收</p>
-<h3 id="BO即Business-Object-业务对象"><a href="#BO即Business-Object-业务对象" class="headerlink" title="BO即Business Object 业务对象:"></a><strong>BO即Business Object 业务对象:</strong></h3><p>&emsp;主要是将业务逻辑封装为一个对象，这个对象可以包含一个或多个其他对象，如一个简历中包含教育经历、工作经历、社会关系等，可以将一个教育经历对应一个PO、工作经历对应一个PO、设计关系对应一个PO，然后简历一个对应简历的BO兑现处理简历，每个BO包含这个PO这样处理业务逻辑是，可以针对BO去处理。封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作。</p>
-<h3 id="POJO即Plain-Ordinary-Java-Object"><a href="#POJO即Plain-Ordinary-Java-Object" class="headerlink" title="POJO即Plain Ordinary Java Object:"></a><strong>POJO即Plain Ordinary Java Object:</strong></h3><p>&emsp;简单无规则的java对性，即在一些O/R 映射工具中，能做到维护数据库表记录的PO完全是一个符合Java Bean规范的纯java对象</p>
-]]></content>
-      <tags>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java基础</title>
     <url>/2023/02/01/Java%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<h2 id="Java基础（一）"><a href="#Java基础（一）" class="headerlink" title="Java基础（一）"></a>Java基础（一）</h2><h3 id="Java语言的特点："><a href="#Java语言的特点：" class="headerlink" title="Java语言的特点："></a>Java语言的特点：</h3><ul>
@@ -364,37 +308,63 @@ docker rmi -f $(docker images -qa)
 
 ]]></content>
       <tags>
-        <tag>八股文</tag>
         <tag>Java基础</tag>
       </tags>
   </entry>
   <entry>
-    <title>TCP、IP、DNS</title>
-    <url>/2022/01/16/TCP%E3%80%81IP%E3%80%81DNS/</url>
-    <content><![CDATA[<p>你好，我是小八，最近在备考，考试总算是结束了，终于可以放假，学习更多的技术了<del>干自己想干的事情了</del></p>
-<p>下面分享一些 IP、TCP、DNS 的基础知识点，大家可以看看，绝对通俗易懂！！！</p>
-<h1 id="与-HTTP-关系密切的协议：IP、TCP-和-DNS"><a href="#与-HTTP-关系密切的协议：IP、TCP-和-DNS" class="headerlink" title="与 HTTP 关系密切的协议：IP、TCP 和 DNS"></a>与 HTTP 关系密切的协议：IP、TCP 和 DNS</h1><h4 id="负责传输的-IP-协议："><a href="#负责传输的-IP-协议：" class="headerlink" title="负责传输的 IP 协议："></a>负责传输的 IP 协议：</h4><p>&emsp;&emsp;按层次分，IP（Internet Protocol）网际协议属于网络层。<strong>IP 地址</strong>和<strong>IP</strong>不同，“IP”其实就是一种协议的名称，即：网际协议。</p>
-<p>&emsp;&emsp;IP 协议作用：把各种<strong>数据包</strong>传送给对方，但是必须满足<strong>IP 地址</strong>和<strong>MAC 地址</strong>（Media Access Control Address）两个条件才能确实送到对方那里。</p>
-<p>&emsp;&emsp;<strong>IP 地址</strong>：节点被分配到的地址，</p>
-<p>&emsp;&emsp;<strong>MAC 地址</strong>：网卡所属的固定地址。</p>
-<p>&emsp;&emsp;<strong>注意：</strong> IP 地址可以变换，MAC 地址基本不变。</p>
-<p>&emsp;&emsp;IP 通信依赖 MAC 地址, 因为不同计算机之间通信时，通常是不在一个局域网(LAN)下，此时就需要多个中间计算机和设备（路由器等均可作为中转设备）进行中转，最后连接到你所需要连接的计算机，在中转的过程中，会利用到下一个中转设备的 MAC 地址来寻找到下一个中转目标。这下就要用到了<strong>ARP 协议</strong>(Address Resolution Protocol).</p>
-<p>&emsp;&emsp;<strong>ARP 协议：</strong> 一种解析地址的协议，根据对方的 IP 地址可以反查出对应的 MAC 地址。</p>
-<p>&emsp;&emsp;如果还是不懂的话，就拿快递公司的收发货方式来打一个比方吧，我们要是双十一买了东西（“东西”就是我们在网络上要传递给某个设备的信息），卖家需要把东西寄给我们（”我们“就是接收信息的设备），那么他们就会把自己的货物送到某快递的集散中心，然后集散中心通过核对收件人地址，来确定送到下一个集散中心（这里的“集散中心”就是类似于一个中转设备），最后到达离收件地址最近的集散中心之后，再送到我们手上（这时候就实现了发起设备和接收设备的信息传递）。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/ARP%E5%8D%8F%E8%AE%AE.png?versionId=CAEQGRiBgID_98q58hciIGU2NDAxY2JlNmQ5MzQ2YjViYzQyZTgyZTQ3NmI0ZDY1" alt="img"></p>
-<h4 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h4><p>&emsp;&emsp;TCP 和 UDP 都位于传输层，这个前面说过，其中 TCP 是用来提供可靠的字节流服务。</p>
-<p>&emsp;&emsp;其中 TCP 协议能够准确确定数据是否送达目标处，这样的实现的过程就是通过三次握手（three-way handshaking）策略，其中握手过程中使用了 TCP 的标志（flag）——ACK 和 SYN，原理如下：</p>
-<p>&emsp;&emsp;第一次由发起端首先发送一个 SYN 标志的数据包给接收端，第二次握手就是在接收端接收这个标志之后，接收端再反馈一个 SYN 和 ACK 的数据包给发起端，来表达自己已经接收到了发起端的请求，最后一次握手就是在收到接收端的确认信息之后，发起端回传一个 ACK 的数据包给接收端，代表“握手”结束。</p>
-<p>&emsp;&emsp;如果其中有某一次握手中断，那就会延续上一次握手进行重复的请求，但要是请求超时之后就会重新开始由发送端进行第一次握手。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png?versionId=CAEQGRiBgMDa98q58hciIGZjNTZlZWU4OWI1MzRjYjdhMDIyMzEzYWYyNWNiMGE2" alt="image-20211230200934379"></p>
-<h4 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h4><p>就是当你在访问某个网站的时候，会有一个网址(比如：<code>www.baidu.com</code>也就是此网站的域名)，而在访问某个计算机的时候也可以通过赋予此计算机一个域名，最后通过 DNS 解析域名来获取其 IP 地址，最后访问到此计算机。</p>
-<p>DNS 的作用便是通过域名查找对应的设备的 IP 地址，或者逆向从 IP 地址查域名的服务。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/DNS.png?versionId=CAEQGRiBgMDIlN658hciIGI1YTcxNDhjZjNlMjQxNTdiMTA1OTVkYjJjZjE5ODg5" alt="image-20211230202446976"></p>
-<hr>
-<p>你好，我是小八，一个分享学习经历和知识的在读大学生。</p>
+    <title>SpringBoot开发规范(二)</title>
+    <url>/2023/02/04/SpringBoot%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83-%E4%BA%8C/</url>
+    <content><![CDATA[<h3 id="PO即persistant-Object-持久对象："><a href="#PO即persistant-Object-持久对象：" class="headerlink" title="PO即persistant Object 持久对象："></a><strong>PO即persistant Object 持久对象：</strong></h3><p>&emsp;在O/R 映射（即ORM-ObjectRelationMapping）中出现的概念，通常对应数据模型（数据库），是与数据库汇总的表想影射的java对象，最简单的PO就是对应数据库中某个表中的一条记录，多个记录则用PO的集合。PO中不应该包含任何对数据库的操作。</p>
+<h3 id="DO即Domain-Object-领域对象："><a href="#DO即Domain-Object-领域对象：" class="headerlink" title="DO即Domain Object 领域对象："></a><strong>DO即Domain Object 领域对象：</strong></h3><p>&emsp;是从现实世界中抽象出来的有形或无形的业务实体。</p>
+<h3 id="TO即Transfer-Object数据传输对象："><a href="#TO即Transfer-Object数据传输对象：" class="headerlink" title="TO即Transfer Object数据传输对象："></a><strong>TO即Transfer Object数据传输对象：</strong></h3><p>&emsp;不同应用程序之间传输的对象</p>
+<h3 id="DTO即Data-Transfer-Object-数据传输对象："><a href="#DTO即Data-Transfer-Object-数据传输对象：" class="headerlink" title="DTO即Data Transfer Object:数据传输对象："></a><strong>DTO即Data Transfer Object:数据传输对象：</strong></h3><p>&emsp;泛指用于展示层与服务层之间的数据传输对象</p>
+<h3 id="VO即value-Object："><a href="#VO即value-Object：" class="headerlink" title="VO即value Object："></a><strong>VO即value Object：</strong></h3><p>&emsp;通常用于业务层之间的数据传递，和PO一样仅包含数据，但是抽象出的业务对象，可以和表对应，用new 关键字创建，GC回收</p>
+<h3 id="BO即Business-Object-业务对象"><a href="#BO即Business-Object-业务对象" class="headerlink" title="BO即Business Object 业务对象:"></a><strong>BO即Business Object 业务对象:</strong></h3><p>&emsp;主要是将业务逻辑封装为一个对象，这个对象可以包含一个或多个其他对象，如一个简历中包含教育经历、工作经历、社会关系等，可以将一个教育经历对应一个PO、工作经历对应一个PO、设计关系对应一个PO，然后简历一个对应简历的BO兑现处理简历，每个BO包含这个PO这样处理业务逻辑是，可以针对BO去处理。封装业务逻辑的java对象，通过调用DAO方法，结合PO,VO进行业务操作。</p>
+<h3 id="POJO即Plain-Ordinary-Java-Object"><a href="#POJO即Plain-Ordinary-Java-Object" class="headerlink" title="POJO即Plain Ordinary Java Object:"></a><strong>POJO即Plain Ordinary Java Object:</strong></h3><p>&emsp;简单无规则的java对性，即在一些O/R 映射工具中，能做到维护数据库表记录的PO完全是一个符合Java Bean规范的纯java对象</p>
 ]]></content>
       <tags>
-        <tag>计网</tag>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker使用</title>
+    <url>/2023/05/29/Docker%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h2 id="帮助启动类命令"><a href="#帮助启动类命令" class="headerlink" title="帮助启动类命令"></a>帮助启动类命令</h2><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/image-20230529235020493.png" alt="image-20230529235020493"></p>
+<h2 id="镜像命令"><a href="#镜像命令" class="headerlink" title="镜像命令"></a>镜像命令</h2><ul>
+<li>docker images</li>
+</ul>
+<blockquote>
+<p>罗列出docker的所有的镜像相关信息</p>
+</blockquote>
+<ul>
+<li>docker search 某个xxx镜像的名字</li>
+</ul>
+<blockquote>
+<p>在hub仓库查询是否有相关的镜像 –limit 默认罗列前25个</p>
+</blockquote>
+<ul>
+<li>docker pull 某个xxx镜像名[:tag]</li>
+</ul>
+<blockquote>
+<p>tag:表示版本号    </p>
+</blockquote>
+<ul>
+<li><p>docker system df 查看镜像/容器/数据卷所占空间</p>
+</li>
+<li><p>docker rmi 某个xxx镜像的id或者名字  -f强制删除</p>
+<blockquote>
+<p>docker rmi hello-world 或 docker rmi 9c7a54a9a43c<br>删除多个:</p>
+<pre><code>docker rmi -f 镜像名1:tag 镜像名2:tag....
+docker rmi -f $(docker images -qa)
+</code></pre>
+</blockquote>
+<p>什么叫虚悬镜像？</p>
+<p>仓库名、标签都是<none>的，俗称虚悬镜像，通常会把他删掉</none></p>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -443,220 +413,32 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
-    <title>SpringBoot开发规范（一）</title>
-    <url>/2022/11/21/springboot-levelFunction/</url>
-    <content><![CDATA[<h2 id="model（entity）"><a href="#model（entity）" class="headerlink" title="model（entity）"></a>model（entity）</h2><p>​        model是模型的意思，与entity、domain、pojo类似，是存放实体的类，类中定义了多个类属性，并与数据库表的字段保持一致，一张表对应一个model类。 主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p>
-<h2 id="dao（mapper）"><a href="#dao（mapper）" class="headerlink" title="dao（mapper）"></a>dao（mapper）</h2><p>​        又被成为mapper层，叫数据持久层，先设计接口，然后在配置文件中进行配置其实现的关联。 dao层的作用为访问数据库，向数据库发送sql语句，完成数据的增删改查任务。 数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate插入到数据库中</p>
-<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>​        业务逻辑层，完成功能的设计 和dao层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用dao层的接口进行业务逻辑应用的处理。 service的impl是把mapper和service进行整合的文件 封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p>
-<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>​        控制层，控制业务逻辑service，控制请求和响应，负责前后端交互 controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/2052481-20210417164128180-1418412203.png" alt="img"></p>
-]]></content>
-      <tags>
-        <tag>SpringBoot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>终于熬过来了！！！</title>
-    <url>/2022/01/06/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/</url>
-    <content><![CDATA[<p>大家好，我是小八，好久不见啊，我今天终于熬完了课设和汇编备考。</p>
-<p>现在来分享一下我的<strong>战斗经历</strong></p>
-<p>我们课设的小组成员由 5 个人组成：周**、小八、赵.**、陈**、曹**</p>
-<p>因为复习汇编的时间和课设的时间挤在了一起，导致我们寝室小组最近都经常肝到凌晨两三点，<strong>划重点：不建议学弟学妹们这么做！！！</strong> 属实很累。</p>
-<p>经过是这样的，我们小组确定的课设题目是 <strong>校园助手</strong> 。</p>
-<p>既然是校园助手，肯定得有查成绩、查课表、查地图、聊天、修改个人信息等功能，这样的话，因为我最近在学习前端，组长也在学习服务器开发，于是我们小组就一拍即合，做一个前后端分离的 demo，并且得有一个像校园助手的样子，自然就不能继续用控制台，用黑框框来展示我们的成果了，果断选择 QT 平台。</p>
-<p>毕竟要做，就要做一个牛逼的东西！！！先给你们看看登录界面的展示效果吧。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/mainwindow1.png?versionId=CAEQGRiBgID80f.28RciIGE4OWU3ZDI1OGJmNzRiNGM4ZjQ4ZjEwYzgzZGYyYWRj"></p>
-<p>下面的是我们客户端的图标，有没有想到湖工大考试平台的图标呢？？</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/myico.png?versionId=CAEQGRiBgIC7.ZS48RciIGZlZDVhM2MxYzE4NTRkNzliYjk2MjE5MjJlOTlhNTZm"></p>
-<p>这个界面看似简单，但实际上，后面很多的功能实现、界面跳转、跟服务器的数据请求以及初始化数据都是在这个界面的代码块进行实现，简简单单看看代码就知道了，这个 demo 好歹也是做了大半个月呢。</p>
-<p>截图如下：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/code.png?versionId=CAEQGRiBgMDPis.38RciIDhkMjgyM2UyMGQwMDQ1MWE5ZDA1NzZlMDhmMzBkMjBl"></p>
-<h2 id="最大瓶颈出现"><a href="#最大瓶颈出现" class="headerlink" title="最大瓶颈出现"></a>最大瓶颈出现</h2><p>而这也仅仅是主界面的一个很小的功能模块的代码块罢了，我还记得当时我们遇到的最大的一个瓶颈就是，实现两台不同设备之间的向服务器端发送请求，并且记录对方 IP，通过服务器作为中转站交互信息。我们小组一直在接触服务器开发的也就是我们的组长——周**，而我也最近才只是刚刚入门计网，我和他也只能仅仅讨论一下，解决的想法。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>遇到这个问题的时候，我和组长刚开始毫无思路，我就在一个在字节、腾讯、快手等大佬汇集的群里问一问经验和解决方案。</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat1.png?versionId=CAEQGRiBgIDF1f238RciIGRhYWEyMTc2MmZkNDQ3MDU4ZDQ0MjY1NWZkMTA1YTg5"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat2.png?versionId=CAEQGRiBgMDH1f238RciIDgwODZlMWU3NmRiMzRhY2NiZTAyNzM1ZGFkMzk1NWIx"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat3.png?versionId=CAEQGRiBgMDN1f238RciIDM1M2RkNWNlZWNhZjQ5YjJiMWMwNjE5YWEyMzc2Yjll"></p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat4.png?versionId=CAEQGRiBgMDZ1f238RciIDVmMGZkNmMyZWU4YjQwZWU5NmZkYzg0ZTdiNDYzMjBi"></p>
-<p>当时毕竟很晚了他们应该已经睡觉了，没有人回我，后来才回复了我。</p>
-<p>过了一会，我和组长突然想到了一个办法，那就是通过每个人的固定学号绑定到每个用户的 IP，并固定 IP，就是说等我们连接到服务器之后，再分别在 cmd 里面 ipconfig /all 一下两台设备的 IP，最后改一下服务器端的代码块里面的 IP 地址，岂不是走了一波小捷径？毕竟不知道怎么获取 IP 地址，并实时更新对应用户的 IP，因为 IP 一直是会更新的，一般随着路由的分配形成一个局域网，重连一次网络 DHCP 就会重新分配一次新的 IP，而且咱也实力有限,能想到这个想法，个人觉得已经很不错了。</p>
-<p>这虽然说是服务器端的任务，前端只需要直接从服务器获取数据就行了，但这样我对计网也有了更加深层次的了解，知道怎么在实际需求中，进行构思解决方案，并且我还发现，后端要跟着前端的需求走，前端需要什么，后端就得实时进行更新并处理数据，所以感觉后端好惨。</p>
-<blockquote>
-<p><strong>划重点</strong>：以后还是要转后端学习的我，先让组长替我受受苦吧，hhhhhhhh。</p>
-</blockquote>
-<p>当然当时这个 demo 的问题还有很多，比如，修改个人信息栏如何实现<strong>换行</strong>，而不是在一行里面显示，导致显示溢出的问题，当时不知道怎么解决，我就写了一个判断语句，来控制那个信息栏输入字符长度，让个人信息就显示在一行，但不会溢出，就类似于 QQ 个性签名文字个数限制一样。</p>
-<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>刚刚介绍的只是我们前后端交互当时遇到的一个最大的问题，而我们前端，当时有很多功能，比如：登录，注册，修改密码，显示课程表，班级成员成绩等，都需要从后端获取相应的数据之后，在前端进行逻辑实现，并反馈给服务器。</p>
-<p>比如：你在登录的时候，需要输入账号密码之后，将用户数据发送到服务器进行用户信息的遍历，找到是否有匹配的用户，如果没有，那么服务器就会反馈 NO 的信息给前端，自然也就登录不进去，如果有，那么反馈给前端一个 YES，则就能登入客户端，进行查看课表、查成绩等功能。</p>
-<p>登录失败前端反馈如下图：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logNO.png?versionId=CAEQGRiBgMCW9MO48RciIDdmYjJkYzU4YTZlNjQ1YmU5ZDA5OGEwM2M1NjRjN2Jm"></p>
-<p>登录成功便进入此界面：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logYES.png?versionId=CAEQGRiBgMCX9MO48RciIDJlN2VmOGNjOWJkYjQ4YjU4MGI3MjA3Y2E3ZTM3NGJl"></p>
-<p>服务器这边的反馈信息如下：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/houduan.png?versionId=CAEQGRiBgIC368q48RciIDQzOThjZDE3OTNiMDRkNGNhZWI0NjdjOTIwYzc2MTlk"></p>
-<p>有一说一，看到这个后端是不是觉得很牛逼，我也确实佩服我的组长，一个人能完成所有的前端发来的数据处理，在下属实佩服，不知道你们怎么觉得，反正我还很菜，目前还做不出来一个服务器。</p>
-<p>当然还有其他的功能，我就不一一展示了，比如：注册、修改个人信息、忘记密码、展示工大地图、查询成绩等。都是其他小组成员分别负责的几个小模块。</p>
-<p>这里科普一下：只要服务器一开，我们打开客户端的时候，对服务器就会<strong>三次握手</strong>发送连接请求（有兴趣的小伙伴可以去了解一下）。</p>
-<h2 id="答辩过程"><a href="#答辩过程" class="headerlink" title="答辩过程"></a>答辩过程</h2><p>昨天上午我们找到老师进行了答辩，而且我们小组因为敢于尝试 QT 平台和实现了前后端分离，小组成绩获得了所有小组中的最高分</p>
-<p>还记得当时有挺多人来围观我们的课设，小组成员在答辩的时候附近声音属实嘈杂。</p>
-<p>当组长答辩完他写的服务器之后，便到我进行对自己的功能模块的答辩了，首先我对老师介绍了我的功能模块，能够实现什么？能够干些什么？</p>
-<p>我的解答就是，我的负责的模块可以分为三大块：</p>
-<h4 id="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）"><a href="#1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）" class="headerlink" title="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）"></a>1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）</h4><p>比如这一块就是通过信号和槽来实现对数据传递，并跳转出成绩查询窗口。</p>
-<p>代码如下：</p>
-<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">void MainWindow1::<span class="built_in">on_serch_clicked</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">connect</span>(dialog1, SIGNAL(sendNum(QString)), this, <span class="built_in">SLOT</span>(getNum(QString)));</span><br><span class="line">    <span class="comment">//查询成绩</span></span><br><span class="line">    dialog1-&gt;<span class="built_in">setModal</span>(true);</span><br><span class="line">    dialog1-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="2、在主窗口对服务器发送数据，接收服务器数据"><a href="#2、在主窗口对服务器发送数据，接收服务器数据" class="headerlink" title="2、在主窗口对服务器发送数据，接收服务器数据"></a>2、在主窗口对服务器发送数据，接收服务器数据</h4><p>比如下面的代码就是登录之后，将登录用户数据发送给服务器。</p>
-<p>代码如下：</p>
-<figure class="highlight xl"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">this</span>-&gt;</span><span class="function"><span class="title">clint_Login</span>-&gt;</span>write(user_msg);</span><br></pre></td></tr></table></figure>
-
-<h4 id="3、登录功能、课表的查询展示"><a href="#3、登录功能、课表的查询展示" class="headerlink" title="3、登录功能、课表的查询展示"></a>3、登录功能、课表的查询展示</h4><p>介绍完之后，老师问了我一个问题，下面的代码是什么意思：</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">QJsonDocument <span class="attr">doc</span> <span class="operator">=</span> QJsonDocument::fromJson(UserInfo, <span class="variable">&amp;json_error</span>)<span class="punctuation">;</span></span><br></pre></td></tr></table></figure>
-
-<p>我的回答无疑就是解释它的是怎么用的，通过定义一个QJsonDocument的 doc 对象，把 userinfo 里面的信息进行解析出来获取数据放到 doc 中。</p>
-<p>毕竟当时是一边学 QT 一边做的，并不是很了解深层原理，也就只好这么回答了。但老师好像就是要我剖析它的深层原理，对我的答案，并不是很满意，只怪自己当初并没有花更多的时间去研究 QT 吧。</p>
-<p>再就是问了一下我的课表是怎么实现的，实现代码在哪？</p>
-<p>我的回答就是，其实真的很简单，就是一个插图的办法实现的，通过 new 一个课表类的对象 Class_Schedule 初始化课表，再进行窗口模糊 setModal 和窗口展示 show 进行实现。</p>
-<p>跳转代码段如下：</p>
-<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">void</span> <span class="variable">MainWindow1</span>::<span class="function"><span class="title">on_scotmtb_clicked</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">Class_Schedule</span>-&gt;<span class="function"><span class="title">setModal</span>(<span class="variable"><span class="literal">true</span></span>);</span></span><br><span class="line"><span class="function">    <span class="variable">Class_Schedule</span>-&gt;<span class="title">show</span>();</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>不过这有很大<strong>局限性</strong>：因为只能查到自己班的课表。嘻嘻嘻~</p>
-<p>我的课设答辩差不多就这样结束了。</p>
-<p>不过当时有一个学生在那里跟我们的课设指指点点，我当时就在想：能不能尊重一下我？是我在答辩，不是你！你当你能像毛主席一样指点江山？</p>
-<p>希望关注我的小伙伴们以后不会遇到这种人。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>说了这么多，总结以下几点：</p>
-<p>1、前后端分离，能改善修改代码的效率，不会因为一个小 bug，去修改一整片的代码，从而提高了功能更新的效率。</p>
-<p>2、少熬夜，熬夜伤身。（在这里再立一个 flag，2022 年不仅要好好学习技术，还得少熬夜，跟以前一样 11 点之前就睡觉，没事多锻炼一下身体。）</p>
-<p>3、bug 常常有，有时候一个 bug 一天都修复不了很正常，慢慢去想就行了，不要急躁，切记，敲代码务必要戒骄戒躁。</p>
-<p>4、不知道某个瓶颈怎么解决，可以换一种思路或者方式去解决这个问题，多和同学讨论，或者像大佬请教，上百度找教程等等。<strong>（忌:ctrl c + ctrl v）</strong></p>
-<p>5、最近计网的知识，能够在实际应用中想到相应的解决方案，并跟组员一同分享。</p>
-<p>6、不足就是，组员中除了我都不会用 Git，不然能更高效率实现各功能模块代码的合并，减少很多不必要的麻烦。</p>
-]]></content>
-      <tags>
-        <tag>程序人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识TCP/IP协议族</title>
-    <url>/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/</url>
-    <content><![CDATA[<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP%20IP%E5%8D%8F%E8%AE%AE%E6%97%8F.png?versionId=CAEQGRiBgMDG4eKp8BciIDc4YjRlNWZiOTUwNzRlNGY5OTFiNmQzYjBlZWZkODRk"></p>
-<p>&emsp;  你好，我是小八。今天我们来讲一下TCP/IP协议族。</p>
-<h2 id="初识TCP-IP协议族"><a href="#初识TCP-IP协议族" class="headerlink" title="初识TCP/IP协议族"></a>初识TCP/IP协议族</h2><p>&emsp; HTTP属于TCP/IP的一个子类，通常使用的网络（包括互联网）都是在TCP/IP协议族的基础上运作。</p>
-<h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h3><p>&emsp;计算机网络设备之间进行信息交互就需要基于相同的方法或者说是同一种协议才能进行通信。就比如：我们需要进行通信的时候，就需要知道如何探测到通信的目标、从哪一边开始发起通信请求、使用什么语言通信、怎么结束通信请求等所制定的规则，便被成为协议（protocol）。</p>
-<p>&emsp;<strong>而TCP/IP协议族就是互联网相关的各类协议族的总称。</strong>对于TCP/IP协议族，通常有两种说法，一是指TCP和IP这两种协议，二是指TCP/IP在IP协议的通信中，使用到的协议族的统称。</p>
-<p>TCP/IP协议族如下图：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%97%8F%E7%BE%A4%E5%9B%BE.png?versionId=CAEQGRiBgIDE4eKp8BciIDdkZjU1ZTAzOTEzYTQ3ZWFhY2IxMzIyMTU5OTNlMjBi" alt="image-20211230151831761"></p>
-<h3 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h3><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/TCP%20IP%E5%88%86%E5%B1%82%E7%AE%A1%E7%90%86.png?versionId=CAEQGRiBgICU4eKp8BciIGU0OTczOWY0YmE5YjRjYmRhMjRiNTdhOGUwOTAzOTEz" alt="image-20211230151253140"></p>
-<p>&emsp;协议族通过分层化，可以高效管理改变不同层次设计的任务，把每个层次之间的不同接口规划好之后，每个层次的内部设计也可以自由改动，而不需要替换所有部分整体。</p>
-<p>&emsp;<strong>应用层：</strong></p>
-<p>&emsp;&emsp;预存各类通用的应用服务，决定了向用户提供应用服务时通信的活动。其中HTTP（超文本传输协议）、FTP（文件传输协议）、DNS（域名协议）等服务在此层</p>
-<p>&emsp;<strong>传输层：</strong></p>
-<p>&emsp;&emsp;对应用层提供处于<strong>网络连接中</strong>的两台计算机的<strong>数据传输</strong>。在此层中有两种不同性质的协议：TCP（传输控制协议）和UDP（用户数据报协议）</p>
-<p>&emsp;<strong>网络层：</strong></p>
-<p>&emsp;&emsp;用来处理在网络上流动的数据包，该层规定与对方计算机进行传输时，通过选择某一种路径（或者说是某一条传输路线）到达对方计算机，并且把数据包传给对方。因此此层又被称为<strong>网络互连层</strong>。</p>
-<p>&emsp;&emsp;<strong>数据包</strong>是网络传输的最小数据单位。</p>
-<p>&emsp;<strong>链路层：</strong></p>
-<p>&emsp;&emsp;用来处理连接网络的硬件部分的层次，包括控制操作系统，硬件设备驱动，NIC（网络适配器，即网卡）等一系列可见的物理传输硬件设备（媒介）。</p>
-<h3 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h3><p>xxxxxxxxxx class Solution {    public boolean isPalindrome(int x) {        // 特殊情况：        // 如上所述，当 x &lt; 0 时，x 不是回文数。        // 同样地，如果数字的最后一位是 0，为了使该数字为回文，        // 则其第一位数字也应该是 0        // 只有 0 满足这一属性        if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) {            return false;        }​        int revertedNumber = 0;        while (x &gt; revertedNumber) {            revertedNumber = revertedNumber * 10 + x % 10;            x /= 10;        }​        // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。        // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，        // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。        return x == revertedNumber || x == revertedNumber / 10;    }}​作者：力扣官方题解链接：<a href="https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%8A%9B%E6%89%A3%EF%BC%88LeetCode%EF%BC%89%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82java">https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/来源：力扣（LeetCode）著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。java</a></p>
-<p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
-<p>&emsp;发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。 这种把数据信息包装起来的做法称为<strong>封装（encapsulate）</strong>（就类似于C++类的使用，将类中的成员和数据进行封装）。下图为例：</p>
-<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE2.png?versionId=CAEQGRiBgICx4eKp8BciIDIzNDlkYjhjYWM1YjQyYTRiNTVjOTk4NmVhYmE0YWEz" alt="image-20211230160020206"></p>
-<p>&emsp;</p>
+    <title>TCP、IP、DNS</title>
+    <url>/2022/01/16/TCP%E3%80%81IP%E3%80%81DNS/</url>
+    <content><![CDATA[<p>你好，我是小八，最近在备考，考试总算是结束了，终于可以放假，学习更多的技术了<del>干自己想干的事情了</del></p>
+<p>下面分享一些 IP、TCP、DNS 的基础知识点，大家可以看看，绝对通俗易懂！！！</p>
+<h1 id="与-HTTP-关系密切的协议：IP、TCP-和-DNS"><a href="#与-HTTP-关系密切的协议：IP、TCP-和-DNS" class="headerlink" title="与 HTTP 关系密切的协议：IP、TCP 和 DNS"></a>与 HTTP 关系密切的协议：IP、TCP 和 DNS</h1><h4 id="负责传输的-IP-协议："><a href="#负责传输的-IP-协议：" class="headerlink" title="负责传输的 IP 协议："></a>负责传输的 IP 协议：</h4><p>&emsp;&emsp;按层次分，IP（Internet Protocol）网际协议属于网络层。<strong>IP 地址</strong>和<strong>IP</strong>不同，“IP”其实就是一种协议的名称，即：网际协议。</p>
+<p>&emsp;&emsp;IP 协议作用：把各种<strong>数据包</strong>传送给对方，但是必须满足<strong>IP 地址</strong>和<strong>MAC 地址</strong>（Media Access Control Address）两个条件才能确实送到对方那里。</p>
+<p>&emsp;&emsp;<strong>IP 地址</strong>：节点被分配到的地址，</p>
+<p>&emsp;&emsp;<strong>MAC 地址</strong>：网卡所属的固定地址。</p>
+<p>&emsp;&emsp;<strong>注意：</strong> IP 地址可以变换，MAC 地址基本不变。</p>
+<p>&emsp;&emsp;IP 通信依赖 MAC 地址, 因为不同计算机之间通信时，通常是不在一个局域网(LAN)下，此时就需要多个中间计算机和设备（路由器等均可作为中转设备）进行中转，最后连接到你所需要连接的计算机，在中转的过程中，会利用到下一个中转设备的 MAC 地址来寻找到下一个中转目标。这下就要用到了<strong>ARP 协议</strong>(Address Resolution Protocol).</p>
+<p>&emsp;&emsp;<strong>ARP 协议：</strong> 一种解析地址的协议，根据对方的 IP 地址可以反查出对应的 MAC 地址。</p>
+<p>&emsp;&emsp;如果还是不懂的话，就拿快递公司的收发货方式来打一个比方吧，我们要是双十一买了东西（“东西”就是我们在网络上要传递给某个设备的信息），卖家需要把东西寄给我们（”我们“就是接收信息的设备），那么他们就会把自己的货物送到某快递的集散中心，然后集散中心通过核对收件人地址，来确定送到下一个集散中心（这里的“集散中心”就是类似于一个中转设备），最后到达离收件地址最近的集散中心之后，再送到我们手上（这时候就实现了发起设备和接收设备的信息传递）。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/ARP%E5%8D%8F%E8%AE%AE.png?versionId=CAEQGRiBgID_98q58hciIGU2NDAxY2JlNmQ5MzQ2YjViYzQyZTgyZTQ3NmI0ZDY1" alt="img"></p>
+<h4 id="确保可靠性的-TCP-协议"><a href="#确保可靠性的-TCP-协议" class="headerlink" title="确保可靠性的 TCP 协议"></a>确保可靠性的 TCP 协议</h4><p>&emsp;&emsp;TCP 和 UDP 都位于传输层，这个前面说过，其中 TCP 是用来提供可靠的字节流服务。</p>
+<p>&emsp;&emsp;其中 TCP 协议能够准确确定数据是否送达目标处，这样的实现的过程就是通过三次握手（three-way handshaking）策略，其中握手过程中使用了 TCP 的标志（flag）——ACK 和 SYN，原理如下：</p>
+<p>&emsp;&emsp;第一次由发起端首先发送一个 SYN 标志的数据包给接收端，第二次握手就是在接收端接收这个标志之后，接收端再反馈一个 SYN 和 ACK 的数据包给发起端，来表达自己已经接收到了发起端的请求，最后一次握手就是在收到接收端的确认信息之后，发起端回传一个 ACK 的数据包给接收端，代表“握手”结束。</p>
+<p>&emsp;&emsp;如果其中有某一次握手中断，那就会延续上一次握手进行重复的请求，但要是请求超时之后就会重新开始由发送端进行第一次握手。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png?versionId=CAEQGRiBgMDa98q58hciIGZjNTZlZWU4OWI1MzRjYjdhMDIyMzEzYWYyNWNiMGE2" alt="image-20211230200934379"></p>
+<h4 id="负责域名解析的-DNS-服务"><a href="#负责域名解析的-DNS-服务" class="headerlink" title="负责域名解析的 DNS 服务"></a>负责域名解析的 DNS 服务</h4><p>就是当你在访问某个网站的时候，会有一个网址(比如：<code>www.baidu.com</code>也就是此网站的域名)，而在访问某个计算机的时候也可以通过赋予此计算机一个域名，最后通过 DNS 解析域名来获取其 IP 地址，最后访问到此计算机。</p>
+<p>DNS 的作用便是通过域名查找对应的设备的 IP 地址，或者逆向从 IP 地址查域名的服务。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/IP%E3%80%81TCP%E5%92%8CDNS/DNS.png?versionId=CAEQGRiBgMDIlN658hciIGI1YTcxNDhjZjNlMjQxNTdiMTA1OTVkYjJjZjE5ODg5" alt="image-20211230202446976"></p>
+<hr>
+<p>你好，我是小八，一个分享学习经历和知识的在读大学生。</p>
 ]]></content>
       <tags>
         <tag>计网</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之两数之和</title>
-    <url>/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
-    <content><![CDATA[<blockquote>
-<p>Problem: <a href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和</a></p>
-</blockquote>
-<p>[TOC]</p>
-<h1 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h1><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20221026204201974.png" alt="两数之和"></p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
-<p>看到这一题我首先想到的就是通过类似于冒泡排序的思想，通过两个for循环对数组里面的值进行一一相加并跟target进行比较，如果值等于target那么就返回，否则就进行下一次循环，也就是所谓的暴力解法，不过这样真的非常损耗时间复杂度</p>
-</blockquote>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
-<p>这里面要注意的是，同一个数x不能进行重复相加，那么就需要我们进行一一枚举，即在数组nums中寻找中有没有一个数是target - x，且当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。如果找到了这个target - x则返回x和target - x的下标index即可</p>
-</blockquote>
-<p>代码</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p> $O(N2)$</p>
-</blockquote>
-</li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p> $O(1)$</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之两数相加</title>
-    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
-    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
-<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
-<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
-<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[2,4,3]</span>, l2 = <span class="comment">[5,6,4]</span></span><br><span class="line">输出：<span class="comment">[7,0,8]</span></span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[0]</span>, l2 = <span class="comment">[0]</span></span><br><span class="line">输出：<span class="comment">[0]</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">输入：l1 = [<span class="number">9,9,9,9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>], l2 = [<span class="number">9,9,9,9</span>]</span><br><span class="line">输出：[<span class="number">8,9,9,9</span>,<span class="number">0,0,0,1</span>]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
-<li><code>0 &lt;= Node.val &lt;= 9</code></li>
-<li>题目数据保证列表表示的数字不含前导零</li>
-</ul>
-<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">carry</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//进位数字</span></span><br><span class="line">        <span class="comment">//定义一个可移动的指针，用来指向存储两个数之和的位置</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">         <span class="comment">//定义一个新联表伪指针，用来指向头指针，返回结果</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> cur;</span><br><span class="line">        <span class="comment">//当l1 不等于null或l2 不等于空时，就进入循环</span></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">null</span> || l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//如果l1 不等于null时，就取他的值，等于null时，就赋值0，保持两个链表具有相同的位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> l1 == <span class="literal">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> l2 == <span class="literal">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            <span class="comment">//将两个链表的值，进行相加，并加上进位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + carry;</span><br><span class="line">            <span class="comment">//计算进位数</span></span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//计算两个数的和，此时排除超过10的请况（大于10，取余数）</span></span><br><span class="line">            sum %= <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//将求和数赋值给新链表的节点，</span></span><br><span class="line">            <span class="comment">//注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。</span></span><br><span class="line">            <span class="comment">//所以这个时候要创一个新的节点，将值赋予节点</span></span><br><span class="line">            cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(sum);</span><br><span class="line">             <span class="comment">//将新链表的节点后移</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="comment">//当链表l1不等于null的时候，将l1 的节点后移</span></span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="literal">null</span>)&#123;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果最后两个数，相加的时候有进位数的时候，就将进位数，赋予链表的新节点。</span></span><br><span class="line">        	<span class="comment">//两数相加最多小于20，所以的的值最大只能时1</span></span><br><span class="line">            <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(carry);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回链表的头节点</span></span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>力扣刷题之回文数</title>
-    <url>/2022/10/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%9B%9E%E6%96%87%E6%95%B0/</url>
-    <content><![CDATA[<blockquote>
-<p>Problem: <a href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数</a></p>
-</blockquote>
-<p>[TOC]</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
-<p>看到这题的第一想法就是把数字x进行反转得到数字reverse，然后与x进行比较是否相等即可，刚开始我想的是把数字转成字符串然后使用反转函数直接反转，最后使用eqauls方法进行比较即可，但是我忘记了怎么将数字转换成String类型的字符串。后来遍知道一个数一个数字进行翻转</p>
-</blockquote>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
-<p>由题可知x&lt;0的时候因为含有负号，故所有小于0的数都不是回文数，直接return false即可，x&gt;0的时候，我用一个temp表示x翻转后的数字，num用于x逐一翻转，直到num/10==0的时候说明翻转完成，得到的结果return num == x的结果即可。</p>
-</blockquote>
-<p>但是，看了题解之后我发现其实翻转一半就行了，就算是奇数个位数，最后return reverse/10 == x即可</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p>O(logn)</p>
-</blockquote>
-</li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p>O(1)</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> x;</span><br><span class="line">            <span class="keyword">while</span>(num!=<span class="number">0</span>)&#123;</span><br><span class="line">                temp = temp*<span class="number">10</span>+num%<span class="number">10</span>;</span><br><span class="line">                num = num/<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x == temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="comment">// 特殊情况：</span></span><br><span class="line">        <span class="comment">// 如上所述，当 x &lt; 0 时，x 不是回文数。</span></span><br><span class="line">        <span class="comment">// 同样地，如果数字的最后一位是 0，为了使该数字为回文，</span></span><br><span class="line">        <span class="comment">// 则其第一位数字也应该是 0</span></span><br><span class="line">        <span class="comment">// 只有 0 满足这一属性</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">revertedNumber</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。</span></span><br><span class="line">        <span class="comment">// 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，</span></span><br><span class="line">        <span class="comment">// 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。</span></span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：力扣官方题解</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -1470,26 +1252,217 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
-    <title>力扣刷题之无重复字符的最长子串</title>
-    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
-    <content><![CDATA[<h2 id="题目如下"><a href="#题目如下" class="headerlink" title="题目如下"></a>题目如下</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;abcabcbb&quot;</span></span><br><span class="line"><span class="section">输出: 3 </span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span></span><br></pre></td></tr></table></figure>
+    <title>终于熬过来了！！！</title>
+    <url>/2022/01/06/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/</url>
+    <content><![CDATA[<p>大家好，我是小八，好久不见啊，我今天终于熬完了课设和汇编备考。</p>
+<p>现在来分享一下我的<strong>战斗经历</strong></p>
+<p>我们课设的小组成员由 5 个人组成：周**、小八、赵.**、陈**、曹**</p>
+<p>因为复习汇编的时间和课设的时间挤在了一起，导致我们寝室小组最近都经常肝到凌晨两三点，<strong>划重点：不建议学弟学妹们这么做！！！</strong> 属实很累。</p>
+<p>经过是这样的，我们小组确定的课设题目是 <strong>校园助手</strong> 。</p>
+<p>既然是校园助手，肯定得有查成绩、查课表、查地图、聊天、修改个人信息等功能，这样的话，因为我最近在学习前端，组长也在学习服务器开发，于是我们小组就一拍即合，做一个前后端分离的 demo，并且得有一个像校园助手的样子，自然就不能继续用控制台，用黑框框来展示我们的成果了，果断选择 QT 平台。</p>
+<p>毕竟要做，就要做一个牛逼的东西！！！先给你们看看登录界面的展示效果吧。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/mainwindow1.png?versionId=CAEQGRiBgID80f.28RciIGE4OWU3ZDI1OGJmNzRiNGM4ZjQ4ZjEwYzgzZGYyYWRj"></p>
+<p>下面的是我们客户端的图标，有没有想到湖工大考试平台的图标呢？？</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/myico.png?versionId=CAEQGRiBgIC7.ZS48RciIGZlZDVhM2MxYzE4NTRkNzliYjk2MjE5MjJlOTlhNTZm"></p>
+<p>这个界面看似简单，但实际上，后面很多的功能实现、界面跳转、跟服务器的数据请求以及初始化数据都是在这个界面的代码块进行实现，简简单单看看代码就知道了，这个 demo 好歹也是做了大半个月呢。</p>
+<p>截图如下：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/code.png?versionId=CAEQGRiBgMDPis.38RciIDhkMjgyM2UyMGQwMDQ1MWE5ZDA1NzZlMDhmMzBkMjBl"></p>
+<h2 id="最大瓶颈出现"><a href="#最大瓶颈出现" class="headerlink" title="最大瓶颈出现"></a>最大瓶颈出现</h2><p>而这也仅仅是主界面的一个很小的功能模块的代码块罢了，我还记得当时我们遇到的最大的一个瓶颈就是，实现两台不同设备之间的向服务器端发送请求，并且记录对方 IP，通过服务器作为中转站交互信息。我们小组一直在接触服务器开发的也就是我们的组长——周**，而我也最近才只是刚刚入门计网，我和他也只能仅仅讨论一下，解决的想法。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>遇到这个问题的时候，我和组长刚开始毫无思路，我就在一个在字节、腾讯、快手等大佬汇集的群里问一问经验和解决方案。</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat1.png?versionId=CAEQGRiBgIDF1f238RciIGRhYWEyMTc2MmZkNDQ3MDU4ZDQ0MjY1NWZkMTA1YTg5"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat2.png?versionId=CAEQGRiBgMDH1f238RciIDgwODZlMWU3NmRiMzRhY2NiZTAyNzM1ZGFkMzk1NWIx"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat3.png?versionId=CAEQGRiBgMDN1f238RciIDM1M2RkNWNlZWNhZjQ5YjJiMWMwNjE5YWEyMzc2Yjll"></p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/chat4.png?versionId=CAEQGRiBgMDZ1f238RciIDVmMGZkNmMyZWU4YjQwZWU5NmZkYzg0ZTdiNDYzMjBi"></p>
+<p>当时毕竟很晚了他们应该已经睡觉了，没有人回我，后来才回复了我。</p>
+<p>过了一会，我和组长突然想到了一个办法，那就是通过每个人的固定学号绑定到每个用户的 IP，并固定 IP，就是说等我们连接到服务器之后，再分别在 cmd 里面 ipconfig /all 一下两台设备的 IP，最后改一下服务器端的代码块里面的 IP 地址，岂不是走了一波小捷径？毕竟不知道怎么获取 IP 地址，并实时更新对应用户的 IP，因为 IP 一直是会更新的，一般随着路由的分配形成一个局域网，重连一次网络 DHCP 就会重新分配一次新的 IP，而且咱也实力有限,能想到这个想法，个人觉得已经很不错了。</p>
+<p>这虽然说是服务器端的任务，前端只需要直接从服务器获取数据就行了，但这样我对计网也有了更加深层次的了解，知道怎么在实际需求中，进行构思解决方案，并且我还发现，后端要跟着前端的需求走，前端需要什么，后端就得实时进行更新并处理数据，所以感觉后端好惨。</p>
+<blockquote>
+<p><strong>划重点</strong>：以后还是要转后端学习的我，先让组长替我受受苦吧，hhhhhhhh。</p>
+</blockquote>
+<p>当然当时这个 demo 的问题还有很多，比如，修改个人信息栏如何实现<strong>换行</strong>，而不是在一行里面显示，导致显示溢出的问题，当时不知道怎么解决，我就写了一个判断语句，来控制那个信息栏输入字符长度，让个人信息就显示在一行，但不会溢出，就类似于 QQ 个性签名文字个数限制一样。</p>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p>刚刚介绍的只是我们前后端交互当时遇到的一个最大的问题，而我们前端，当时有很多功能，比如：登录，注册，修改密码，显示课程表，班级成员成绩等，都需要从后端获取相应的数据之后，在前端进行逻辑实现，并反馈给服务器。</p>
+<p>比如：你在登录的时候，需要输入账号密码之后，将用户数据发送到服务器进行用户信息的遍历，找到是否有匹配的用户，如果没有，那么服务器就会反馈 NO 的信息给前端，自然也就登录不进去，如果有，那么反馈给前端一个 YES，则就能登入客户端，进行查看课表、查成绩等功能。</p>
+<p>登录失败前端反馈如下图：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logNO.png?versionId=CAEQGRiBgMCW9MO48RciIDdmYjJkYzU4YTZlNjQ1YmU5ZDA5OGEwM2M1NjRjN2Jm"></p>
+<p>登录成功便进入此界面：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/logYES.png?versionId=CAEQGRiBgMCX9MO48RciIDJlN2VmOGNjOWJkYjQ4YjU4MGI3MjA3Y2E3ZTM3NGJl"></p>
+<p>服务器这边的反馈信息如下：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/c-%E8%AF%BE%E8%AE%BE%E5%92%8C%E6%B1%87%E7%BC%96/houduan.png?versionId=CAEQGRiBgIC368q48RciIDQzOThjZDE3OTNiMDRkNGNhZWI0NjdjOTIwYzc2MTlk"></p>
+<p>有一说一，看到这个后端是不是觉得很牛逼，我也确实佩服我的组长，一个人能完成所有的前端发来的数据处理，在下属实佩服，不知道你们怎么觉得，反正我还很菜，目前还做不出来一个服务器。</p>
+<p>当然还有其他的功能，我就不一一展示了，比如：注册、修改个人信息、忘记密码、展示工大地图、查询成绩等。都是其他小组成员分别负责的几个小模块。</p>
+<p>这里科普一下：只要服务器一开，我们打开客户端的时候，对服务器就会<strong>三次握手</strong>发送连接请求（有兴趣的小伙伴可以去了解一下）。</p>
+<h2 id="答辩过程"><a href="#答辩过程" class="headerlink" title="答辩过程"></a>答辩过程</h2><p>昨天上午我们找到老师进行了答辩，而且我们小组因为敢于尝试 QT 平台和实现了前后端分离，小组成绩获得了所有小组中的最高分</p>
+<p>还记得当时有挺多人来围观我们的课设，小组成员在答辩的时候附近声音属实嘈杂。</p>
+<p>当组长答辩完他写的服务器之后，便到我进行对自己的功能模块的答辩了，首先我对老师介绍了我的功能模块，能够实现什么？能够干些什么？</p>
+<p>我的解答就是，我的负责的模块可以分为三大块：</p>
+<h4 id="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）"><a href="#1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转-（QT-自带的信号，槽函数进行实现）" class="headerlink" title="1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）"></a>1、窗口（mainwidow）、对话框（dialog）、按钮（button）之间的跳转 （QT 自带的信号，槽函数进行实现）</h4><p>比如这一块就是通过信号和槽来实现对数据传递，并跳转出成绩查询窗口。</p>
+<p>代码如下：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line">void MainWindow1::<span class="built_in">on_serch_clicked</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">connect</span>(dialog1, SIGNAL(sendNum(QString)), this, <span class="built_in">SLOT</span>(getNum(QString)));</span><br><span class="line">    <span class="comment">//查询成绩</span></span><br><span class="line">    dialog1-&gt;<span class="built_in">setModal</span>(true);</span><br><span class="line">    dialog1-&gt;<span class="built_in">show</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 2:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;bbbbb&quot;</span></span><br><span class="line"><span class="section">输出: 1</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、在主窗口对服务器发送数据，接收服务器数据"><a href="#2、在主窗口对服务器发送数据，接收服务器数据" class="headerlink" title="2、在主窗口对服务器发送数据，接收服务器数据"></a>2、在主窗口对服务器发送数据，接收服务器数据</h4><p>比如下面的代码就是登录之后，将登录用户数据发送给服务器。</p>
+<p>代码如下：</p>
+<figure class="highlight xl"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">this</span>-&gt;</span><span class="function"><span class="title">clint_Login</span>-&gt;</span>write(user_msg);</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 3:</strong></p>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;pwwkew&quot;</span></span><br><span class="line"><span class="section">输出: 3</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span></span><br><span class="line">     请注意，你的答案必须是 子串 的长度，<span class="string">&quot;pwke&quot;</span> 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+<h4 id="3、登录功能、课表的查询展示"><a href="#3、登录功能、课表的查询展示" class="headerlink" title="3、登录功能、课表的查询展示"></a>3、登录功能、课表的查询展示</h4><p>介绍完之后，老师问了我一个问题，下面的代码是什么意思：</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line">QJsonDocument <span class="attr">doc</span> <span class="operator">=</span> QJsonDocument::fromJson(UserInfo, <span class="variable">&amp;json_error</span>)<span class="punctuation">;</span></span><br></pre></td></tr></table></figure>
+
+<p>我的回答无疑就是解释它的是怎么用的，通过定义一个QJsonDocument的 doc 对象，把 userinfo 里面的信息进行解析出来获取数据放到 doc 中。</p>
+<p>毕竟当时是一边学 QT 一边做的，并不是很了解深层原理，也就只好这么回答了。但老师好像就是要我剖析它的深层原理，对我的答案，并不是很满意，只怪自己当初并没有花更多的时间去研究 QT 吧。</p>
+<p>再就是问了一下我的课表是怎么实现的，实现代码在哪？</p>
+<p>我的回答就是，其实真的很简单，就是一个插图的办法实现的，通过 new 一个课表类的对象 Class_Schedule 初始化课表，再进行窗口模糊 setModal 和窗口展示 show 进行实现。</p>
+<p>跳转代码段如下：</p>
+<figure class="highlight isbl"><table><tr><td class="code"><pre><span class="line"><span class="variable">void</span> <span class="variable">MainWindow1</span>::<span class="function"><span class="title">on_scotmtb_clicked</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="variable">Class_Schedule</span>-&gt;<span class="function"><span class="title">setModal</span>(<span class="variable"><span class="literal">true</span></span>);</span></span><br><span class="line"><span class="function">    <span class="variable">Class_Schedule</span>-&gt;<span class="title">show</span>();</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>不过这有很大<strong>局限性</strong>：因为只能查到自己班的课表。嘻嘻嘻~</p>
+<p>我的课设答辩差不多就这样结束了。</p>
+<p>不过当时有一个学生在那里跟我们的课设指指点点，我当时就在想：能不能尊重一下我？是我在答辩，不是你！你当你能像毛主席一样指点江山？</p>
+<p>希望关注我的小伙伴们以后不会遇到这种人。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>说了这么多，总结以下几点：</p>
+<p>1、前后端分离，能改善修改代码的效率，不会因为一个小 bug，去修改一整片的代码，从而提高了功能更新的效率。</p>
+<p>2、少熬夜，熬夜伤身。（在这里再立一个 flag，2022 年不仅要好好学习技术，还得少熬夜，跟以前一样 11 点之前就睡觉，没事多锻炼一下身体。）</p>
+<p>3、bug 常常有，有时候一个 bug 一天都修复不了很正常，慢慢去想就行了，不要急躁，切记，敲代码务必要戒骄戒躁。</p>
+<p>4、不知道某个瓶颈怎么解决，可以换一种思路或者方式去解决这个问题，多和同学讨论，或者像大佬请教，上百度找教程等等。<strong>（忌:ctrl c + ctrl v）</strong></p>
+<p>5、最近计网的知识，能够在实际应用中想到相应的解决方案，并跟组员一同分享。</p>
+<p>6、不足就是，组员中除了我都不会用 Git，不然能更高效率实现各功能模块代码的合并，减少很多不必要的麻烦。</p>
+]]></content>
+      <tags>
+        <tag>程序人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot开发规范（一）</title>
+    <url>/2022/11/21/springboot-levelFunction/</url>
+    <content><![CDATA[<h2 id="model（entity）"><a href="#model（entity）" class="headerlink" title="model（entity）"></a>model（entity）</h2><p>​        model是模型的意思，与entity、domain、pojo类似，是存放实体的类，类中定义了多个类属性，并与数据库表的字段保持一致，一张表对应一个model类。 主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p>
+<h2 id="dao（mapper）"><a href="#dao（mapper）" class="headerlink" title="dao（mapper）"></a>dao（mapper）</h2><p>​        又被成为mapper层，叫数据持久层，先设计接口，然后在配置文件中进行配置其实现的关联。 dao层的作用为访问数据库，向数据库发送sql语句，完成数据的增删改查任务。 数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate插入到数据库中</p>
+<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>​        业务逻辑层，完成功能的设计 和dao层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用dao层的接口进行业务逻辑应用的处理。 service的impl是把mapper和service进行整合的文件 封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p>
+<h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>​        控制层，控制业务逻辑service，控制请求和响应，负责前后端交互 controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/2052481-20210417164128180-1418412203.png" alt="img"></p>
+]]></content>
+      <tags>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识TCP/IP协议族</title>
+    <url>/2021/12/30/%E5%88%9D%E8%AF%86TCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/</url>
+    <content><![CDATA[<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E5%88%9D%E8%AF%86TCP%20IP%E5%8D%8F%E8%AE%AE%E6%97%8F.png?versionId=CAEQGRiBgMDG4eKp8BciIDc4YjRlNWZiOTUwNzRlNGY5OTFiNmQzYjBlZWZkODRk"></p>
+<p>&emsp;  你好，我是小八。今天我们来讲一下TCP/IP协议族。</p>
+<h2 id="初识TCP-IP协议族"><a href="#初识TCP-IP协议族" class="headerlink" title="初识TCP/IP协议族"></a>初识TCP/IP协议族</h2><p>&emsp; HTTP属于TCP/IP的一个子类，通常使用的网络（包括互联网）都是在TCP/IP协议族的基础上运作。</p>
+<h3 id="TCP-IP协议族"><a href="#TCP-IP协议族" class="headerlink" title="TCP/IP协议族"></a>TCP/IP协议族</h3><p>&emsp;计算机网络设备之间进行信息交互就需要基于相同的方法或者说是同一种协议才能进行通信。就比如：我们需要进行通信的时候，就需要知道如何探测到通信的目标、从哪一边开始发起通信请求、使用什么语言通信、怎么结束通信请求等所制定的规则，便被成为协议（protocol）。</p>
+<p>&emsp;<strong>而TCP/IP协议族就是互联网相关的各类协议族的总称。</strong>对于TCP/IP协议族，通常有两种说法，一是指TCP和IP这两种协议，二是指TCP/IP在IP协议的通信中，使用到的协议族的统称。</p>
+<p>TCP/IP协议族如下图：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%97%8F%E7%BE%A4%E5%9B%BE.png?versionId=CAEQGRiBgIDE4eKp8BciIDdkZjU1ZTAzOTEzYTQ3ZWFhY2IxMzIyMTU5OTNlMjBi" alt="image-20211230151831761"></p>
+<h3 id="TCP-IP的分层管理"><a href="#TCP-IP的分层管理" class="headerlink" title="TCP/IP的分层管理"></a>TCP/IP的分层管理</h3><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/TCP%20IP%E5%88%86%E5%B1%82%E7%AE%A1%E7%90%86.png?versionId=CAEQGRiBgICU4eKp8BciIGU0OTczOWY0YmE5YjRjYmRhMjRiNTdhOGUwOTAzOTEz" alt="image-20211230151253140"></p>
+<p>&emsp;协议族通过分层化，可以高效管理改变不同层次设计的任务，把每个层次之间的不同接口规划好之后，每个层次的内部设计也可以自由改动，而不需要替换所有部分整体。</p>
+<p>&emsp;<strong>应用层：</strong></p>
+<p>&emsp;&emsp;预存各类通用的应用服务，决定了向用户提供应用服务时通信的活动。其中HTTP（超文本传输协议）、FTP（文件传输协议）、DNS（域名协议）等服务在此层</p>
+<p>&emsp;<strong>传输层：</strong></p>
+<p>&emsp;&emsp;对应用层提供处于<strong>网络连接中</strong>的两台计算机的<strong>数据传输</strong>。在此层中有两种不同性质的协议：TCP（传输控制协议）和UDP（用户数据报协议）</p>
+<p>&emsp;<strong>网络层：</strong></p>
+<p>&emsp;&emsp;用来处理在网络上流动的数据包，该层规定与对方计算机进行传输时，通过选择某一种路径（或者说是某一条传输路线）到达对方计算机，并且把数据包传给对方。因此此层又被称为<strong>网络互连层</strong>。</p>
+<p>&emsp;&emsp;<strong>数据包</strong>是网络传输的最小数据单位。</p>
+<p>&emsp;<strong>链路层：</strong></p>
+<p>&emsp;&emsp;用来处理连接网络的硬件部分的层次，包括控制操作系统，硬件设备驱动，NIC（网络适配器，即网卡）等一系列可见的物理传输硬件设备（媒介）。</p>
+<h3 id="TCP-IP通信传输流"><a href="#TCP-IP通信传输流" class="headerlink" title="TCP/IP通信传输流"></a>TCP/IP通信传输流</h3><p>xxxxxxxxxx class Solution {    public boolean isPalindrome(int x) {        // 特殊情况：        // 如上所述，当 x &lt; 0 时，x 不是回文数。        // 同样地，如果数字的最后一位是 0，为了使该数字为回文，        // 则其第一位数字也应该是 0        // 只有 0 满足这一属性        if (x &lt; 0 || (x % 10 == 0 &amp;&amp; x != 0)) {            return false;        }​        int revertedNumber = 0;        while (x &gt; revertedNumber) {            revertedNumber = revertedNumber * 10 + x % 10;            x /= 10;        }​        // 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。        // 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，        // 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。        return x == revertedNumber || x == revertedNumber / 10;    }}​作者：力扣官方题解链接：<a href="https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/%E6%9D%A5%E6%BA%90%EF%BC%9A%E5%8A%9B%E6%89%A3%EF%BC%88LeetCode%EF%BC%89%E8%91%97%E4%BD%9C%E6%9D%83%E5%BD%92%E4%BD%9C%E8%80%85%E6%89%80%E6%9C%89%E3%80%82%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E8%81%94%E7%B3%BB%E4%BD%9C%E8%80%85%E8%8E%B7%E5%BE%97%E6%8E%88%E6%9D%83%EF%BC%8C%E9%9D%9E%E5%95%86%E4%B8%9A%E8%BD%AC%E8%BD%BD%E8%AF%B7%E6%B3%A8%E6%98%8E%E5%87%BA%E5%A4%84%E3%80%82java">https://leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/来源：力扣（LeetCode）著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。java</a></p>
+<p>xxxxxxxxxx ​class Solution {    public int[] twoSum(int[] nums, int target) {        for(int i = 0;i&lt;nums.length;i++){            for(int j=i+1;j&lt;nums.length;j++){                if(nums[i]+nums[j]==target){                    return new int[]{i,j};                }            }        }         return new int[0];    }}Java []</p>
+<p>&emsp;发送端在层与层之间传输数据时，每经过一层时必定会被打上一个该层所属的首部信息。反之，接收端在层与层传输数据时，每经过一层时会把对应的首部消去。 这种把数据信息包装起来的做法称为<strong>封装（encapsulate）</strong>（就类似于C++类的使用，将类中的成员和数据进行封装）。下图为例：</p>
+<p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/%E5%88%9D%E5%A7%8BTCP-IP%E5%8D%8F%E8%AE%AE%E6%97%8F/%E6%B5%81%E7%A8%8B%E5%9B%BE2.png?versionId=CAEQGRiBgICx4eKp8BciIDIzNDlkYjhjYWM1YjQyYTRiNTVjOTk4NmVhYmE0YWEz" alt="image-20211230160020206"></p>
+<p>&emsp;</p>
+]]></content>
+      <tags>
+        <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之两数之和</title>
+    <url>/2022/10/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>Problem: <a href="https://leetcode.cn/problems/two-sum/description/">1. 两数之和</a></p>
+</blockquote>
+<p>[TOC]</p>
+<h1 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h1><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20221026204201974.png" alt="两数之和"></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>看到这一题我首先想到的就是通过类似于冒泡排序的思想，通过两个for循环对数组里面的值进行一一相加并跟target进行比较，如果值等于target那么就返回，否则就进行下一次循环，也就是所谓的暴力解法，不过这样真的非常损耗时间复杂度</p>
+</blockquote>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
+<p>这里面要注意的是，同一个数x不能进行重复相加，那么就需要我们进行一一枚举，即在数组nums中寻找中有没有一个数是target - x，且当我们使用遍历整个数组的方式寻找 target - x 时，需要注意到每一个位于 x 之前的元素都已经和 x 匹配过，因此不需要再进行匹配。而每一个元素不能被使用两次，所以我们只需要在 x 后面的元素中寻找 target - x。如果找到了这个target - x则返回x和target - x的下标index即可</p>
+</blockquote>
+<p>代码</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度: </p>
+<blockquote>
+<p> $O(N2)$</p>
+</blockquote>
+</li>
+<li><p>空间复杂度: </p>
+<blockquote>
+<p> $O(1)$</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><figcaption><span>[]</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] twoSum(<span class="type">int</span>[] nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;nums.length;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之两数相加</title>
+    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/</url>
+    <content><![CDATA[<h2 id="题目如下："><a href="#题目如下：" class="headerlink" title="题目如下："></a>题目如下：</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2021/01/02/addtwonumber1.jpg" alt="img"></p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[2,4,3]</span>, l2 = <span class="comment">[5,6,4]</span></span><br><span class="line">输出：<span class="comment">[7,0,8]</span></span><br><span class="line">解释：342 + 465 = 807.</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight inform7"><table><tr><td class="code"><pre><span class="line">输入：l1 = <span class="comment">[0]</span>, l2 = <span class="comment">[0]</span></span><br><span class="line">输出：<span class="comment">[0]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight dns"><table><tr><td class="code"><pre><span class="line">输入：l1 = [<span class="number">9,9,9,9</span>,<span class="number">9</span>,<span class="number">9</span>,<span class="number">9</span>], l2 = [<span class="number">9,9,9,9</span>]</span><br><span class="line">输出：[<span class="number">8,9,9,9</span>,<span class="number">0,0,0,1</span>]</span><br></pre></td></tr></table></figure>
 
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
-<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
+<li>每个链表中的节点数在范围 <code>[1, 100]</code> 内</li>
+<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+<li>题目数据保证列表表示的数字不含前导零</li>
 </ul>
-<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><p>主要用到的思想就是滑动窗口，通过HashMap集合的key值不可重复原理来判断是否遇到重复的字符。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">//考虑孔字符串的情况</span></span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLength</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//统计最大的子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向子串的第一个字符index</span></span><br><span class="line">        <span class="comment">//以字符串的一个字符作为key,其对应的index作为value</span></span><br><span class="line">        HashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(s.charAt(i)))&#123;<span class="comment">//判断是否i位置下的字符是否有对应的value，如果有那么就说明重复了，此时将左指针定位到对应的value下，因为对应的value保存的就是此时此字符的index</span></span><br><span class="line">                left = Math.max(left,map.get(s.charAt(i)) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(s.charAt(i),i);</span><br><span class="line">            <span class="comment">//此时最大的子串不重复长度就是i - left + 1(即此时正在扫描的子串长度) 和 maxLength(上一串扫描的子串长度) 二者最大值之一。</span></span><br><span class="line">            maxLength = Math.max(maxLength,i - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">carry</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//进位数字</span></span><br><span class="line">        <span class="comment">//定义一个可移动的指针，用来指向存储两个数之和的位置</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">         <span class="comment">//定义一个新联表伪指针，用来指向头指针，返回结果</span></span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> cur;</span><br><span class="line">        <span class="comment">//当l1 不等于null或l2 不等于空时，就进入循环</span></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">null</span> || l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="comment">//如果l1 不等于null时，就取他的值，等于null时，就赋值0，保持两个链表具有相同的位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">x1</span> <span class="operator">=</span> l1 == <span class="literal">null</span> ? <span class="number">0</span> : l1.val;</span><br><span class="line">            <span class="type">int</span> <span class="variable">x2</span> <span class="operator">=</span> l2 == <span class="literal">null</span> ? <span class="number">0</span> : l2.val;</span><br><span class="line">            <span class="comment">//将两个链表的值，进行相加，并加上进位数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> x1 + x2 + carry;</span><br><span class="line">            <span class="comment">//计算进位数</span></span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//计算两个数的和，此时排除超过10的请况（大于10，取余数）</span></span><br><span class="line">            sum %= <span class="number">10</span>;</span><br><span class="line">            <span class="comment">//将求和数赋值给新链表的节点，</span></span><br><span class="line">            <span class="comment">//注意这个时候不能直接将sum赋值给cur.next = sum。这时候会报，类型不匹配。</span></span><br><span class="line">            <span class="comment">//所以这个时候要创一个新的节点，将值赋予节点</span></span><br><span class="line">            cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(sum);</span><br><span class="line">             <span class="comment">//将新链表的节点后移</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">            <span class="comment">//当链表l1不等于null的时候，将l1 的节点后移</span></span><br><span class="line">            <span class="keyword">if</span>(l1!=<span class="literal">null</span>)&#123;</span><br><span class="line">                l1 = l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2 != <span class="literal">null</span>)&#123;</span><br><span class="line">                l2 = l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果最后两个数，相加的时候有进位数的时候，就将进位数，赋予链表的新节点。</span></span><br><span class="line">        	<span class="comment">//两数相加最多小于20，所以的的值最大只能时1</span></span><br><span class="line">            <span class="keyword">if</span>(carry == <span class="number">1</span>)&#123;</span><br><span class="line">                cur.next = <span class="keyword">new</span> <span class="title class_">ListNode</span>(carry);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回链表的头节点</span></span><br><span class="line">        <span class="keyword">return</span> pre.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之回文数</title>
+    <url>/2022/10/27/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E5%9B%9E%E6%96%87%E6%95%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>Problem: <a href="https://leetcode.cn/problems/palindrome-number/description/">9. 回文数</a></p>
+</blockquote>
+<p>[TOC]</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
+<p>看到这题的第一想法就是把数字x进行反转得到数字reverse，然后与x进行比较是否相等即可，刚开始我想的是把数字转成字符串然后使用反转函数直接反转，最后使用eqauls方法进行比较即可，但是我忘记了怎么将数字转换成String类型的字符串。后来遍知道一个数一个数字进行翻转</p>
+</blockquote>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><blockquote>
+<p>由题可知x&lt;0的时候因为含有负号，故所有小于0的数都不是回文数，直接return false即可，x&gt;0的时候，我用一个temp表示x翻转后的数字，num用于x逐一翻转，直到num/10==0的时候说明翻转完成，得到的结果return num == x的结果即可。</p>
+</blockquote>
+<p>但是，看了题解之后我发现其实翻转一半就行了，就算是奇数个位数，最后return reverse/10 == x即可</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度: </p>
+<blockquote>
+<p>O(logn)</p>
+</blockquote>
+</li>
+<li><p>空间复杂度: </p>
+<blockquote>
+<p>O(1)</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> x;</span><br><span class="line">            <span class="keyword">while</span>(num!=<span class="number">0</span>)&#123;</span><br><span class="line">                temp = temp*<span class="number">10</span>+num%<span class="number">10</span>;</span><br><span class="line">                num = num/<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> x == temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="题解代码"><a href="#题解代码" class="headerlink" title="题解代码"></a>题解代码</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="comment">// 特殊情况：</span></span><br><span class="line">        <span class="comment">// 如上所述，当 x &lt; 0 时，x 不是回文数。</span></span><br><span class="line">        <span class="comment">// 同样地，如果数字的最后一位是 0，为了使该数字为回文，</span></span><br><span class="line">        <span class="comment">// 则其第一位数字也应该是 0</span></span><br><span class="line">        <span class="comment">// 只有 0 满足这一属性</span></span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">revertedNumber</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertedNumber) &#123;</span><br><span class="line">            revertedNumber = revertedNumber * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当数字长度为奇数时，我们可以通过 revertedNumber/10 去除处于中位的数字。</span></span><br><span class="line">        <span class="comment">// 例如，当输入为 12321 时，在 while 循环的末尾我们可以得到 x = 12，revertedNumber = 123，</span></span><br><span class="line">        <span class="comment">// 由于处于中位的数字不影响回文（它总是与自己相等），所以我们可以简单地将其去除。</span></span><br><span class="line">        <span class="keyword">return</span> x == revertedNumber || x == revertedNumber / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：力扣官方题解</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/palindrome-number/solutions/281686/hui-wen-shu-by-leetcode-solution/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>leetcode</tag>
@@ -1519,6 +1492,32 @@ docker rmi -f $(docker images -qa)
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums2.length;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[m+n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; m;i++)&#123;</span><br><span class="line">            nums[i] = nums1[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j &lt; n; j++)&#123;</span><br><span class="line">            nums[nums1.length + j] = nums2[j];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="keyword">if</span>(nums.length % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (nums[(m + n) / <span class="number">2</span> - <span class="number">1</span>] + nums[(m + n) / <span class="number">2</span>]) / <span class="number">2.0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> nums[(m + n) / <span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>其他方法还在研究ing。。。。</p>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>力扣刷题之无重复字符的最长子串</title>
+    <url>/2023/03/19/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%E4%B9%8B%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/</url>
+    <content><![CDATA[<h2 id="题目如下"><a href="#题目如下" class="headerlink" title="题目如下"></a>题目如下</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;abcabcbb&quot;</span></span><br><span class="line"><span class="section">输出: 3 </span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;bbbbb&quot;</span></span><br><span class="line"><span class="section">输出: 1</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">输入: s = &quot;pwwkew&quot;</span></span><br><span class="line"><span class="section">输出: 3</span></span><br><span class="line"><span class="section">解释: 因为无重复字符的最长子串是 &quot;wke&quot;，所以其长度为 3。</span></span><br><span class="line">     请注意，你的答案必须是 子串 的长度，<span class="string">&quot;pwke&quot;</span> 是一个子序列，不是子串。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>0 &lt;= s.length &lt;= 5 * 104</code></li>
+<li><code>s</code> 由英文字母、数字、符号和空格组成</li>
+</ul>
+<h2 id="题解如下："><a href="#题解如下：" class="headerlink" title="题解如下："></a>题解如下：</h2><p>主要用到的思想就是滑动窗口，通过HashMap集合的key值不可重复原理来判断是否遇到重复的字符。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">//考虑孔字符串的情况</span></span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">maxLength</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//统计最大的子串长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//左指针指向子串的第一个字符index</span></span><br><span class="line">        <span class="comment">//以字符串的一个字符作为key,其对应的index作为value</span></span><br><span class="line">        HashMap&lt;Character,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(map.containsKey(s.charAt(i)))&#123;<span class="comment">//判断是否i位置下的字符是否有对应的value，如果有那么就说明重复了，此时将左指针定位到对应的value下，因为对应的value保存的就是此时此字符的index</span></span><br><span class="line">                left = Math.max(left,map.get(s.charAt(i)) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(s.charAt(i),i);</span><br><span class="line">            <span class="comment">//此时最大的子串不重复长度就是i - left + 1(即此时正在扫描的子串长度) 和 maxLength(上一串扫描的子串长度) 二者最大值之一。</span></span><br><span class="line">            maxLength = Math.max(maxLength,i - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> maxLength;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>leetcode</tag>
@@ -1584,343 +1583,6 @@ docker rmi -f $(docker images -qa)
 ]]></content>
       <tags>
         <tag>程序人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微布开发-微信三方接口文本校验校验开发思路</title>
-    <url>/2023/08/03/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</url>
-    <content><![CDATA[<h3 id="根据文档要求总结分为以下的情况："><a href="#根据文档要求总结分为以下的情况：" class="headerlink" title="根据文档要求总结分为以下的情况："></a>根据文档要求总结分为以下的情况：</h3><ol>
-<li>文本内容正常 (suggest: “pass”, label: 100)：<ol>
-<li>情况处理：如果文本内容被判定为正常，可以允许发布该文本内容。</li>
-</ol>
-</li>
-<li>文本内容命中关键词，但不违规 (suggest: “pass”, label: 20006)：<ol>
-<li>情况处理：如果文本内容命中自定义关键词但不违规，可以允许发布该文本内容，同时可能根据需要记录命中的关键词和概率信息。</li>
-</ol>
-</li>
-<li>文本内容建议审核 (suggest: “review”)：<ol>
-<li>情况处理：如果文本内容被建议进行审核，您可以将该内容设置为待审核状态，让人工审核来决定是否发布该内容。</li>
-</ol>
-</li>
-<li>文本内容命中违规标签 (suggest: “risky”)：<ol>
-<li>情况处理：如果文本内容被判定为违规，应禁止发布该内容，并通知用户违规原因。</li>
-</ol>
-</li>
-<li>文本内容属于广告 (label: 10001)：<ol>
-<li>情况处理：如果文本内容被判定为广告，应禁止发布该内容，并通知用户不允许发布广告内容。</li>
-</ol>
-</li>
-<li>文本内容属于色情、辱骂、违法犯罪等 (label: 20002, 20003, 20006等)：<ol>
-<li>情况处理：如果文本内容被判定为色情、辱骂、违法犯罪等，应禁止发布该内容，并根据需要采取进一步的处理措施，比如记录日志或进行用户封禁等。</li>
-</ol>
-</li>
-</ol>
-<h3 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h3><ol>
-<li>从Redis中获取到AccessToken</li>
-<li>查库获取发布者微信的openid</li>
-<li>调用<a href="https://api.weixin.qq.com/wxa/msg_sec_check?access_token=%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%A0%A1%E9%AA%8C%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0">https://api.weixin.qq.com/wxa/msg_sec_check?access_token=接口，校验返回参数</a><ol>
-<li>errocode == 0<ol>
-<li>获取result对象的suggest参数值并进行比较<ol>
-<li>如果文本内容建议审核，则根据实际需求执行人工审核流程，”review”.equals(suggest)</li>
-<li>如果文本内容正常或命中关键词但不违规，允许发布，”pass”.equals(suggest)</li>
-<li>如果文本内容被判定为违规，禁止发布，并输出违规信息，”risky”.equals(suggest)<ol>
-<li>此时可以遍历detail数组，并获取对应的prob如果其中有敏感词汇prob&gt;50就不准发布。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="大致代码逻辑如下："><a href="#大致代码逻辑如下：" class="headerlink" title="大致代码逻辑如下："></a>大致代码逻辑如下：</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">handleResult</span><span class="params">(String result)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="type">JSONObject</span> <span class="variable">responseJson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(result);</span><br><span class="line">          <span class="type">int</span> <span class="variable">errcode</span> <span class="operator">=</span> responseJson.getInt(<span class="string">&quot;errcode&quot;</span>);</span><br><span class="line">          <span class="type">String</span> <span class="variable">errmsg</span> <span class="operator">=</span> responseJson.getString(<span class="string">&quot;errmsg&quot;</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (errcode == <span class="number">0</span>) &#123;</span><br><span class="line">              <span class="comment">// 获取综合结果信息</span></span><br><span class="line">              <span class="type">JSONObject</span> <span class="variable">resultObject</span> <span class="operator">=</span> responseJson.getJSONObject(<span class="string">&quot;result&quot;</span>);</span><br><span class="line">              <span class="type">String</span> <span class="variable">suggest</span> <span class="operator">=</span> resultObject.getString(<span class="string">&quot;suggest&quot;</span>);</span><br><span class="line">              <span class="type">int</span> <span class="variable">label</span> <span class="operator">=</span> resultObject.getInt(<span class="string">&quot;label&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 输出综合结果信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;综合结果：&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;建议：&quot;</span> + suggest);</span><br><span class="line">              System.out.println(<span class="string">&quot;标签：&quot;</span> + label);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 如果文本内容建议审核，则根据实际需求执行人工审核流程</span></span><br><span class="line">              <span class="keyword">if</span> (<span class="string">&quot;review&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;该文本内容建议进行人工审核！&quot;</span>);</span><br><span class="line">                  <span class="comment">// 可以将内容设置为待审核状态，由人工审核决定是否发布</span></span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;pass&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容正常或命中关键词但不违规，允许发布</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容合规，可以发布！&quot;</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;risky&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容被判定为违规，禁止发布，并输出违规信息</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容违规，请修改后重新提交！&quot;</span>);</span><br><span class="line">                  <span class="type">JSONArray</span> <span class="variable">detailArray</span> <span class="operator">=</span> responseJson.getJSONArray(<span class="string">&quot;detail&quot;</span>);</span><br><span class="line">                  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; detailArray.length(); i++) &#123;</span><br><span class="line">                      <span class="type">JSONObject</span> <span class="variable">detailObject</span> <span class="operator">=</span> detailArray.getJSONObject(i);</span><br><span class="line">                      <span class="type">String</span> <span class="variable">strategy</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;strategy&quot;</span>);</span><br><span class="line">                      <span class="keyword">if</span> (<span class="string">&quot;keyword&quot;</span>.equals(strategy)) &#123;</span><br><span class="line">                          <span class="type">String</span> <span class="variable">keyword</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;keyword&quot;</span>);</span><br><span class="line">                          <span class="type">int</span> <span class="variable">prob</span> <span class="operator">=</span> detailObject.getInt(<span class="string">&quot;prob&quot;</span>);</span><br><span class="line">                          System.out.println(<span class="string">&quot;命中关键词：&quot;</span> + keyword + <span class="string">&quot;，概率：&quot;</span> + prob);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;未知建议类型：&quot;</span> + suggest);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 输出错误信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;接口调用失败，错误码：&quot;</span> + errcode + <span class="string">&quot;，错误信息：&quot;</span> + errmsg);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          System.out.println(<span class="string">&quot;接口调用失败！&quot;</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>微布开发思路总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>小八学习git从0到基本运用</title>
-    <url>/2021/11/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p style="text-indent:20px;">有一说一，刚刚步入计算机大二的我，这个Github在我的认知里面一直只是一个大牛从中copy代码的网站，我对其的了解也仅仅在于抖音的“黑马程序员”里面的人说的这个网站很多大牛，才会使用。</p>
-
-<p>&emsp;&emsp;就在前几天，我收到了我的学长ConeZhang（名字都不透露了，后面简写：驰哥）给我发的几条信息。</p>
-<span id="more"></span>
-<img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/我的第一篇博客/QQ%E5%9B%BE%E7%89%8720211204214135.jpg?versionId=CAEQFxiBgICF.t.W7BciIDEyZDZhNTYwMDY4YzRmYTliOWE3NDgyOGZkYzBhMWI3">
-
-<img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/我的第一篇博客/QQ%E5%9B%BE%E7%89%8720211204214217.jpg?versionId=CAEQFxiBgMCYhuCW7BciIDY5OWFiMDE2NGRiYzRkM2Q4MGNiYjg3M2MzMTI4YTY0">
-
-<p>&emsp;&emsp;看到这些消息，我直接开心的起飞，不知道怎么用语言来形容了，当时内心OS：woc！！这可是同时拿到百度，腾讯，快手sp甚至ssp的offer，最后去了字节的大佬啊，能带上我做项目，什么概念！！我上辈子肯定积了不少德，哈哈哈哈，说到驰哥，真就是机缘巧合，我还记得我第一次跟驰哥有了联系方式居然就在我预科刚入校的时候，因为学校教务系统的密码，忘记了，然后通过多方路径找到了驰哥的联系方式，然后帮我修改了密码，正巧我打算大一选择的就是计算机专业。</p>
-<p>&emsp;&emsp;好了好了，言归正传，就在2021-11-26 18：33 驰哥给我发来了消息，要我赶紧这个周末学习完成，收到这个任务，我立刻马上关闭了LOL，开始了Git煎熬之旅。</p>
-<h2 id="初入Git"><a href="#初入Git" class="headerlink" title="初入Git"></a>初入Git</h2><h3 id="Git的起源及比较："><a href="#Git的起源及比较：" class="headerlink" title="Git的起源及比较："></a>Git的起源及比较：</h3><p>&emsp;&emsp;我打开了驰哥发给我的学习网站，开始对Git的初步了解，发现原来Linux开发了Git及github网站，而Git与类似网站有不同之处就是，CVS以及SVN都是集中式的版本控制系统，但是Git是分布式的版本系统，但是集中式的系统最大毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要几十分钟，这还不得把人给憋死啊？</p>
-<h3 id="Git的安装以及创建远程仓库："><a href="#Git的安装以及创建远程仓库：" class="headerlink" title="Git的安装以及创建远程仓库："></a>Git的安装以及创建远程仓库：</h3><p>&emsp;&emsp;个人觉得真没什么好说的，用大一老师lq老师说的，不会就给我多安装几次就会了，要是电脑出问题了，就重装系统，一举多得，还能自学安装系统，要是看到这个博客的小伙伴，不知道怎么去安装，可以上我b大，或者在<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的网站</a>进行学习，实在还是不会，可以加我的QQ奥。</p>
-<h2 id="Git的用法简介："><a href="#Git的用法简介：" class="headerlink" title="Git的用法简介："></a>Git的用法简介：</h2><h3 id="一、创建新的版本库"><a href="#一、创建新的版本库" class="headerlink" title="一、创建新的版本库"></a>一、创建新的版本库</h3><p>&emsp;&emsp;1.打开git bash找到一个非c盘的合适位置，来做创建一个空目录（我以d盘为例，创建一个文件夹learngit）<br>(输入语句里面含$)</p>
-<blockquote>
-<p>$mkdir /d/learngit</p>
-</blockquote>
-<blockquote>
-<p>$cd /d/learngit</p>
-</blockquote>
-<blockquote>
-<p>$pwd /d/learngit</p>
-</blockquote>
-<p>2.通过git init命令进行git仓库初始化</p>
-<blockquote>
-<p>$git init</p>
-</blockquote>
-<p>Initialized empty Git repository in D:/learngit/.git/</p>
-<p>3.通过vi readme.txt创建一个新的文本框</p>
-<blockquote>
-<p>$vi readme.txt</p>
-</blockquote>
-<p>4.跳转到编辑界面，按下insert（ins）进行编辑，编辑完成之后按一下esc，再输入:wq进行退出(听我一个正在学Linux系统的室友告诉我，如果文档是只读的话，进行修改了的，就按:wq!进行强制退出)</p>
-<p>5.用命令git commit告诉Git，把文件提交到仓库，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
-<blockquote>
-<p>$git commit -m”wrote a readme file “</p>
-</blockquote>
-<p>[master (root-commit) df7ffd5] wrote a readme file</p>
-<p> 1 file changed, 1 insertion(+)</p>
-<p> create mode 100644 readme.txt</p>
-<h3 id="二、其他基本命令的使用"><a href="#二、其他基本命令的使用" class="headerlink" title="二、其他基本命令的使用"></a>二、其他基本命令的使用</h3><h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><p>&emsp;&emsp;1、git log命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是append GPL，上一次是add distributed，最早的一次是wrote a readme file。</p>
-<p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上–pretty=oneline参数：</p>
-<blockquote>
-<p>$ git log –pretty=oneline</p>
-</blockquote>
-<p>&emsp;&emsp;2、现在，我们要把当前版本append GPL回退到上一个版本add distributed，就可以使用git reset命令：</p>
-<blockquote>
-<p>$ git reset –hard HEAD^</p>
-</blockquote>
-<p>&emsp;&emsp;在Git中，用HEAD表示当前版本，也就是最新的提交1094adb…（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。</p>
-<p>&emsp;&emsp;3、最新的那个版本append GPL已经看不到了！好比你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？</p>
-<p>&emsp;&emsp;办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个append GPL的commit id是1094adb…，于是就可以指定回到未来的某个版本：</p>
-<blockquote>
-<p>$ git reset –hard 1094a</p>
-</blockquote>
-<p>HEAD is now at 83b0afe append GPL</p>
-<p>&emsp;&emsp;现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的commit id怎么办？</p>
-<p>&emsp;&emsp;在Git中，总是有后悔药可以吃的。当你用$ git reset –hard HEAD^回退到add distributed版本时，再想恢复到append GPL，就必须找到append GPL的commit id。Git提供了一个命令git reflog用来记录你的每一次命令：</p>
-<p>&emsp;&emsp;4、$ git reflog查看命令历史，以便确定要回到未来的哪个版本。</p>
-<h4 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h4><p>&emsp;&emsp;1、每次修改，如果不用git add到暂存区，那就不会加入到commit中。</p>
-<p>&emsp;&emsp;2、git diff HEAD – readme.txt命令可以查看工作区和版本库里面最新版本的区别：</p>
-<blockquote>
-<p>xxxxxxxxxx   private static void handleResult(String result) {        if (result != null) {            JSONObject responseJson = new JSONObject(result);            int errcode = responseJson.getInt(“errcode”);            String errmsg = responseJson.getString(“errmsg”);​            if (errcode == 0) {                // 获取综合结果信息                JSONObject resultObject = responseJson.getJSONObject(“result”);                String suggest = resultObject.getString(“suggest”);                int label = resultObject.getInt(“label”);​                // 输出综合结果信息                System.out.println(“综合结果：”);                System.out.println(“建议：” + suggest);                System.out.println(“标签：” + label);​                // 如果文本内容建议审核，则根据实际需求执行人工审核流程                if (“review”.equals(suggest)) {                    System.out.println(“该文本内容建议进行人工审核！”);                    // 可以将内容设置为待审核状态，由人工审核决定是否发布                } else if (“pass”.equals(suggest)) {                    // 如果文本内容正常或命中关键词但不违规，允许发布                    System.out.println(“文本内容合规，可以发布！”);                } else if (“risky”.equals(suggest)) {                    // 如果文本内容被判定为违规，禁止发布，并输出违规信息                    System.out.println(“文本内容违规，请修改后重新提交！”);                    JSONArray detailArray = responseJson.getJSONArray(“detail”);                    for (int i = 0; i &lt; detailArray.length(); i++) {                        JSONObject detailObject = detailArray.getJSONObject(i);                        String strategy = detailObject.getString(“strategy”);                        if (“keyword”.equals(strategy)) {                            String keyword = detailObject.getString(“keyword”);                            int prob = detailObject.getInt(“prob”);                            System.out.println(“命中关键词：” + keyword + “，概率：” + prob);                        }                    }                } else {                    System.out.println(“未知建议类型：” + suggest);                }            } else {                // 输出错误信息                System.out.println(“接口调用失败，错误码：” + errcode + “，错误信息：” + errmsg);            }        } else {            System.out.println(“接口调用失败！”);        }Java</p>
-</blockquote>
-<p>diff –git a/readme.txt b/readme.txt<br>index 76d770f..a9c5755 100644<br>— a/readme.txt<br>+++ b/readme.txt<br>@@ -1,4 +1,4 @@<br> Git is a distributed version control system.<br> Git is free software distributed under the GPL.<br> Git has a mutable index called stage.<br>-Git tracks changes.<br>+Git tracks changes of files.</p>
-<h4 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h4><p>&emsp;&emsp;1、既然错误发现得很及时，就可以很容易地纠正它。你可以删掉最后一行，手动把文件恢复到上一个版本的状态。如果用git status查看一下：</p>
-<blockquote>
-<p>$ git status</p>
-</blockquote>
-<p>On branch master</p>
-<p>Changes not staged for commit:</p>
-<p>  (use “git add <file>…” to update what will be committed)</file></p>
-<p>  (use “git checkout – <file>…” to discard changes in working directory)</file></p>
-<pre><code>modified:   readme.txt
-</code></pre>
-<p>no changes added to commit (use “git add” and/or “git commit -a”)</p>
-<p>你可以发现，Git会告诉你，git checkout – file可以丢弃工作区的修改：</p>
-<blockquote>
-<p>$ git checkout – readme.txt</p>
-</blockquote>
-<p>2、现在假定是凌晨3点，你不但写了一些胡话，还git add到暂存区了：</p>
-<p>庆幸的是，在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：</p>
-<p>Git同样告诉我们，用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：</file></p>
-<blockquote>
-<p>$ git reset HEAD readme.txt</p>
-</blockquote>
-<p>git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。</p>
-<p>再用git status查看一下，现在暂存区是干净的，工作区有修改：</p>
-<p>还记得如何丢弃工作区的修改吗？</p>
-<blockquote>
-<p>$ git checkout – readme.txt</p>
-</blockquote>
-<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>1、一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用rm命令删了：</p>
-<blockquote>
-<p>$ rm test.txt</p>
-</blockquote>
-<p>这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，git status命令会立刻告诉你哪些文件被删除了：</p>
-<p>rm之后你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：</p>
-<blockquote>
-<p>$ git rm test.txt</p>
-</blockquote>
-<p>rm ‘test.txt’</p>
-<p>2、切记，在git rm 之后还需要提交commit才能从版本库中被删除</p>
-<blockquote>
-<p>$ git commit -m “remove test.txt”</p>
-</blockquote>
-<p>[master d46f35e] remove test.txt</p>
-<p> 1 file changed, 1 deletion(-)</p>
-<p> delete mode 100644 test.txt<br>现在，文件就从版本库中被删除了。</p>
-<p>3、另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：（经实验，如果版本库里面也被rm了就无法恢复了）</p>
-<blockquote>
-<p>$ git checkout – test.txt</p>
-</blockquote>
-<h4 id="远程库的使用"><a href="#远程库的使用" class="headerlink" title="远程库的使用"></a>远程库的使用</h4><p>一、添加远程库</p>
-<p>具体怎么添加，请小伙伴们，自行百度学习，具体实现就不说了，小编只在这里讲一下添加时候的一些命令：</p>
-<p>1、在本次仓里面运行命令：</p>
-<blockquote>
-<p>$ git remote add origin <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:pengzihao166/learngit.git</p>
-</blockquote>
-<p>注意：把上面的pengzihao166替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。</p>
-<p>2、下一步，就可以把本地库的所有内容推送到远程库上：</p>
-<blockquote>
-<p>$ git push -u origin master</p>
-</blockquote>
-<p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。</p>
-<p>注意：由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
-<p>3、从现在起，只要本地作了提交，就可以通过命令：</p>
-<blockquote>
-<p>$ git push origin master</p>
-</blockquote>
-<p>二、删除远程库</p>
-<p>1、如果添加的时候地址写错了，或者就是想删除远程库，可以用git remote rm <name>命令。使用前，建议先用git remote -v查看远程库信息：</name></p>
-<blockquote>
-<p>$ git remote -v<br>origin  <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#x6d;</a>:pengzihao166/learn-git.git (fetch)</p>
-</blockquote>
-<p>origin  <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#x74;&#104;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;</a>:pengzihao166/learn-git.git (push)</p>
-<p>然后，根据名字删除，比如删除origin：</p>
-<blockquote>
-<p>$ git remote rm origin</p>
-</blockquote>
-<p>三、从远程库克隆</p>
-<p>1、准备好远程库</p>
-<p>2、现在，远程库已经准备好了，下一步是用命令git clone克隆一个本地库：</p>
-<blockquote>
-<p>$ git clone <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;">&#103;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#99;&#111;&#x6d;</a>:pengzihao166/gitskills.git</p>
-</blockquote>
-<p>注意把Git库的地址换成你自己的，然后进入gitskills目录看看，已经有README.md文件了。</p>
-<p>Git支持多种协议，包括https，但ssh协议速度最快。</p>
-<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><p>一、创建并合并分支</p>
-<p>创建命令：</p>
-<blockquote>
-<p>git switch -c ***</p>
-</blockquote>
-<p>合并命令：</p>
-<blockquote>
-<p>git merge ***</p>
-</blockquote>
-<p>注意：***是你想取的名字</p>
-<p>二、分支管理策略</p>
-<p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
-<p>例：</p>
-<blockquote>
-<p>$ git merge –no-ff -m “merge with no-ff” dev</p>
-</blockquote>
-<p>合并后，我们用git log看看分支历史：</p>
-<blockquote>
-<p>$ git log –graph –pretty=oneline –abbrev-commit</p>
-</blockquote>
-<p>二、bug和feature分支：</p>
-<p>这两个分支总体来说用法都一样，就是在不同工作环境下使用的时间不一样，就拿bug来举例好了：</p>
-<p>1、当你接到一个修复一个代号101的bug的任务时,当前正在dev上进行的工作还没有提交。</p>
-<p>幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
-<blockquote>
-<p>$ git stash<br>Saved working directory and index state WIP on dev: f52c633 add merge</p>
-</blockquote>
-<p>2、返回到主分支master之后，再建立一个新的分支issue-101，在此分支上面进行readme.txt文档的修改已知bug（经自己的实验发现一个问题，原来如果vi文件完成之后你使用前面提到的:wq或者wq!或者ZZ命令会发现，你的文件直接被git add了，只需要直接commit）</p>
-<blockquote>
-<p>$ git add readme.txt </p>
-</blockquote>
-<blockquote>
-<p>$ git commit -m “fix bug 101”</p>
-</blockquote>
-<p>[issue-101 a1d6694] fix bug 101</p>
-<p>1 file changed, 1 insertion(+), 1 deletion(-)</p>
-<p>3、再修改bug完成之后，返回到master分支，然后，再进行git merge –no-ff -m “merged bug fix 101” issue-101合并刚刚的issue-101分支修改的bug内容</p>
-<p>4、然后就是跳转到先前的Dev分支上面，继续以前的工作，通过git stash list 查找到刚刚git stash存好的工作区的文件，恢复方法如下：<br>     输入git stash list</p>
-<pre><code>  $ git stash list
-
-      stash@&#123;0&#125;: WIP on dev:ecd2437add merge
-
-   ①一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
-
-    另一种方式是用git stash pop，恢复的同时把stash内容也删了：
-    
-   ②$ git stash apply stash@&#123;0&#125;
-
-      stash@&#123;0&#125;就是list显示的前缀名
-</code></pre>
-<p>5、同样的bug，要在dev上修复，我们只需要把4c805e2 fix bug 101这个提交所做的修改“复制”到dev分支。注意：我们只想复制4c805e2 fix bug 101这个提交所做的修改，并不是把整个master分支merge过来。</p>
-<p>为了方便操作，Git专门提供了一个cherry-pick命令，让我们能复制一个特定的提交到当前分支：</p>
-<blockquote>
-<p>$ git branch</p>
-</blockquote>
-<ul>
-<li><p>dev（此时在dev分支上面）</p>
-<p>master</p>
-</li>
-</ul>
-<blockquote>
-<p>$ git cherry-pick a1d6694</p>
-</blockquote>
-<p>[master 1d4b803] fix bug 101</p>
-<p> 1 file changed, 1 insertion(+), 1 deletion(-)</p>
-<h4 id="标签管理："><a href="#标签管理：" class="headerlink" title="标签管理："></a>标签管理：</h4><p>一、创建标签：</p>
-<p>1、直接法：</p>
-<blockquote>
-<p>$ git branch</p>
-</blockquote>
-<ul>
-<li>dev<br>master<blockquote>
-<p>$ git checkout master</p>
-</blockquote>
-</li>
-</ul>
-<p>Switched to branch ‘master’</p>
-<p>然后，敲命令git tag <name>就可以打一个新标签：</name></p>
-<blockquote>
-<p>$ git tag v1.0</p>
-</blockquote>
-<p>可以用命令git tag查看所有标签：</p>
-<blockquote>
-<p>$ git tag</p>
-</blockquote>
-<p>v1.0</p>
-<p>2、默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
-<p>方法是找到历史提交的commit id，然后打上就可以了：</p>
-<blockquote>
-<p>$ git log –pretty=oneline –abbrev-commit</p>
-</blockquote>
-<p>12a631b (HEAD -&gt; master, tag: v1.0, origin/master) </p>
-<p>merged bug fix 101</p>
-<p>4c805e2 fix bug 101</p>
-<p>e1e9c68 merge with no-ff</p>
-<p>f52c633 add merge</p>
-<p>比方说要对add merge这次提交打标签，它对应的commit id是f52c633，敲入命令：</p>
-<blockquote>
-<p>$ git tag v0.9 f52c633</p>
-</blockquote>
-<p>再用命令git tag查看标签：</p>
-<blockquote>
-<p>$ git tag</p>
-</blockquote>
-<p>v0.9</p>
-<p>v1.0</p>
-<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息：</tagname></p>
-<blockquote>
-<p>$ git show v0.9</p>
-</blockquote>
-<p>可以看到，v0.9确实打在add merge这次提交上。</p>
-<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
-<blockquote>
-<p>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
-</blockquote>
-<p>用命令git show <tagname>可以看到说明文字：</tagname></p>
-<blockquote>
-<p>$ git show v0.1\</p>
-</blockquote>
-<p>二、操作标签</p>
-<p>命令git push origin <tagname>可以推送一个本地标签；</tagname></p>
-<p>命令git push origin –tags可以推送全部未推送过的本地标签；</p>
-<p>命令git tag -d <tagname>可以删除一个本地标签；</tagname></p>
-<p>命令git push origin :refs/tags/<tagname>可以删除一个远程标签。</tagname></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&ensp; &ensp;今天的Git命令的使用，就到此结束了，要是有啥疑惑的小伙伴可以去自行百度或者加上我的联系方式，联系我奥。</p>
-<p>&ensp; &ensp;部分内容转自<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的网站</a>，如有侵权，请立刻联系小编进行修改完善。</p>
-<pre><code>                                                              ---来自一个小白的真实学习笔记
-</code></pre>
-]]></content>
-      <tags>
-        <tag>Git+Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2111,6 +1773,343 @@ docker rmi -f $(docker images -qa)
       </tags>
   </entry>
   <entry>
+    <title>微布开发-微信三方接口文本校验校验开发思路</title>
+    <url>/2023/08/03/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</url>
+    <content><![CDATA[<h3 id="根据文档要求总结分为以下的情况："><a href="#根据文档要求总结分为以下的情况：" class="headerlink" title="根据文档要求总结分为以下的情况："></a>根据文档要求总结分为以下的情况：</h3><ol>
+<li>文本内容正常 (suggest: “pass”, label: 100)：<ol>
+<li>情况处理：如果文本内容被判定为正常，可以允许发布该文本内容。</li>
+</ol>
+</li>
+<li>文本内容命中关键词，但不违规 (suggest: “pass”, label: 20006)：<ol>
+<li>情况处理：如果文本内容命中自定义关键词但不违规，可以允许发布该文本内容，同时可能根据需要记录命中的关键词和概率信息。</li>
+</ol>
+</li>
+<li>文本内容建议审核 (suggest: “review”)：<ol>
+<li>情况处理：如果文本内容被建议进行审核，您可以将该内容设置为待审核状态，让人工审核来决定是否发布该内容。</li>
+</ol>
+</li>
+<li>文本内容命中违规标签 (suggest: “risky”)：<ol>
+<li>情况处理：如果文本内容被判定为违规，应禁止发布该内容，并通知用户违规原因。</li>
+</ol>
+</li>
+<li>文本内容属于广告 (label: 10001)：<ol>
+<li>情况处理：如果文本内容被判定为广告，应禁止发布该内容，并通知用户不允许发布广告内容。</li>
+</ol>
+</li>
+<li>文本内容属于色情、辱骂、违法犯罪等 (label: 20002, 20003, 20006等)：<ol>
+<li>情况处理：如果文本内容被判定为色情、辱骂、违法犯罪等，应禁止发布该内容，并根据需要采取进一步的处理措施，比如记录日志或进行用户封禁等。</li>
+</ol>
+</li>
+</ol>
+<h3 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h3><ol>
+<li>从Redis中获取到AccessToken</li>
+<li>查库获取发布者微信的openid</li>
+<li>调用<a href="https://api.weixin.qq.com/wxa/msg_sec_check?access_token=%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%A0%A1%E9%AA%8C%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0">https://api.weixin.qq.com/wxa/msg_sec_check?access_token=接口，校验返回参数</a><ol>
+<li>errocode == 0<ol>
+<li>获取result对象的suggest参数值并进行比较<ol>
+<li>如果文本内容建议审核，则根据实际需求执行人工审核流程，”review”.equals(suggest)</li>
+<li>如果文本内容正常或命中关键词但不违规，允许发布，”pass”.equals(suggest)</li>
+<li>如果文本内容被判定为违规，禁止发布，并输出违规信息，”risky”.equals(suggest)<ol>
+<li>此时可以遍历detail数组，并获取对应的prob如果其中有敏感词汇prob&gt;50就不准发布。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="大致代码逻辑如下："><a href="#大致代码逻辑如下：" class="headerlink" title="大致代码逻辑如下："></a>大致代码逻辑如下：</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">handleResult</span><span class="params">(String result)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="type">JSONObject</span> <span class="variable">responseJson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(result);</span><br><span class="line">          <span class="type">int</span> <span class="variable">errcode</span> <span class="operator">=</span> responseJson.getInt(<span class="string">&quot;errcode&quot;</span>);</span><br><span class="line">          <span class="type">String</span> <span class="variable">errmsg</span> <span class="operator">=</span> responseJson.getString(<span class="string">&quot;errmsg&quot;</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (errcode == <span class="number">0</span>) &#123;</span><br><span class="line">              <span class="comment">// 获取综合结果信息</span></span><br><span class="line">              <span class="type">JSONObject</span> <span class="variable">resultObject</span> <span class="operator">=</span> responseJson.getJSONObject(<span class="string">&quot;result&quot;</span>);</span><br><span class="line">              <span class="type">String</span> <span class="variable">suggest</span> <span class="operator">=</span> resultObject.getString(<span class="string">&quot;suggest&quot;</span>);</span><br><span class="line">              <span class="type">int</span> <span class="variable">label</span> <span class="operator">=</span> resultObject.getInt(<span class="string">&quot;label&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 输出综合结果信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;综合结果：&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;建议：&quot;</span> + suggest);</span><br><span class="line">              System.out.println(<span class="string">&quot;标签：&quot;</span> + label);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 如果文本内容建议审核，则根据实际需求执行人工审核流程</span></span><br><span class="line">              <span class="keyword">if</span> (<span class="string">&quot;review&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;该文本内容建议进行人工审核！&quot;</span>);</span><br><span class="line">                  <span class="comment">// 可以将内容设置为待审核状态，由人工审核决定是否发布</span></span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;pass&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容正常或命中关键词但不违规，允许发布</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容合规，可以发布！&quot;</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;risky&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容被判定为违规，禁止发布，并输出违规信息</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容违规，请修改后重新提交！&quot;</span>);</span><br><span class="line">                  <span class="type">JSONArray</span> <span class="variable">detailArray</span> <span class="operator">=</span> responseJson.getJSONArray(<span class="string">&quot;detail&quot;</span>);</span><br><span class="line">                  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; detailArray.length(); i++) &#123;</span><br><span class="line">                      <span class="type">JSONObject</span> <span class="variable">detailObject</span> <span class="operator">=</span> detailArray.getJSONObject(i);</span><br><span class="line">                      <span class="type">String</span> <span class="variable">strategy</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;strategy&quot;</span>);</span><br><span class="line">                      <span class="keyword">if</span> (<span class="string">&quot;keyword&quot;</span>.equals(strategy)) &#123;</span><br><span class="line">                          <span class="type">String</span> <span class="variable">keyword</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;keyword&quot;</span>);</span><br><span class="line">                          <span class="type">int</span> <span class="variable">prob</span> <span class="operator">=</span> detailObject.getInt(<span class="string">&quot;prob&quot;</span>);</span><br><span class="line">                          System.out.println(<span class="string">&quot;命中关键词：&quot;</span> + keyword + <span class="string">&quot;，概率：&quot;</span> + prob);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;未知建议类型：&quot;</span> + suggest);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 输出错误信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;接口调用失败，错误码：&quot;</span> + errcode + <span class="string">&quot;，错误信息：&quot;</span> + errmsg);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          System.out.println(<span class="string">&quot;接口调用失败！&quot;</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>微布开发思路总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小八学习git从0到基本运用</title>
+    <url>/2021/11/28/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p style="text-indent:20px;">有一说一，刚刚步入计算机大二的我，这个Github在我的认知里面一直只是一个大牛从中copy代码的网站，我对其的了解也仅仅在于抖音的“黑马程序员”里面的人说的这个网站很多大牛，才会使用。</p>
+
+<p>&emsp;&emsp;就在前几天，我收到了我的学长ConeZhang（名字都不透露了，后面简写：驰哥）给我发的几条信息。</p>
+<span id="more"></span>
+<img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/我的第一篇博客/QQ%E5%9B%BE%E7%89%8720211204214135.jpg?versionId=CAEQFxiBgICF.t.W7BciIDEyZDZhNTYwMDY4YzRmYTliOWE3NDgyOGZkYzBhMWI3">
+
+<img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/我的第一篇博客/QQ%E5%9B%BE%E7%89%8720211204214217.jpg?versionId=CAEQFxiBgMCYhuCW7BciIDY5OWFiMDE2NGRiYzRkM2Q4MGNiYjg3M2MzMTI4YTY0">
+
+<p>&emsp;&emsp;看到这些消息，我直接开心的起飞，不知道怎么用语言来形容了，当时内心OS：woc！！这可是同时拿到百度，腾讯，快手sp甚至ssp的offer，最后去了字节的大佬啊，能带上我做项目，什么概念！！我上辈子肯定积了不少德，哈哈哈哈，说到驰哥，真就是机缘巧合，我还记得我第一次跟驰哥有了联系方式居然就在我预科刚入校的时候，因为学校教务系统的密码，忘记了，然后通过多方路径找到了驰哥的联系方式，然后帮我修改了密码，正巧我打算大一选择的就是计算机专业。</p>
+<p>&emsp;&emsp;好了好了，言归正传，就在2021-11-26 18：33 驰哥给我发来了消息，要我赶紧这个周末学习完成，收到这个任务，我立刻马上关闭了LOL，开始了Git煎熬之旅。</p>
+<h2 id="初入Git"><a href="#初入Git" class="headerlink" title="初入Git"></a>初入Git</h2><h3 id="Git的起源及比较："><a href="#Git的起源及比较：" class="headerlink" title="Git的起源及比较："></a>Git的起源及比较：</h3><p>&emsp;&emsp;我打开了驰哥发给我的学习网站，开始对Git的初步了解，发现原来Linux开发了Git及github网站，而Git与类似网站有不同之处就是，CVS以及SVN都是集中式的版本控制系统，但是Git是分布式的版本系统，但是集中式的系统最大毛病就是必须联网才能工作，如果在局域网内还好，带宽够大，速度够快，可如果在互联网上，遇到网速慢的话，可能提交一个10M的文件就需要几十分钟，这还不得把人给憋死啊？</p>
+<h3 id="Git的安装以及创建远程仓库："><a href="#Git的安装以及创建远程仓库：" class="headerlink" title="Git的安装以及创建远程仓库："></a>Git的安装以及创建远程仓库：</h3><p>&emsp;&emsp;个人觉得真没什么好说的，用大一老师lq老师说的，不会就给我多安装几次就会了，要是电脑出问题了，就重装系统，一举多得，还能自学安装系统，要是看到这个博客的小伙伴，不知道怎么去安装，可以上我b大，或者在<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的网站</a>进行学习，实在还是不会，可以加我的QQ奥。</p>
+<h2 id="Git的用法简介："><a href="#Git的用法简介：" class="headerlink" title="Git的用法简介："></a>Git的用法简介：</h2><h3 id="一、创建新的版本库"><a href="#一、创建新的版本库" class="headerlink" title="一、创建新的版本库"></a>一、创建新的版本库</h3><p>&emsp;&emsp;1.打开git bash找到一个非c盘的合适位置，来做创建一个空目录（我以d盘为例，创建一个文件夹learngit）<br>(输入语句里面含$)</p>
+<blockquote>
+<p>$mkdir /d/learngit</p>
+</blockquote>
+<blockquote>
+<p>$cd /d/learngit</p>
+</blockquote>
+<blockquote>
+<p>$pwd /d/learngit</p>
+</blockquote>
+<p>2.通过git init命令进行git仓库初始化</p>
+<blockquote>
+<p>$git init</p>
+</blockquote>
+<p>Initialized empty Git repository in D:/learngit/.git/</p>
+<p>3.通过vi readme.txt创建一个新的文本框</p>
+<blockquote>
+<p>$vi readme.txt</p>
+</blockquote>
+<p>4.跳转到编辑界面，按下insert（ins）进行编辑，编辑完成之后按一下esc，再输入:wq进行退出(听我一个正在学Linux系统的室友告诉我，如果文档是只读的话，进行修改了的，就按:wq!进行强制退出)</p>
+<p>5.用命令git commit告诉Git，把文件提交到仓库，-m后面输入的是本次提交的说明，可以输入任意内容，当然最好是有意义的，这样你就能从历史记录里方便地找到改动记录。</p>
+<blockquote>
+<p>$git commit -m”wrote a readme file “</p>
+</blockquote>
+<p>[master (root-commit) df7ffd5] wrote a readme file</p>
+<p> 1 file changed, 1 insertion(+)</p>
+<p> create mode 100644 readme.txt</p>
+<h3 id="二、其他基本命令的使用"><a href="#二、其他基本命令的使用" class="headerlink" title="二、其他基本命令的使用"></a>二、其他基本命令的使用</h3><h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><p>&emsp;&emsp;1、git log命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是append GPL，上一次是add distributed，最早的一次是wrote a readme file。</p>
+<p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上–pretty=oneline参数：</p>
+<blockquote>
+<p>$ git log –pretty=oneline</p>
+</blockquote>
+<p>&emsp;&emsp;2、现在，我们要把当前版本append GPL回退到上一个版本add distributed，就可以使用git reset命令：</p>
+<blockquote>
+<p>$ git reset –hard HEAD^</p>
+</blockquote>
+<p>&emsp;&emsp;在Git中，用HEAD表示当前版本，也就是最新的提交1094adb…（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。</p>
+<p>&emsp;&emsp;3、最新的那个版本append GPL已经看不到了！好比你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？</p>
+<p>&emsp;&emsp;办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个append GPL的commit id是1094adb…，于是就可以指定回到未来的某个版本：</p>
+<blockquote>
+<p>$ git reset –hard 1094a</p>
+</blockquote>
+<p>HEAD is now at 83b0afe append GPL</p>
+<p>&emsp;&emsp;现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的commit id怎么办？</p>
+<p>&emsp;&emsp;在Git中，总是有后悔药可以吃的。当你用$ git reset –hard HEAD^回退到add distributed版本时，再想恢复到append GPL，就必须找到append GPL的commit id。Git提供了一个命令git reflog用来记录你的每一次命令：</p>
+<p>&emsp;&emsp;4、$ git reflog查看命令历史，以便确定要回到未来的哪个版本。</p>
+<h4 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h4><p>&emsp;&emsp;1、每次修改，如果不用git add到暂存区，那就不会加入到commit中。</p>
+<p>&emsp;&emsp;2、git diff HEAD – readme.txt命令可以查看工作区和版本库里面最新版本的区别：</p>
+<blockquote>
+<p>xxxxxxxxxx   private static void handleResult(String result) {        if (result != null) {            JSONObject responseJson = new JSONObject(result);            int errcode = responseJson.getInt(“errcode”);            String errmsg = responseJson.getString(“errmsg”);​            if (errcode == 0) {                // 获取综合结果信息                JSONObject resultObject = responseJson.getJSONObject(“result”);                String suggest = resultObject.getString(“suggest”);                int label = resultObject.getInt(“label”);​                // 输出综合结果信息                System.out.println(“综合结果：”);                System.out.println(“建议：” + suggest);                System.out.println(“标签：” + label);​                // 如果文本内容建议审核，则根据实际需求执行人工审核流程                if (“review”.equals(suggest)) {                    System.out.println(“该文本内容建议进行人工审核！”);                    // 可以将内容设置为待审核状态，由人工审核决定是否发布                } else if (“pass”.equals(suggest)) {                    // 如果文本内容正常或命中关键词但不违规，允许发布                    System.out.println(“文本内容合规，可以发布！”);                } else if (“risky”.equals(suggest)) {                    // 如果文本内容被判定为违规，禁止发布，并输出违规信息                    System.out.println(“文本内容违规，请修改后重新提交！”);                    JSONArray detailArray = responseJson.getJSONArray(“detail”);                    for (int i = 0; i &lt; detailArray.length(); i++) {                        JSONObject detailObject = detailArray.getJSONObject(i);                        String strategy = detailObject.getString(“strategy”);                        if (“keyword”.equals(strategy)) {                            String keyword = detailObject.getString(“keyword”);                            int prob = detailObject.getInt(“prob”);                            System.out.println(“命中关键词：” + keyword + “，概率：” + prob);                        }                    }                } else {                    System.out.println(“未知建议类型：” + suggest);                }            } else {                // 输出错误信息                System.out.println(“接口调用失败，错误码：” + errcode + “，错误信息：” + errmsg);            }        } else {            System.out.println(“接口调用失败！”);        }Java</p>
+</blockquote>
+<p>diff –git a/readme.txt b/readme.txt<br>index 76d770f..a9c5755 100644<br>— a/readme.txt<br>+++ b/readme.txt<br>@@ -1,4 +1,4 @@<br> Git is a distributed version control system.<br> Git is free software distributed under the GPL.<br> Git has a mutable index called stage.<br>-Git tracks changes.<br>+Git tracks changes of files.</p>
+<h4 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h4><p>&emsp;&emsp;1、既然错误发现得很及时，就可以很容易地纠正它。你可以删掉最后一行，手动把文件恢复到上一个版本的状态。如果用git status查看一下：</p>
+<blockquote>
+<p>$ git status</p>
+</blockquote>
+<p>On branch master</p>
+<p>Changes not staged for commit:</p>
+<p>  (use “git add <file>…” to update what will be committed)</file></p>
+<p>  (use “git checkout – <file>…” to discard changes in working directory)</file></p>
+<pre><code>modified:   readme.txt
+</code></pre>
+<p>no changes added to commit (use “git add” and/or “git commit -a”)</p>
+<p>你可以发现，Git会告诉你，git checkout – file可以丢弃工作区的修改：</p>
+<blockquote>
+<p>$ git checkout – readme.txt</p>
+</blockquote>
+<p>2、现在假定是凌晨3点，你不但写了一些胡话，还git add到暂存区了：</p>
+<p>庆幸的是，在commit之前，你发现了这个问题。用git status查看一下，修改只是添加到了暂存区，还没有提交：</p>
+<p>Git同样告诉我们，用命令git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区：</file></p>
+<blockquote>
+<p>$ git reset HEAD readme.txt</p>
+</blockquote>
+<p>git reset命令既可以回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。</p>
+<p>再用git status查看一下，现在暂存区是干净的，工作区有修改：</p>
+<p>还记得如何丢弃工作区的修改吗？</p>
+<blockquote>
+<p>$ git checkout – readme.txt</p>
+</blockquote>
+<h4 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h4><p>1、一般情况下，你通常直接在文件管理器中把没用的文件删了，或者用rm命令删了：</p>
+<blockquote>
+<p>$ rm test.txt</p>
+</blockquote>
+<p>这个时候，Git知道你删除了文件，因此，工作区和版本库就不一致了，git status命令会立刻告诉你哪些文件被删除了：</p>
+<p>rm之后你有两个选择，一是确实要从版本库中删除该文件，那就用命令git rm删掉，并且git commit：</p>
+<blockquote>
+<p>$ git rm test.txt</p>
+</blockquote>
+<p>rm ‘test.txt’</p>
+<p>2、切记，在git rm 之后还需要提交commit才能从版本库中被删除</p>
+<blockquote>
+<p>$ git commit -m “remove test.txt”</p>
+</blockquote>
+<p>[master d46f35e] remove test.txt</p>
+<p> 1 file changed, 1 deletion(-)</p>
+<p> delete mode 100644 test.txt<br>现在，文件就从版本库中被删除了。</p>
+<p>3、另一种情况是删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：（经实验，如果版本库里面也被rm了就无法恢复了）</p>
+<blockquote>
+<p>$ git checkout – test.txt</p>
+</blockquote>
+<h4 id="远程库的使用"><a href="#远程库的使用" class="headerlink" title="远程库的使用"></a>远程库的使用</h4><p>一、添加远程库</p>
+<p>具体怎么添加，请小伙伴们，自行百度学习，具体实现就不说了，小编只在这里讲一下添加时候的一些命令：</p>
+<p>1、在本次仓里面运行命令：</p>
+<blockquote>
+<p>$ git remote add origin <a href="mailto:&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;">&#x67;&#x69;&#116;&#64;&#103;&#105;&#116;&#x68;&#117;&#98;&#46;&#99;&#111;&#109;</a>:pengzihao166/learngit.git</p>
+</blockquote>
+<p>注意：把上面的pengzihao166替换成你自己的GitHub账户名，否则，你在本地关联的就是我的远程库，关联没有问题，但是你以后推送是推不上去的，因为你的SSH Key公钥不在我的账户列表中。</p>
+<p>2、下一步，就可以把本地库的所有内容推送到远程库上：</p>
+<blockquote>
+<p>$ git push -u origin master</p>
+</blockquote>
+<p>把本地库的内容推送到远程，用git push命令，实际上是把当前分支master推送到远程。</p>
+<p>注意：由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</p>
+<p>3、从现在起，只要本地作了提交，就可以通过命令：</p>
+<blockquote>
+<p>$ git push origin master</p>
+</blockquote>
+<p>二、删除远程库</p>
+<p>1、如果添加的时候地址写错了，或者就是想删除远程库，可以用git remote rm <name>命令。使用前，建议先用git remote -v查看远程库信息：</name></p>
+<blockquote>
+<p>$ git remote -v<br>origin  <a href="mailto:&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#99;&#111;&#x6d;</a>:pengzihao166/learn-git.git (fetch)</p>
+</blockquote>
+<p>origin  <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#116;&#104;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a>:pengzihao166/learn-git.git (push)</p>
+<p>然后，根据名字删除，比如删除origin：</p>
+<blockquote>
+<p>$ git remote rm origin</p>
+</blockquote>
+<p>三、从远程库克隆</p>
+<p>1、准备好远程库</p>
+<p>2、现在，远程库已经准备好了，下一步是用命令git clone克隆一个本地库：</p>
+<blockquote>
+<p>$ git clone <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:pengzihao166/gitskills.git</p>
+</blockquote>
+<p>注意把Git库的地址换成你自己的，然后进入gitskills目录看看，已经有README.md文件了。</p>
+<p>Git支持多种协议，包括https，但ssh协议速度最快。</p>
+<h4 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h4><p>一、创建并合并分支</p>
+<p>创建命令：</p>
+<blockquote>
+<p>git switch -c ***</p>
+</blockquote>
+<p>合并命令：</p>
+<blockquote>
+<p>git merge ***</p>
+</blockquote>
+<p>注意：***是你想取的名字</p>
+<p>二、分支管理策略</p>
+<p>合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。</p>
+<p>例：</p>
+<blockquote>
+<p>$ git merge –no-ff -m “merge with no-ff” dev</p>
+</blockquote>
+<p>合并后，我们用git log看看分支历史：</p>
+<blockquote>
+<p>$ git log –graph –pretty=oneline –abbrev-commit</p>
+</blockquote>
+<p>二、bug和feature分支：</p>
+<p>这两个分支总体来说用法都一样，就是在不同工作环境下使用的时间不一样，就拿bug来举例好了：</p>
+<p>1、当你接到一个修复一个代号101的bug的任务时,当前正在dev上进行的工作还没有提交。</p>
+<p>幸好，Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：</p>
+<blockquote>
+<p>$ git stash<br>Saved working directory and index state WIP on dev: f52c633 add merge</p>
+</blockquote>
+<p>2、返回到主分支master之后，再建立一个新的分支issue-101，在此分支上面进行readme.txt文档的修改已知bug（经自己的实验发现一个问题，原来如果vi文件完成之后你使用前面提到的:wq或者wq!或者ZZ命令会发现，你的文件直接被git add了，只需要直接commit）</p>
+<blockquote>
+<p>$ git add readme.txt </p>
+</blockquote>
+<blockquote>
+<p>$ git commit -m “fix bug 101”</p>
+</blockquote>
+<p>[issue-101 a1d6694] fix bug 101</p>
+<p>1 file changed, 1 insertion(+), 1 deletion(-)</p>
+<p>3、再修改bug完成之后，返回到master分支，然后，再进行git merge –no-ff -m “merged bug fix 101” issue-101合并刚刚的issue-101分支修改的bug内容</p>
+<p>4、然后就是跳转到先前的Dev分支上面，继续以前的工作，通过git stash list 查找到刚刚git stash存好的工作区的文件，恢复方法如下：<br>     输入git stash list</p>
+<pre><code>  $ git stash list
+
+      stash@&#123;0&#125;: WIP on dev:ecd2437add merge
+
+   ①一是用git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+
+    另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+    
+   ②$ git stash apply stash@&#123;0&#125;
+
+      stash@&#123;0&#125;就是list显示的前缀名
+</code></pre>
+<p>5、同样的bug，要在dev上修复，我们只需要把4c805e2 fix bug 101这个提交所做的修改“复制”到dev分支。注意：我们只想复制4c805e2 fix bug 101这个提交所做的修改，并不是把整个master分支merge过来。</p>
+<p>为了方便操作，Git专门提供了一个cherry-pick命令，让我们能复制一个特定的提交到当前分支：</p>
+<blockquote>
+<p>$ git branch</p>
+</blockquote>
+<ul>
+<li><p>dev（此时在dev分支上面）</p>
+<p>master</p>
+</li>
+</ul>
+<blockquote>
+<p>$ git cherry-pick a1d6694</p>
+</blockquote>
+<p>[master 1d4b803] fix bug 101</p>
+<p> 1 file changed, 1 insertion(+), 1 deletion(-)</p>
+<h4 id="标签管理："><a href="#标签管理：" class="headerlink" title="标签管理："></a>标签管理：</h4><p>一、创建标签：</p>
+<p>1、直接法：</p>
+<blockquote>
+<p>$ git branch</p>
+</blockquote>
+<ul>
+<li>dev<br>master<blockquote>
+<p>$ git checkout master</p>
+</blockquote>
+</li>
+</ul>
+<p>Switched to branch ‘master’</p>
+<p>然后，敲命令git tag <name>就可以打一个新标签：</name></p>
+<blockquote>
+<p>$ git tag v1.0</p>
+</blockquote>
+<p>可以用命令git tag查看所有标签：</p>
+<blockquote>
+<p>$ git tag</p>
+</blockquote>
+<p>v1.0</p>
+<p>2、默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的commit id，然后打上就可以了：</p>
+<blockquote>
+<p>$ git log –pretty=oneline –abbrev-commit</p>
+</blockquote>
+<p>12a631b (HEAD -&gt; master, tag: v1.0, origin/master) </p>
+<p>merged bug fix 101</p>
+<p>4c805e2 fix bug 101</p>
+<p>e1e9c68 merge with no-ff</p>
+<p>f52c633 add merge</p>
+<p>比方说要对add merge这次提交打标签，它对应的commit id是f52c633，敲入命令：</p>
+<blockquote>
+<p>$ git tag v0.9 f52c633</p>
+</blockquote>
+<p>再用命令git tag查看标签：</p>
+<blockquote>
+<p>$ git tag</p>
+</blockquote>
+<p>v0.9</p>
+<p>v1.0</p>
+<p>注意，标签不是按时间顺序列出，而是按字母排序的。可以用git show <tagname>查看标签信息：</tagname></p>
+<blockquote>
+<p>$ git show v0.9</p>
+</blockquote>
+<p>可以看到，v0.9确实打在add merge这次提交上。</p>
+<p>还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
+<blockquote>
+<p>$ git tag -a v0.1 -m “version 0.1 released” 1094adb</p>
+</blockquote>
+<p>用命令git show <tagname>可以看到说明文字：</tagname></p>
+<blockquote>
+<p>$ git show v0.1\</p>
+</blockquote>
+<p>二、操作标签</p>
+<p>命令git push origin <tagname>可以推送一个本地标签；</tagname></p>
+<p>命令git push origin –tags可以推送全部未推送过的本地标签；</p>
+<p>命令git tag -d <tagname>可以删除一个本地标签；</tagname></p>
+<p>命令git push origin :refs/tags/<tagname>可以删除一个远程标签。</tagname></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>&ensp; &ensp;今天的Git命令的使用，就到此结束了，要是有啥疑惑的小伙伴可以去自行百度或者加上我的联系方式，联系我奥。</p>
+<p>&ensp; &ensp;部分内容转自<a href="https://www.liaoxuefeng.com/wiki/896043488029600">廖雪峰老师的网站</a>，如有侵权，请立刻联系小编进行修改完善。</p>
+<pre><code>                                                              ---来自一个小白的真实学习笔记
+</code></pre>
+]]></content>
+      <tags>
+        <tag>Git+Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最近的成长</title>
     <url>/2022/07/10/%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%90%E9%95%BF/</url>
     <content><![CDATA[<p>&emsp;&emsp;你好，我是小八，好久不见，不知不觉停更我的<a href="https://xiaobazeo.com/">blog</a>已经将近半年了，不知道的，可能是觉得大二下的我开始颓废了，我可以在这里说NO，你猜错了，我只是最近在闲暇之余花更多的时间在我前面<a href="https://xiaobazeo.com/2022/01/01/2021-backing/">一篇博客</a>提到的项目中——“微布校园”，我们团队开发了一款基于微信生态环境的微信小程序和APP——微布校园，目前也有很多我校大学生在使用我们的产品，而我负责的主要是小程序端开发和Java后端开发，算得上是个前后端啥都干的小菜鸡吧。</p>
@@ -2156,6 +2155,14 @@ docker rmi -f $(docker images -qa)
 ]]></content>
       <tags>
         <tag>计网</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面经-七牛云测试开发实习一二面</title>
+    <url>/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/</url>
+    <content><![CDATA[<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="微布校园的分工如何？"><a href="#微布校园的分工如何？" class="headerlink" title="微布校园的分工如何？"></a>微布校园的分工如何？</h3><h3 id="在开发过程中学到了什么？遇到了什么难的问题？"><a href="#在开发过程中学到了什么？遇到了什么难的问题？" class="headerlink" title="在开发过程中学到了什么？遇到了什么难的问题？"></a>在开发过程中学到了什么？遇到了什么难的问题？</h3><h3 id="如何解决缓存雪崩、缓存与数据库一致性问题？"><a href="#如何解决缓存雪崩、缓存与数据库一致性问题？" class="headerlink" title="如何解决缓存雪崩、缓存与数据库一致性问题？"></a>如何解决缓存雪崩、缓存与数据库一致性问题？</h3><h3 id="查询响应速度从超时响应加快到900ms-1s是如何实现的？"><a href="#查询响应速度从超时响应加快到900ms-1s是如何实现的？" class="headerlink" title="查询响应速度从超时响应加快到900ms~1s是如何实现的？"></a>查询响应速度从超时响应加快到900ms~1s是如何实现的？</h3><h3 id="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"><a href="#讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）" class="headerlink" title="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"></a>讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）</h3><h3 id="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"><a href="#使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。" class="headerlink" title="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"></a>使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。</h3><h3 id="Redis在哪一部分用的比较多？"><a href="#Redis在哪一部分用的比较多？" class="headerlink" title="Redis在哪一部分用的比较多？"></a>Redis在哪一部分用的比较多？</h3><h3 id="讲一下http的三次握手、四次挥手？"><a href="#讲一下http的三次握手、四次挥手？" class="headerlink" title="讲一下http的三次握手、四次挥手？"></a>讲一下http的三次握手、四次挥手？</h3><h3 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h3><h3 id="介绍一下udp和tcp之间的区别"><a href="#介绍一下udp和tcp之间的区别" class="headerlink" title="介绍一下udp和tcp之间的区别"></a>介绍一下udp和tcp之间的区别</h3><h3 id="什么时候用UDP？什么时候用TCP？"><a href="#什么时候用UDP？什么时候用TCP？" class="headerlink" title="什么时候用UDP？什么时候用TCP？"></a>什么时候用UDP？什么时候用TCP？</h3><h3 id="介绍一下对HTTP的理解"><a href="#介绍一下对HTTP的理解" class="headerlink" title="介绍一下对HTTP的理解"></a>介绍一下对HTTP的理解</h3><h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><h3 id="介绍一下token"><a href="#介绍一下token" class="headerlink" title="介绍一下token"></a>介绍一下token</h3><h3 id="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"><a href="#讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？" class="headerlink" title="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"></a>讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？</h3><h3 id="介绍一下Redis的数据类型和持久化"><a href="#介绍一下Redis的数据类型和持久化" class="headerlink" title="介绍一下Redis的数据类型和持久化"></a>介绍一下Redis的数据类型和持久化</h3><h3 id="如何通过Redis实现分布式锁？"><a href="#如何通过Redis实现分布式锁？" class="headerlink" title="如何通过Redis实现分布式锁？"></a>如何通过Redis实现分布式锁？</h3><h3 id="Redis的淘汰策略有哪些？"><a href="#Redis的淘汰策略有哪些？" class="headerlink" title="Redis的淘汰策略有哪些？"></a>Redis的淘汰策略有哪些？</h3><h3 id="介绍一下对多线程的理解"><a href="#介绍一下对多线程的理解" class="headerlink" title="介绍一下对多线程的理解"></a>介绍一下对多线程的理解</h3><h3 id="什么是线程池、为什么要使用线程池？"><a href="#什么是线程池、为什么要使用线程池？" class="headerlink" title="什么是线程池、为什么要使用线程池？"></a>什么是线程池、为什么要使用线程池？</h3><h3 id="Java的异常有哪些？如何捕获异常？"><a href="#Java的异常有哪些？如何捕获异常？" class="headerlink" title="Java的异常有哪些？如何捕获异常？"></a>Java的异常有哪些？如何捕获异常？</h3><h3 id="对文件的上传、下载分别有哪些测试功能点？"><a href="#对文件的上传、下载分别有哪些测试功能点？" class="headerlink" title="对文件的上传、下载分别有哪些测试功能点？"></a>对文件的上传、下载分别有哪些测试功能点？</h3><h3 id="算法题：把两个无序的数组合并成一个有序的数组"><a href="#算法题：把两个无序的数组合并成一个有序的数组" class="headerlink" title="算法题：把两个无序的数组合并成一个有序的数组"></a>算法题：把两个无序的数组合并成一个有序的数组</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="为什么要选择面试测试开发这个岗位？"><a href="#为什么要选择面试测试开发这个岗位？" class="headerlink" title="为什么要选择面试测试开发这个岗位？"></a>为什么要选择面试测试开发这个岗位？</h3><h3 id="你觉得测开需要学习些什么方面的东西？"><a href="#你觉得测开需要学习些什么方面的东西？" class="headerlink" title="你觉得测开需要学习些什么方面的东西？"></a>你觉得测开需要学习些什么方面的东西？</h3><h3 id="netty和直接裸写socket有什么区别？"><a href="#netty和直接裸写socket有什么区别？" class="headerlink" title="netty和直接裸写socket有什么区别？"></a>netty和直接裸写socket有什么区别？</h3><h3 id="什么是NIO？"><a href="#什么是NIO？" class="headerlink" title="什么是NIO？"></a>什么是NIO？</h3><h3 id="为什么IO多路复用比多线程更高效？"><a href="#为什么IO多路复用比多线程更高效？" class="headerlink" title="为什么IO多路复用比多线程更高效？"></a>为什么IO多路复用比多线程更高效？</h3><h3 id="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"><a href="#Redis是单线程还是多线程的？为什么是单线程还能这么高效？" class="headerlink" title="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"></a>Redis是单线程还是多线程的？为什么是单线程还能这么高效？</h3><h3 id="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"><a href="#在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？" class="headerlink" title="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"></a>在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？</h3><h3 id="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"><a href="#使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）" class="headerlink" title="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"></a>使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）</h3><h3 id="netty的广播怎么实现的？"><a href="#netty的广播怎么实现的？" class="headerlink" title="netty的广播怎么实现的？"></a>netty的广播怎么实现的？</h3><h3 id="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"><a href="#如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？" class="headerlink" title="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"></a>如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？</h3><h3 id="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"><a href="#如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？" class="headerlink" title="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"></a>如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？</h3><h3 id="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"><a href="#介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？" class="headerlink" title="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"></a>介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？</h3><h3 id="说几个Maven的常用命令"><a href="#说几个Maven的常用命令" class="headerlink" title="说几个Maven的常用命令"></a>说几个Maven的常用命令</h3><h3 id="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"><a href="#常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）" class="headerlink" title="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"></a>常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）</h3><h3 id="怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"><a href="#怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？" class="headerlink" title="怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"></a>怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？</h3><h3 id="Java的新特性（介绍的Java8的新特性）"><a href="#Java的新特性（介绍的Java8的新特性）" class="headerlink" title="Java的新特性（介绍的Java8的新特性）"></a>Java的新特性（介绍的Java8的新特性）</h3><h3 id="编码：实现a，b两个线程顺序交替执行"><a href="#编码：实现a，b两个线程顺序交替执行" class="headerlink" title="编码：实现a，b两个线程顺序交替执行"></a>编码：实现a，b两个线程顺序交替执行</h3>]]></content>
+      <tags>
+        <tag>面经</tag>
       </tags>
   </entry>
   <entry>
@@ -2471,14 +2478,6 @@ docker rmi -f $(docker images -qa)
 <p>&emsp;&emsp;HashTable只有链表存储</p>
 <h3 id="项目介绍："><a href="#项目介绍：" class="headerlink" title="项目介绍："></a>项目介绍：</h3><p>因为主要是自己写的、在redis那一块也比较熟悉，也自己解决了缓存雪崩的问题，后面也解决了缓存和数据库一致性问题，但是面试的时候忘记提了，可能提了会更加加分~</p>
 ]]></content>
-      <tags>
-        <tag>面经</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面经-七牛云测试开发实习一二面</title>
-    <url>/2023/08/02/%E9%9D%A2%E7%BB%8F-%E4%B8%83%E7%89%9B%E4%BA%91%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E5%AE%9E%E4%B9%A0%E4%B8%80%E4%BA%8C%E9%9D%A2/</url>
-    <content><![CDATA[<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><h3 id="微布校园的分工如何？"><a href="#微布校园的分工如何？" class="headerlink" title="微布校园的分工如何？"></a>微布校园的分工如何？</h3><h3 id="在开发过程中学到了什么？遇到了什么难的问题？"><a href="#在开发过程中学到了什么？遇到了什么难的问题？" class="headerlink" title="在开发过程中学到了什么？遇到了什么难的问题？"></a>在开发过程中学到了什么？遇到了什么难的问题？</h3><h3 id="如何解决缓存雪崩、缓存与数据库一致性问题？"><a href="#如何解决缓存雪崩、缓存与数据库一致性问题？" class="headerlink" title="如何解决缓存雪崩、缓存与数据库一致性问题？"></a>如何解决缓存雪崩、缓存与数据库一致性问题？</h3><h3 id="查询响应速度从超时响应加快到900ms-1s是如何实现的？"><a href="#查询响应速度从超时响应加快到900ms-1s是如何实现的？" class="headerlink" title="查询响应速度从超时响应加快到900ms~1s是如何实现的？"></a>查询响应速度从超时响应加快到900ms~1s是如何实现的？</h3><h3 id="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"><a href="#讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）" class="headerlink" title="讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）"></a>讲一下雪花算法（当时从组成，为什么可以作为分布式id角度回答）</h3><h3 id="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"><a href="#使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。" class="headerlink" title="使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。"></a>使用kafka实现UGC消息异步推送，起到削峰、解耦的作用，讲一下对削峰、解耦的理解。</h3><h3 id="Redis在哪一部分用的比较多？"><a href="#Redis在哪一部分用的比较多？" class="headerlink" title="Redis在哪一部分用的比较多？"></a>Redis在哪一部分用的比较多？</h3><h3 id="讲一下http的三次握手、四次挥手？"><a href="#讲一下http的三次握手、四次挥手？" class="headerlink" title="讲一下http的三次握手、四次挥手？"></a>讲一下http的三次握手、四次挥手？</h3><h3 id="为什么要进行四次挥手？"><a href="#为什么要进行四次挥手？" class="headerlink" title="为什么要进行四次挥手？"></a>为什么要进行四次挥手？</h3><h3 id="介绍一下udp和tcp之间的区别"><a href="#介绍一下udp和tcp之间的区别" class="headerlink" title="介绍一下udp和tcp之间的区别"></a>介绍一下udp和tcp之间的区别</h3><h3 id="什么时候用UDP？什么时候用TCP？"><a href="#什么时候用UDP？什么时候用TCP？" class="headerlink" title="什么时候用UDP？什么时候用TCP？"></a>什么时候用UDP？什么时候用TCP？</h3><h3 id="介绍一下对HTTP的理解"><a href="#介绍一下对HTTP的理解" class="headerlink" title="介绍一下对HTTP的理解"></a>介绍一下对HTTP的理解</h3><h3 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a>Cookie和Session的区别</h3><h3 id="介绍一下token"><a href="#介绍一下token" class="headerlink" title="介绍一下token"></a>介绍一下token</h3><h3 id="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"><a href="#讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？" class="headerlink" title="讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？"></a>讲一下MySQL的索引，什么时候用到了索引，以及什么时候遇到过索引失效的？</h3><h3 id="介绍一下Redis的数据类型和持久化"><a href="#介绍一下Redis的数据类型和持久化" class="headerlink" title="介绍一下Redis的数据类型和持久化"></a>介绍一下Redis的数据类型和持久化</h3><h3 id="如何通过Redis实现分布式锁？"><a href="#如何通过Redis实现分布式锁？" class="headerlink" title="如何通过Redis实现分布式锁？"></a>如何通过Redis实现分布式锁？</h3><h3 id="Redis的淘汰策略有哪些？"><a href="#Redis的淘汰策略有哪些？" class="headerlink" title="Redis的淘汰策略有哪些？"></a>Redis的淘汰策略有哪些？</h3><h3 id="介绍一下对多线程的理解"><a href="#介绍一下对多线程的理解" class="headerlink" title="介绍一下对多线程的理解"></a>介绍一下对多线程的理解</h3><h3 id="什么是线程池、为什么要使用线程池？"><a href="#什么是线程池、为什么要使用线程池？" class="headerlink" title="什么是线程池、为什么要使用线程池？"></a>什么是线程池、为什么要使用线程池？</h3><h3 id="Java的异常有哪些？如何捕获异常？"><a href="#Java的异常有哪些？如何捕获异常？" class="headerlink" title="Java的异常有哪些？如何捕获异常？"></a>Java的异常有哪些？如何捕获异常？</h3><h3 id="对文件的上传、下载分别有哪些测试功能点？"><a href="#对文件的上传、下载分别有哪些测试功能点？" class="headerlink" title="对文件的上传、下载分别有哪些测试功能点？"></a>对文件的上传、下载分别有哪些测试功能点？</h3><h3 id="算法题：把两个无序的数组合并成一个有序的数组"><a href="#算法题：把两个无序的数组合并成一个有序的数组" class="headerlink" title="算法题：把两个无序的数组合并成一个有序的数组"></a>算法题：把两个无序的数组合并成一个有序的数组</h3><h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><h3 id="为什么要选择面试测试开发这个岗位？"><a href="#为什么要选择面试测试开发这个岗位？" class="headerlink" title="为什么要选择面试测试开发这个岗位？"></a>为什么要选择面试测试开发这个岗位？</h3><h3 id="你觉得测开需要学习些什么方面的东西？"><a href="#你觉得测开需要学习些什么方面的东西？" class="headerlink" title="你觉得测开需要学习些什么方面的东西？"></a>你觉得测开需要学习些什么方面的东西？</h3><h3 id="netty和直接裸写socket有什么区别？"><a href="#netty和直接裸写socket有什么区别？" class="headerlink" title="netty和直接裸写socket有什么区别？"></a>netty和直接裸写socket有什么区别？</h3><h3 id="什么是NIO？"><a href="#什么是NIO？" class="headerlink" title="什么是NIO？"></a>什么是NIO？</h3><h3 id="为什么IO多路复用比多线程更高效？"><a href="#为什么IO多路复用比多线程更高效？" class="headerlink" title="为什么IO多路复用比多线程更高效？"></a>为什么IO多路复用比多线程更高效？</h3><h3 id="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"><a href="#Redis是单线程还是多线程的？为什么是单线程还能这么高效？" class="headerlink" title="Redis是单线程还是多线程的？为什么是单线程还能这么高效？"></a>Redis是单线程还是多线程的？为什么是单线程还能这么高效？</h3><h3 id="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"><a href="#在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？" class="headerlink" title="在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？"></a>在多路复用的场景下，做一个哈希计算可行吗？会不会有什么问题？</h3><h3 id="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"><a href="#使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）" class="headerlink" title="使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）"></a>使用netty实现IM实时通讯为什么不只使用websocket协议，而还要加上rpc协议呢？（应该是json-rpc协议。。。当时简历写错了）</h3><h3 id="netty的广播怎么实现的？"><a href="#netty的广播怎么实现的？" class="headerlink" title="netty的广播怎么实现的？"></a>netty的广播怎么实现的？</h3><h3 id="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"><a href="#如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？" class="headerlink" title="如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？"></a>如果在通信过程中，客户端突然断开或者服务端进行升级，应该怎么解决这两个问题？</h3><h3 id="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"><a href="#如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？" class="headerlink" title="如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？"></a>如果出现了断开重连的情况，用户重新登录会继续看到以前的消息吗？怎么实现的消息持久化？</h3><h3 id="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"><a href="#介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？" class="headerlink" title="介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？"></a>介绍一下jwt和session的区别？（说一些token的优势）介绍一下CSRF攻击的应用场景，如何避免CSRF的攻击？</h3><h3 id="说几个Maven的常用命令"><a href="#说几个Maven的常用命令" class="headerlink" title="说几个Maven的常用命令"></a>说几个Maven的常用命令</h3><h3 id="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"><a href="#常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）" class="headerlink" title="常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）"></a>常用的map有哪些？TreeMap和HashMap的区别（实现的接口，时间复杂度，应用场景）</h3><h3 id="怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"><a href="#怎么实现多线程之间的同步操作？-主线程开启10个任务，-等这10个任务并发结束之后，再执行其他的任务应该怎么实现？" class="headerlink" title="怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？"></a>怎么实现多线程之间的同步操作？ 主线程开启10个任务， 等这10个任务并发结束之后，再执行其他的任务应该怎么实现？</h3><h3 id="Java的新特性（介绍的Java8的新特性）"><a href="#Java的新特性（介绍的Java8的新特性）" class="headerlink" title="Java的新特性（介绍的Java8的新特性）"></a>Java的新特性（介绍的Java8的新特性）</h3><h3 id="编码：实现a，b两个线程顺序交替执行"><a href="#编码：实现a，b两个线程顺序交替执行" class="headerlink" title="编码：实现a，b两个线程顺序交替执行"></a>编码：实现a，b两个线程顺序交替执行</h3>]]></content>
       <tags>
         <tag>面经</tag>
       </tags>
