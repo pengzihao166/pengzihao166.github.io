@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-08-02T03:48:32.518Z</updated>
+  <updated>2023-08-03T02:16:51.553Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信三方接口文本校验校验开发思路</title>
+    <link href="http://xiaobazeo.github.io/2023/08/03/%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
+    <id>http://xiaobazeo.github.io/2023/08/03/%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</id>
+    <published>2023-08-03T02:12:14.000Z</published>
+    <updated>2023-08-03T02:16:51.553Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="根据文档要求总结分为以下的情况："><a href="#根据文档要求总结分为以下的情况：" class="headerlink" title="根据文档要求总结分为以下的情况："></a>根据文档要求总结分为以下的情况：</h3><ol><li>文本内容正常 (suggest: “pass”, label: 100)：<ol><li>情况处理：如果文本内容被判定为正常，可以允许发布该文本内容。</li></ol></li><li>文本内容命中关键词，但不违规 (suggest: “pass”, label: 20006)：<ol><li>情况处理：如果文本内容命中自定义关键词但不违规，可以允许发布该文本内容，同时可能根据需要记录命中的关键词和概率信息。</li></ol></li><li>文本内容建议审核 (suggest: “review”)：<ol><li>情况处理：如果文本内容被建议进行审核，您可以将该内容设置为待审核状态，让人工审核来决定是否发布该内容。</li></ol></li><li>文本内容命中违规标签 (suggest: “risky”)：<ol><li>情况处理：如果文本内容被判定为违规，应禁止发布该内容，并通知用户违规原因。</li></ol></li><li>文本内容属于广告 (label: 10001)：<ol><li>情况处理：如果文本内容被判定为广告，应禁止发布该内容，并通知用户不允许发布广告内容。</li></ol></li><li>文本内容属于色情、辱骂、违法犯罪等 (label: 20002, 20003, 20006等)：<ol><li>情况处理：如果文本内容被判定为色情、辱骂、违法犯罪等，应禁止发布该内容，并根据需要采取进一步的处理措施，比如记录日志或进行用户封禁等。</li></ol></li></ol><h3 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h3><ol><li>从Redis中获取到AccessToken</li><li>查库获取发布者微信的openid</li><li>调用<a href="https://api.weixin.qq.com/wxa/msg_sec_check?access_token=%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%A0%A1%E9%AA%8C%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0">https://api.weixin.qq.com/wxa/msg_sec_check?access_token=接口，校验返回参数</a><ol><li>errocode == 0<ol><li>获取result对象的suggest参数值并进行比较<ol><li>如果文本内容建议审核，则根据实际需求执行人工审核流程，”review”.equals(suggest)</li><li>如果文本内容正常或命中关键词但不违规，允许发布，”pass”.equals(suggest)</li><li>如果文本内容被判定为违规，禁止发布，并输出违规信息，”risky”.equals(suggest)<ol><li>此时可以遍历detail数组，并获取对应的prob如果其中有敏感词汇prob&gt;50就不准发布。</li></ol></li></ol></li></ol></li></ol></li></ol><h3 id="大致代码逻辑如下："><a href="#大致代码逻辑如下：" class="headerlink" title="大致代码逻辑如下："></a>大致代码逻辑如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">handleResult</span><span class="params">(String result)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="type">JSONObject</span> <span class="variable">responseJson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(result);</span><br><span class="line">          <span class="type">int</span> <span class="variable">errcode</span> <span class="operator">=</span> responseJson.getInt(<span class="string">&quot;errcode&quot;</span>);</span><br><span class="line">          <span class="type">String</span> <span class="variable">errmsg</span> <span class="operator">=</span> responseJson.getString(<span class="string">&quot;errmsg&quot;</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (errcode == <span class="number">0</span>) &#123;</span><br><span class="line">              <span class="comment">// 获取综合结果信息</span></span><br><span class="line">              <span class="type">JSONObject</span> <span class="variable">resultObject</span> <span class="operator">=</span> responseJson.getJSONObject(<span class="string">&quot;result&quot;</span>);</span><br><span class="line">              <span class="type">String</span> <span class="variable">suggest</span> <span class="operator">=</span> resultObject.getString(<span class="string">&quot;suggest&quot;</span>);</span><br><span class="line">              <span class="type">int</span> <span class="variable">label</span> <span class="operator">=</span> resultObject.getInt(<span class="string">&quot;label&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 输出综合结果信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;综合结果：&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;建议：&quot;</span> + suggest);</span><br><span class="line">              System.out.println(<span class="string">&quot;标签：&quot;</span> + label);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 如果文本内容建议审核，则根据实际需求执行人工审核流程</span></span><br><span class="line">              <span class="keyword">if</span> (<span class="string">&quot;review&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;该文本内容建议进行人工审核！&quot;</span>);</span><br><span class="line">                  <span class="comment">// 可以将内容设置为待审核状态，由人工审核决定是否发布</span></span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;pass&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容正常或命中关键词但不违规，允许发布</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容合规，可以发布！&quot;</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;risky&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容被判定为违规，禁止发布，并输出违规信息</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容违规，请修改后重新提交！&quot;</span>);</span><br><span class="line">                  <span class="type">JSONArray</span> <span class="variable">detailArray</span> <span class="operator">=</span> responseJson.getJSONArray(<span class="string">&quot;detail&quot;</span>);</span><br><span class="line">                  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; detailArray.length(); i++) &#123;</span><br><span class="line">                      <span class="type">JSONObject</span> <span class="variable">detailObject</span> <span class="operator">=</span> detailArray.getJSONObject(i);</span><br><span class="line">                      <span class="type">String</span> <span class="variable">strategy</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;strategy&quot;</span>);</span><br><span class="line">                      <span class="keyword">if</span> (<span class="string">&quot;keyword&quot;</span>.equals(strategy)) &#123;</span><br><span class="line">                          <span class="type">String</span> <span class="variable">keyword</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;keyword&quot;</span>);</span><br><span class="line">                          <span class="type">int</span> <span class="variable">prob</span> <span class="operator">=</span> detailObject.getInt(<span class="string">&quot;prob&quot;</span>);</span><br><span class="line">                          System.out.println(<span class="string">&quot;命中关键词：&quot;</span> + keyword + <span class="string">&quot;，概率：&quot;</span> + prob);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;未知建议类型：&quot;</span> + suggest);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 输出错误信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;接口调用失败，错误码：&quot;</span> + errcode + <span class="string">&quot;，错误信息：&quot;</span> + errmsg);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          System.out.println(<span class="string">&quot;接口调用失败！&quot;</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;根据文档要求总结分为以下的情况：&quot;&gt;&lt;a href=&quot;#根据文档要求总结分为以下的情况：&quot; class=&quot;headerlink&quot; title=&quot;根据文档要求总结分为以下的情况：&quot;&gt;&lt;/a&gt;根据文档要求总结分为以下的情况：&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;文本内容正常 (</summary>
+      
+    
+    
+    
+    
+    <category term="微布开发思路总结" scheme="http://xiaobazeo.github.io/tags/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>面经-七牛云测试开发实习一二面</title>
@@ -448,30 +471,6 @@
     
     
     <category term="leetcode" scheme="http://xiaobazeo.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最近的成长</title>
-    <link href="http://xiaobazeo.github.io/2022/07/10/%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%90%E9%95%BF/"/>
-    <id>http://xiaobazeo.github.io/2022/07/10/%E6%9C%80%E8%BF%91%E7%9A%84%E6%88%90%E9%95%BF/</id>
-    <published>2022-07-10T08:10:22.000Z</published>
-    <updated>2022-08-24T08:11:34.213Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;你好，我是小八，好久不见，不知不觉停更我的<a href="https://xiaobazeo.com/">blog</a>已经将近半年了，不知道的，可能是觉得大二下的我开始颓废了，我可以在这里说NO，你猜错了，我只是最近在闲暇之余花更多的时间在我前面<a href="https://xiaobazeo.com/2022/01/01/2021-backing/">一篇博客</a>提到的项目中——“微布校园”，我们团队开发了一款基于微信生态环境的微信小程序和APP——微布校园，目前也有很多我校大学生在使用我们的产品，而我负责的主要是小程序端开发和Java后端开发，算得上是个前后端啥都干的小菜鸡吧。</p><p>&emsp;&emsp;不知不觉，微布校园的诞生已经半年之久了，用户量也达到了我们的预期估计。在这段参与开发的过程中，通过向几个在大厂工作的学长请教，交流，我发现了很多开发过程中需要注意的小问题，而这些也丰富积累了我的开发经验。比如 刚开始学习使用mina框架开发小程序的我过于小白，其实有些icon只需要写一个class改变其样式即可，而我当时却给每个icon单独写了一个class样式，现在想起来都觉得自己真的好蠢啊，hhhhhhh~</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223856616.png" alt="小白受教ing"></p><p>&emsp;&emsp;还有这样的：当时还记得是因为我们开发的时候，提到了tcp协议，而我又看到过一篇博客说http3.0的TCP被弃用了，就开始了这个话题。。。当时还从计网知识转到了计组的相关探讨，hhhhhhh，而且我才知道一个安卓手机小知识，这里也分享给大家：安卓大多数手机用WiFi给电脑传数据，比用数据线快，因为很多手机接口用的USB2.0协议，虽然协议写的是60M，但一般2.0不超过30M</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/image-20220710223300695.png" alt="请教计网相关问题"></p><p>&emsp;&emsp;好在我们的不断努力下，微布校园APP和小程序都成功诞生啦~</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&amp;emsp;&amp;emsp;你好，我是小八，好久不见，不知不觉停更我的&lt;a href=&quot;https://xiaobazeo.com/&quot;&gt;blog&lt;/a&gt;已经将近半年了，不知道的，可能是觉得大二下的我开始颓废了，我可以在这里说NO，你猜错了，我只是最近在闲暇之余花更多的时间在我前</summary>
-      
-    
-    
-    
-    
-    <category term="程序人生" scheme="http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="回忆" scheme="http://xiaobazeo.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
     
   </entry>
   
