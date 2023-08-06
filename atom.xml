@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-08-04T07:58:34.307Z</updated>
+  <updated>2023-08-06T16:53:18.184Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微布开发-将说说记录的图片url单独提出来用一个表存储</title>
+    <link href="http://xiaobazeo.github.io/2023/08/07/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%B0%86%E8%AF%B4%E8%AF%B4%E8%AE%B0%E5%BD%95%E7%9A%84%E5%9B%BE%E7%89%87url%E5%8D%95%E7%8B%AC%E6%8F%90%E5%87%BA%E6%9D%A5%E7%94%A8%E4%B8%80%E4%B8%AA%E8%A1%A8%E5%AD%98%E5%82%A8/"/>
+    <id>http://xiaobazeo.github.io/2023/08/07/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%B0%86%E8%AF%B4%E8%AF%B4%E8%AE%B0%E5%BD%95%E7%9A%84%E5%9B%BE%E7%89%87url%E5%8D%95%E7%8B%AC%E6%8F%90%E5%87%BA%E6%9D%A5%E7%94%A8%E4%B8%80%E4%B8%AA%E8%A1%A8%E5%AD%98%E5%82%A8/</id>
+    <published>2023-08-06T16:52:22.000Z</published>
+    <updated>2023-08-06T16:53:18.184Z</updated>
+    
+    <content type="html"><![CDATA[<p>这样的目的是为了后续方便说说附带的图片进行修改以及调用三方接口校验图片是否违规。</p><p><strong>大概表设计如下：</strong></p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/622ed5483de15a276879cab129b21cb.png" alt="622ed5483de15a276879cab129b21cb"></p><p><strong>怎么转移说说表的pics字段的<strong><strong>url</strong></strong>到新的y_talk_images字段呢？</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> y_talk_images (talk_bid, images_url, user_bid, trace_id, is_valid, is_delete, create_time)</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    bid,</span><br><span class="line">    SUBSTRING_INDEX(SUBSTRING_INDEX(pics, <span class="string">&#x27;,&#x27;</span>, numbers.n), <span class="string">&#x27;,&#x27;</span>, <span class="number">-1</span>) <span class="keyword">AS</span> images_url,</span><br><span class="line">    y_talk.user_bid,</span><br><span class="line">    <span class="keyword">NULL</span> <span class="keyword">AS</span> trace_id,</span><br><span class="line">    <span class="number">1</span> <span class="keyword">AS</span> is_valid,</span><br><span class="line">    <span class="number">0</span> <span class="keyword">AS</span> is_delete,</span><br><span class="line">    y_talk.create_time <span class="comment">-- 使用此图片对应的说说创建时间作为创建时间</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">    (<span class="keyword">SELECT</span> <span class="number">1</span> n <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">2</span> <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">3</span> <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">4</span></span><br><span class="line">     <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">5</span> <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">6</span> <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">7</span> <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">8</span></span><br><span class="line">     <span class="keyword">UNION</span> <span class="keyword">ALL</span> <span class="keyword">SELECT</span> <span class="number">9</span>) numbers</span><br><span class="line"><span class="keyword">JOIN</span> y_talk <span class="keyword">ON</span> <span class="keyword">CHAR_LENGTH</span>(pics) <span class="operator">-</span> <span class="keyword">CHAR_LENGTH</span>(REPLACE(pics, <span class="string">&#x27;,&#x27;</span>, <span class="string">&#x27;&#x27;</span>)) <span class="operator">&gt;=</span> numbers.n <span class="operator">-</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">    pics <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">AND</span> pics <span class="operator">!=</span> <span class="string">&#x27;&#x27;</span>;</span><br></pre></td></tr></table></figure><p><strong>创建y_talk_images表的<strong><strong>SQL</strong></strong>语句：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> y_talk_images (</span><br><span class="line">        id <span class="type">INT</span> ( <span class="number">11</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">        image_bid <span class="type">VARCHAR</span> ( <span class="number">255</span> ) COMMENT <span class="string">&#x27;图片的主键id&#x27;</span>,</span><br><span class="line">        talk_bid <span class="type">VARCHAR</span> ( <span class="number">255</span> ) COMMENT <span class="string">&#x27;此图片对应的说说的主键id&#x27;</span>,</span><br><span class="line">        images_url <span class="type">VARCHAR</span> ( <span class="number">1024</span> ) COMMENT <span class="string">&#x27;图片的url&#x27;</span>,</span><br><span class="line">        user_bid <span class="type">VARCHAR</span> ( <span class="number">255</span> ) COMMENT <span class="string">&#x27;发布者的主键id&#x27;</span>,</span><br><span class="line">        trace_id <span class="type">VARCHAR</span> ( <span class="number">50</span> ) COMMENT <span class="string">&#x27;每张照片微信接口校验时返回的任务id&#x27;</span>,</span><br><span class="line">        is_valid <span class="type">INT</span> ( <span class="number">1</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;是否通过校验，0待审核，1审核通过，2审核不通过&#x27;</span>,</span><br><span class="line">        is_delete <span class="type">INT</span> ( <span class="number">1</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;图片url是否被软删除&#x27;</span>,</span><br><span class="line">        create_time datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY ( `id` ) <span class="keyword">USING</span> BTREE </span><br><span class="line">);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这样的目的是为了后续方便说说附带的图片进行修改以及调用三方接口校验图片是否违规。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;大概表设计如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://pengzihao166.oss-cn-beijing.aliyuncs.c</summary>
+      
+    
+    
+    
+    
+    <category term="微布开发思路总结" scheme="http://xiaobazeo.github.io/tags/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>微布开发-上传多张图片控制上传顺序</title>
@@ -439,28 +463,6 @@
     
     
     <category term="Java基础" scheme="http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SpringBoot开发规范（一）</title>
-    <link href="http://xiaobazeo.github.io/2022/11/21/springboot-levelFunction/"/>
-    <id>http://xiaobazeo.github.io/2022/11/21/springboot-levelFunction/</id>
-    <published>2022-11-21T11:52:29.000Z</published>
-    <updated>2023-08-03T02:19:24.722Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="model（entity）"><a href="#model（entity）" class="headerlink" title="model（entity）"></a>model（entity）</h2><p>​        model是模型的意思，与entity、domain、pojo类似，是存放实体的类，类中定义了多个类属性，并与数据库表的字段保持一致，一张表对应一个model类。 主要用于定义与数据库对象应的属性，提供get/set方法,tostring方法,有参无参构造函数。</p><h2 id="dao（mapper）"><a href="#dao（mapper）" class="headerlink" title="dao（mapper）"></a>dao（mapper）</h2><p>​        又被成为mapper层，叫数据持久层，先设计接口，然后在配置文件中进行配置其实现的关联。 dao层的作用为访问数据库，向数据库发送sql语句，完成数据的增删改查任务。 数据持久化操作就是指，把数据放到持久化的介质中，同时提供增删改查操作，比如数据通过hibernate插入到数据库中</p><h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><p>​        业务逻辑层，完成功能的设计 和dao层一样都是先设计接口，再创建要实现的类，然后在配置文件中进行配置其实现的关联。接下来就可以在service层调用dao层的接口进行业务逻辑应用的处理。 service的impl是把mapper和service进行整合的文件 封装Service层的业务逻辑有利于业务逻辑的独立性和重复利用性。</p><h2 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h2><p>​        控制层，控制业务逻辑service，控制请求和响应，负责前后端交互 controller层主要调用Service层里面的接口控制具体的业务流程，控制的配置也要在配置文件中进行</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/img/2052481-20210417164128180-1418412203.png" alt="img"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;model（entity）&quot;&gt;&lt;a href=&quot;#model（entity）&quot; class=&quot;headerlink&quot; title=&quot;model（entity）&quot;&gt;&lt;/a&gt;model（entity）&lt;/h2&gt;&lt;p&gt;​        model是模型的意思，与enti</summary>
-      
-    
-    
-    
-    
-    <category term="SpringBoot" scheme="http://xiaobazeo.github.io/tags/SpringBoot/"/>
     
   </entry>
   
