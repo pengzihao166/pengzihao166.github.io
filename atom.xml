@@ -6,7 +6,7 @@
   <link href="http://xiaobazeo.github.io/atom.xml" rel="self"/>
   
   <link href="http://xiaobazeo.github.io/"/>
-  <updated>2023-08-18T08:59:44.945Z</updated>
+  <updated>2023-08-20T02:54:09.777Z</updated>
   <id>http://xiaobazeo.github.io/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring-DesignPattern</title>
+    <link href="http://xiaobazeo.github.io/2023/08/20/Spring-DesignPattern/"/>
+    <id>http://xiaobazeo.github.io/2023/08/20/Spring-DesignPattern/</id>
+    <published>2023-08-20T02:51:51.000Z</published>
+    <updated>2023-08-20T02:54:09.777Z</updated>
+    
+    
+    
+    
+    
+    <category term="Spring" scheme="http://xiaobazeo.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-AOP</title>
+    <link href="http://xiaobazeo.github.io/2023/08/20/Spring-AOP/"/>
+    <id>http://xiaobazeo.github.io/2023/08/20/Spring-AOP/</id>
+    <published>2023-08-20T02:51:09.000Z</published>
+    <updated>2023-08-20T02:54:18.018Z</updated>
+    
+    
+    
+    
+    
+    <category term="Spring" scheme="http://xiaobazeo.github.io/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring-IOC</title>
+    <link href="http://xiaobazeo.github.io/2023/08/20/Spring-IOC/"/>
+    <id>http://xiaobazeo.github.io/2023/08/20/Spring-IOC/</id>
+    <published>2023-08-20T02:50:57.000Z</published>
+    <updated>2023-08-20T02:54:26.349Z</updated>
+    
+    
+    
+    
+    
+    <category term="Spring" scheme="http://xiaobazeo.github.io/tags/Spring/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode-k个一组翻转链表</title>
@@ -219,11 +264,11 @@
   </entry>
   
   <entry>
-    <title>快手测开 2023 - 7 - 11</title>
+    <title>面经-快手测开 2023 - 7 - 11</title>
     <link href="http://xiaobazeo.github.io/2023/07/23/%E9%9D%A2%E7%BB%8F-%E5%BF%AB%E6%89%8B%E6%B5%8B%E5%BC%80%E5%AE%9E%E4%B9%A0/"/>
     <id>http://xiaobazeo.github.io/2023/07/23/%E9%9D%A2%E7%BB%8F-%E5%BF%AB%E6%89%8B%E6%B5%8B%E5%BC%80%E5%AE%9E%E4%B9%A0/</id>
     <published>2023-07-23T06:50:54.000Z</published>
-    <updated>2023-07-31T05:33:15.457Z</updated>
+    <updated>2023-08-20T02:56:44.800Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简单介绍一下二手市场整体的架构，数据流的实现？"><a href="#简单介绍一下二手市场整体的架构，数据流的实现？" class="headerlink" title="简单介绍一下二手市场整体的架构，数据流的实现？"></a>简单介绍一下二手市场整体的架构，数据流的实现？</h2><p><strong>整体架构：</strong></p><ol><li>持久层和缓存的选型<ol><li>MySQL作为持久层：<ol><li>支持复杂条件数据查询：在二手市场中，用户会根据自身需求筛选不同的条件进行各种复杂的查询，例如按照不同条件筛选商品等，MySQL提供丰富的查询语言和索引支持，能够高效查询相关数据。</li><li>结构化数据存储：二手市场涉及大量的结构化数据，例如：用户信息，商品信息等。而MySQL是关系型数据库，适合存储和管理结构化数据，提供事务支持，保证数据的一致性和完整性。</li></ol></li><li>Redis作为缓存：<ol><li>二手市场是多读少写的场景，用户会频繁的浏览商品，但是对商品的修改变更有限，所以可以将物品信息添加至Redis中有效减轻MySQL的读取压力，提高系统的响应和性能。</li></ol></li></ol></li><li>服务的拆分方式</li></ol><p>暂时因为是单体架构，没有钱去购买太多的服务器，所以服务暂时没有进行具体的划分，如果要进行划分的话我觉得可以划分成以下几种服务：</p><ol><li><p>用户服务：主要是对用户的身份信息进行认证和鉴权。</p></li><li><p>UGC消息通知：可以处理二手市场发布、编辑商品信息后，通过邮件、消息推送的方式告知用户。</p></li><li><p>商品信息服务：负责二手商品信息的发布、编辑、删除、搜索等功能。</p></li><li><p>缓存服务：应对二手市场这种读大于写的场景，可以将最新的50条商品信息放入系统缓存中，优化用户查看商品的体验。</p></li><li><p>支付服务：支付服务负责处理用户的支付请求，与第三方支付平台进行交互，并确保支付的安全性和可靠性。</p></li><li><p>文件服务：用于处理用户上传的图片、视频。</p></li><li><p>服务容灾和负载均衡方式</p><ol><li>服务容灾：<ol><li>定期对系统的数据进行备份</li><li>定期检查维护服务器的实例，修复代码BUG等</li></ol></li><li>负载均衡：<ol><li>CDN服务：将静态资源（图片、视频等）放置在内容分发网络中，加快资源加载速度，减少服务器负载</li><li>缓存数据，使用缓存减轻服务器负担，提高响应速度</li><li>反向代理：通过Nginx反向代理服务实现负载均衡，等后面有多台服务器之后将请求分发给不同的服务器，提高服务可扩展性。</li></ol></li></ol></li></ol><p><strong>数据流实现：</strong></p><ol><li>用户上传商品：<ol><li>用户在应用中填写商品信息，并上传相关照片</li><li>上传的用户信息和照片URL被发送到服务器中进行处理和存储</li><li>服务器对传过来的数据进行数据库存储，并生成一个唯一ID</li></ol></li><li>商品展示和搜索：<ol><li>其他用户访问二手市场时，前端向后端请求商品数据</li><li>后端从数据库中获取数据列表，并返回给前端</li><li>用户可以根据自身的需求条件查询特定的商品，前端将搜索条件发送给后端，后端根据条件查询数据库并返回匹配的商品信息。</li></ol></li><li>商品详情获取：<ol><li>当用户点击某个商品的详情信息之后，前端发送请求，传递对应的商品ID给后端</li><li>后端根据商品ID在数据库中搜索并返回具体商品信息给前端展示</li></ol></li></ol><h2 id="如果检索某个具体商品是如何实现检索的？"><a href="#如果检索某个具体商品是如何实现检索的？" class="headerlink" title="如果检索某个具体商品是如何实现检索的？"></a>如果检索某个具体商品是如何实现检索的？</h2><h2 id="查询的时候如何避免慢查询？"><a href="#查询的时候如何避免慢查询？" class="headerlink" title="查询的时候如何避免慢查询？"></a>查询的时候如何避免慢查询？</h2><ul><li>索引优化，将经常用到的字段创建索引（除去经常更新的字段、重复度很高的字段、数据量较少的情况），比如单列索引和联合索引，从而避免全表扫描。</li><li>分页查询：对于返回大量的数据查询，使用分页查询的方式，限制返回的数据量，避免一次返回大量的数据导致查询速率很慢。</li><li>缓存查询：对于一些比较查询比较频繁的数据可以使用缓存来避免每次都进行数据库查询。</li><li>合理设计数据库的表结构：比如说说评论查询，二级评论可以通过添加一个masterId字段(对应的说说id)来快速定位到此二级评论是归属于哪条说说之下。</li></ul><h2 id="如何正确的创建索引？（即：什么时候创建索引？）"><a href="#如何正确的创建索引？（即：什么时候创建索引？）" class="headerlink" title="如何正确的创建索引？（即：什么时候创建索引？）"></a>如何正确的创建索引？（即：什么时候创建索引？）</h2><ul><li>字段具有唯一性限制，即重复度很低，且不是经常修改的字段</li><li>经常用于where子句查询</li><li>经常用于group by 或者 order by查询</li><li>表的数据量比较多的情况</li></ul><h2 id="二手市场进行物品查询，做测试的话会进行设计使用哪些测试用例？"><a href="#二手市场进行物品查询，做测试的话会进行设计使用哪些测试用例？" class="headerlink" title="二手市场进行物品查询，做测试的话会进行设计使用哪些测试用例？"></a>二手市场进行物品查询，做测试的话会进行设计使用哪些测试用例？</h2><ol><li>正确、错误、空物品查询</li><li>物品大小写查询</li><li>高并发查询</li><li>过滤项查询</li><li>物品状态查询</li><li>安全性测试：比如SQL注入</li><li>边界值测试：比如输入极限情况下，很长的字符串验证系统是否能正确处理。</li></ol><h2 id="后端如何进行统计服务的性能？是否对请求进行一些限流的操作？如何进行限流的操作？"><a href="#后端如何进行统计服务的性能？是否对请求进行一些限流的操作？如何进行限流的操作？" class="headerlink" title="后端如何进行统计服务的性能？是否对请求进行一些限流的操作？如何进行限流的操作？"></a>后端如何进行统计服务的性能？是否对请求进行一些限流的操作？如何进行限流的操作？</h2><ol><li>统计性能的方式：<ol><li>日志记录</li><li>性能监控工具的使用：比如New Relic、Prometheus等</li><li>负载测试，模拟大量并发请求，观察系统的响应情况和性能指标。</li></ol></li><li>有，限流操作如下：<ol><li>固定窗口计时器：设置一个固定时间窗口，例如</li></ol></li></ol><h2 id="HashMap、HashSet、HashTable的区别？"><a href="#HashMap、HashSet、HashTable的区别？" class="headerlink" title="HashMap、HashSet、HashTable的区别？"></a>HashMap、HashSet、HashTable的区别？</h2><p><strong>HashMap和HashTable区别：</strong></p><ul><li>线程是否安全：HashMap是非线程安全，HashTable是线程安全（通过synchronized修饰实现）。</li><li>效率：由于HashMap线程不安全，HashMap比HashTable效率高，但是HashTable几乎被淘汰，平时一般不会用HashTable。</li><li>键值对存值问题：HashMap是可存null键和null值，HashTable不允许有null键和null值，否则会抛出异常NPE。</li><li>初始容量大小和每次扩充容量大小不同：HashTable初始化容量是11，每次扩容就是2n+1，HashMap初始化容量是16，每次扩容就是原来的2n倍。</li><li>底层数据结构：HashMap是<strong>数组+<strong><strong>链表</strong></strong>/红黑树</strong>实现，在解决哈希冲突时，当链表长度大于阈值（默认为8），将链表转化成红黑树（将链表转化成红黑树之前，如果数组长度小于64就会进行数组扩容，而不是转换成红黑树），以减少搜索时间，而HashTable是<strong>数组+链表</strong>的形式实现。</li></ul><p><strong>HashMap和<strong><strong>HashSet</strong></strong>的区别：</strong></p><ul><li>HashMap实现Map接口，HashSet实现Set接口。</li><li>HashMap存储键值对，HashSet只存储对象。</li><li>HashMap通过put方法添加元素，HashSet通过add()向Set中添加元素。</li><li>HashMap使用Key计算hashcode，HashSet使用成员对象计算hashcode值。</li></ul><h2 id="HashMap是线程的安全的吗？介绍一下ConcurrentHashMap"><a href="#HashMap是线程的安全的吗？介绍一下ConcurrentHashMap" class="headerlink" title="HashMap是线程的安全的吗？介绍一下ConcurrentHashMap"></a>HashMap是线程的安全的吗？介绍一下ConcurrentHashMap</h2><p>线程<strong>不安全</strong>，因为多线程情况下，HashMap进行键值对存值的时候，可能会因为分配到一个桶里面造成数据覆盖的风险，比如线程1，2同时进行put操作，此时正好发生了hash冲突，线程1执行完hash冲突判断之后，时间片耗尽挂起，此时线程2进行hash冲突判断并对数据插入到链表中，后面等线程1重新获取到时间片，进行插入操作就会覆盖掉线程插入的数据。</p><p><strong>ConcuurentHashMap：</strong></p><p>Java8以上数据结构是Node数组+链表/红黑树，哈希冲突时当链表长度大于一定长度时，链表就会转换成红黑树。</p><h2 id="接口和抽象类的区别？"><a href="#接口和抽象类的区别？" class="headerlink" title="接口和抽象类的区别？"></a>接口和抽象类的区别？</h2><ul><li>接口是对类的行为进行约束，实现了某个接口就是已经拥有了具体的行为，抽象类是代码复用，强调的是类的从属关系。</li><li>接口的成员变量只能用public static final修饰且不可修改和初始化，抽象类的成员变量默认为default类型，可以在子类被重新赋值定义。</li><li>一个类可以实现多个接口但是只能继承一个父类。</li></ul><h2 id="如果某个网页打不开了，排查手段有哪些？"><a href="#如果某个网页打不开了，排查手段有哪些？" class="headerlink" title="如果某个网页打不开了，排查手段有哪些？"></a>如果某个网页打不开了，排查手段有哪些？</h2><h2 id="Linux中查看主目录下以-log结尾的文件？"><a href="#Linux中查看主目录下以-log结尾的文件？" class="headerlink" title="Linux中查看主目录下以.log结尾的文件？"></a>Linux中查看主目录下以.log结尾的文件？</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /path/to/home/directory -<span class="built_in">type</span> f -name <span class="string">&quot;*.log&quot;</span></span><br></pre></td></tr></table></figure><ul><li><code>find</code>：命令本身，用于查找文件和目录。</li><li><code>/path/to/home/directory</code>：替换为你要查找的主目录的路径。例如，如果你要在当前用户的主目录下查找，可以使用<code>~</code>代替这个路径。</li><li><code>-type f</code>：表示只查找普通文件，不包括目录等其他类型的文件。</li><li><code>-name &quot;*.log&quot;</code>：表示查找文件名以<code>.log</code>结尾的文件。<code>*.log</code>是通配符，表示匹配所有以<code>.log</code>结尾的文件名。</li></ul><h2 id="如何查询某个日志的内容？"><a href="#如何查询某个日志的内容？" class="headerlink" title="如何查询某个日志的内容？"></a>如何查询某个日志的内容？</h2><ul><li>Cat</li><li>Head</li><li>Tail</li><li>Less</li><li>More</li></ul><h2 id="比较一下less命令和more命令的区别？"><a href="#比较一下less命令和more命令的区别？" class="headerlink" title="比较一下less命令和more命令的区别？"></a>比较一下less命令和more命令的区别？</h2><ul><li>less支持前后翻页，more只支持向后翻页</li><li>less是根据要展示的内容加载到内存中，加快读取速度，more是将整个文件内容全部加载到内存中，可能会导致崩溃</li></ul><h2 id="算法题：力扣平衡字符串问题"><a href="#算法题：力扣平衡字符串问题" class="headerlink" title="算法题：力扣平衡字符串问题"></a>算法题：力扣平衡字符串问题</h2>]]></content>
     
@@ -287,6 +332,28 @@
   </entry>
   
   <entry>
+    <title>面经- 星环科技Java实习</title>
+    <link href="http://xiaobazeo.github.io/2023/07/12/%E9%9D%A2%E7%BB%8F-%E6%98%9F%E7%8E%AF%E7%A7%91%E6%8A%80Java%E5%AE%9E%E4%B9%A0-2023-6-12/"/>
+    <id>http://xiaobazeo.github.io/2023/07/12/%E9%9D%A2%E7%BB%8F-%E6%98%9F%E7%8E%AF%E7%A7%91%E6%8A%80Java%E5%AE%9E%E4%B9%A0-2023-6-12/</id>
+    <published>2023-07-12T15:58:51.000Z</published>
+    <updated>2023-08-20T03:48:44.440Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="最高QPS是承受多少？服务器部署位置？目前是单体应用？"><a href="#最高QPS是承受多少？服务器部署位置？目前是单体应用？" class="headerlink" title="最高QPS是承受多少？服务器部署位置？目前是单体应用？"></a>最高QPS是承受多少？服务器部署位置？目前是单体应用？</h2><h2 id="为什么要使用雪花算法？（分布式id、雪花算法组成）"><a href="#为什么要使用雪花算法？（分布式id、雪花算法组成）" class="headerlink" title="为什么要使用雪花算法？（分布式id、雪花算法组成）"></a>为什么要使用雪花算法？（分布式id、雪花算法组成）</h2><h2 id="有无发布订阅的功能？应用场景有哪些？"><a href="#有无发布订阅的功能？应用场景有哪些？" class="headerlink" title="有无发布订阅的功能？应用场景有哪些？"></a>有无发布订阅的功能？应用场景有哪些？</h2><h2 id="Redis的应用场景是哪些？"><a href="#Redis的应用场景是哪些？" class="headerlink" title="Redis的应用场景是哪些？"></a>Redis的应用场景是哪些？</h2><h2 id="什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？"><a href="#什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？" class="headerlink" title="什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？"></a>什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？</h2><h2 id="怎么保证数据库和redis的一致性问题？"><a href="#怎么保证数据库和redis的一致性问题？" class="headerlink" title="怎么保证数据库和redis的一致性问题？"></a>怎么保证数据库和redis的一致性问题？</h2><h2 id="怎么解决用户禁言时间失效的问题？"><a href="#怎么解决用户禁言时间失效的问题？" class="headerlink" title="怎么解决用户禁言时间失效的问题？"></a>怎么解决用户禁言时间失效的问题？</h2><h2 id="介绍一下Java集合"><a href="#介绍一下Java集合" class="headerlink" title="介绍一下Java集合"></a>介绍一下Java集合</h2><h2 id="ArrayList是基于什么实现的？-从ArrayList和Array的区别出发）"><a href="#ArrayList是基于什么实现的？-从ArrayList和Array的区别出发）" class="headerlink" title="ArrayList是基于什么实现的？(从ArrayList和Array的区别出发）"></a>ArrayList是基于什么实现的？(从ArrayList和Array的区别出发）</h2><h2 id="ArrayList的怎么动态扩容的？"><a href="#ArrayList的怎么动态扩容的？" class="headerlink" title="ArrayList的怎么动态扩容的？"></a>ArrayList的怎么动态扩容的？</h2><ol><li><strong>初始化容量：</strong> 当你创建一个新的ArrayList对象时，它会分配一个初始容量，通常是10个元素的大小（这个值可以根据需要进行修改）。</li><li><strong>添加元素：</strong> 当你向ArrayList中添加元素时，如果当前元素数量达到了容量上限(一般是元素数量到达9/10的时候)，就会触发动态扩容。</li><li><strong>扩容操作：</strong> 在进行动态扩容时，ArrayList会创建一个新的更大容量的数组，然后将原数组中的元素复制到新数组中。</li><li><strong>更新引用：</strong> 一旦新数组中的元素复制完成，ArrayList会更新内部引用，指向新的数组。</li></ol><h2 id="介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）"><a href="#介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）" class="headerlink" title="介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）"></a>介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）</h2><h2 id="程序计数器的作用"><a href="#程序计数器的作用" class="headerlink" title="程序计数器的作用"></a>程序计数器的作用</h2><h2 id="介绍一下垃圾回收算法"><a href="#介绍一下垃圾回收算法" class="headerlink" title="介绍一下垃圾回收算法"></a>介绍一下垃圾回收算法</h2><h2 id="MySQL的常用引擎"><a href="#MySQL的常用引擎" class="headerlink" title="MySQL的常用引擎?"></a>MySQL的常用引擎?</h2><h2 id="MySQL如何实现MVCC的原理？（从ReadView角度回答）"><a href="#MySQL如何实现MVCC的原理？（从ReadView角度回答）" class="headerlink" title="MySQL如何实现MVCC的原理？（从ReadView角度回答）"></a>MySQL如何实现MVCC的原理？（从ReadView角度回答）</h2><h2 id="Redis的浏览量怎么实现？"><a href="#Redis的浏览量怎么实现？" class="headerlink" title="Redis的浏览量怎么实现？"></a>Redis的浏览量怎么实现？</h2><h2 id="多线程的应用场景"><a href="#多线程的应用场景" class="headerlink" title="多线程的应用场景"></a>多线程的应用场景</h2><h2 id="如何创建线程池？为什么要使用线程池？"><a href="#如何创建线程池？为什么要使用线程池？" class="headerlink" title="如何创建线程池？为什么要使用线程池？"></a>如何创建线程池？为什么要使用线程池？</h2><h2 id="如何解决线程安全问题？"><a href="#如何解决线程安全问题？" class="headerlink" title="如何解决线程安全问题？"></a>如何解决线程安全问题？</h2><h2 id="了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）"><a href="#了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）" class="headerlink" title="了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）"></a>了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）</h2><h2 id="SpringBoot的常用注解"><a href="#SpringBoot的常用注解" class="headerlink" title="SpringBoot的常用注解"></a>SpringBoot的常用注解</h2><p>总结一下：</p><p>1、依赖注入：@Autowired(<code>Autowired</code> 可以通过 <code>@Qualifier</code> 注解来显式指定名称)、@Resource、@Inject</p><p>2、组件声明：@Component、@Bean、@Configuration、@Repository、@Service、@Controller</p><p>3、其他：@ComponentScan、@Value</p><p>以及其他等等。。。。</p><h2 id="Component和-Bean注解的区别？"><a href="#Component和-Bean注解的区别？" class="headerlink" title="@Component和@Bean注解的区别？"></a>@Component和@Bean注解的区别？</h2><h2 id="Spring的设计模式有哪些？"><a href="#Spring的设计模式有哪些？" class="headerlink" title="Spring的设计模式有哪些？"></a>Spring的设计模式有哪些？</h2><h2 id="怎么部署Java服务？"><a href="#怎么部署Java服务？" class="headerlink" title="怎么部署Java服务？"></a>怎么部署Java服务？</h2><h2 id="查看cpu、进程、内存命令"><a href="#查看cpu、进程、内存命令" class="headerlink" title="查看cpu、进程、内存命令"></a>查看cpu、进程、内存命令</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot;&gt;&lt;a href=&quot;#最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot; class=&quot;headerlink&quot; title=&quot;最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot;&gt;&lt;/a&gt;最高QPS</summary>
+      
+    
+    
+    
+    
+    <category term="面经" scheme="http://xiaobazeo.github.io/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MySQL-Index</title>
     <link href="http://xiaobazeo.github.io/2023/06/19/MySQL-Index/"/>
     <id>http://xiaobazeo.github.io/2023/06/19/MySQL-Index/</id>
@@ -305,28 +372,6 @@
     
     
     <category term="MySQL" scheme="http://xiaobazeo.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>面经- 星环科技Java实习 2023-6-12</title>
-    <link href="http://xiaobazeo.github.io/2023/06/12/%E9%9D%A2%E7%BB%8F-%E6%98%9F%E7%8E%AF%E7%A7%91%E6%8A%80Java%E5%AE%9E%E4%B9%A0-2023-6-12/"/>
-    <id>http://xiaobazeo.github.io/2023/06/12/%E9%9D%A2%E7%BB%8F-%E6%98%9F%E7%8E%AF%E7%A7%91%E6%8A%80Java%E5%AE%9E%E4%B9%A0-2023-6-12/</id>
-    <published>2023-06-12T15:58:51.000Z</published>
-    <updated>2023-08-18T15:59:32.505Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="最高QPS是承受多少？服务器部署位置？目前是单体应用？"><a href="#最高QPS是承受多少？服务器部署位置？目前是单体应用？" class="headerlink" title="最高QPS是承受多少？服务器部署位置？目前是单体应用？"></a>最高QPS是承受多少？服务器部署位置？目前是单体应用？</h2><h2 id="为什么要使用雪花算法？（分布式id、雪花算法组成）"><a href="#为什么要使用雪花算法？（分布式id、雪花算法组成）" class="headerlink" title="为什么要使用雪花算法？（分布式id、雪花算法组成）"></a>为什么要使用雪花算法？（分布式id、雪花算法组成）</h2><h2 id="有无发布订阅的功能？应用场景有哪些？"><a href="#有无发布订阅的功能？应用场景有哪些？" class="headerlink" title="有无发布订阅的功能？应用场景有哪些？"></a>有无发布订阅的功能？应用场景有哪些？</h2><h2 id="Redis的应用场景是哪些？"><a href="#Redis的应用场景是哪些？" class="headerlink" title="Redis的应用场景是哪些？"></a>Redis的应用场景是哪些？</h2><h2 id="什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？"><a href="#什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？" class="headerlink" title="什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？"></a>什么情况下会出现缓存雪崩？怎么防止缓存雪崩的问题？</h2><h2 id="怎么保证数据库和redis的一致性问题？"><a href="#怎么保证数据库和redis的一致性问题？" class="headerlink" title="怎么保证数据库和redis的一致性问题？"></a>怎么保证数据库和redis的一致性问题？</h2><h2 id="怎么解决用户禁言时间失效的问题？"><a href="#怎么解决用户禁言时间失效的问题？" class="headerlink" title="怎么解决用户禁言时间失效的问题？"></a>怎么解决用户禁言时间失效的问题？</h2><h2 id="介绍一下Java集合"><a href="#介绍一下Java集合" class="headerlink" title="介绍一下Java集合"></a>介绍一下Java集合</h2><h2 id="ArrayList是基于什么实现的？-从ArrayList和Array的区别出发）"><a href="#ArrayList是基于什么实现的？-从ArrayList和Array的区别出发）" class="headerlink" title="ArrayList是基于什么实现的？(从ArrayList和Array的区别出发）"></a>ArrayList是基于什么实现的？(从ArrayList和Array的区别出发）</h2><h2 id="ArrayList的怎么动态扩容的？"><a href="#ArrayList的怎么动态扩容的？" class="headerlink" title="ArrayList的怎么动态扩容的？"></a>ArrayList的怎么动态扩容的？</h2><h2 id="介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）"><a href="#介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）" class="headerlink" title="介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）"></a>介绍一下JVM的内存区域（面试官其实是想要我自己说出来程序计数器、虚拟机栈等的作用。。。）</h2><h2 id="程序计数器的作用"><a href="#程序计数器的作用" class="headerlink" title="程序计数器的作用"></a>程序计数器的作用</h2><h2 id="介绍一下垃圾回收算法"><a href="#介绍一下垃圾回收算法" class="headerlink" title="介绍一下垃圾回收算法"></a>介绍一下垃圾回收算法</h2><h2 id="MySQL的常用引擎"><a href="#MySQL的常用引擎" class="headerlink" title="MySQL的常用引擎?"></a>MySQL的常用引擎?</h2><h2 id="MYSQL如何实现MVCC的原理？（从ReadView角度回答）"><a href="#MYSQL如何实现MVCC的原理？（从ReadView角度回答）" class="headerlink" title="MYSQL如何实现MVCC的原理？（从ReadView角度回答）"></a>MYSQL如何实现MVCC的原理？（从ReadView角度回答）</h2><h2 id="Redis的浏览量怎么实现？"><a href="#Redis的浏览量怎么实现？" class="headerlink" title="Redis的浏览量怎么实现？"></a>Redis的浏览量怎么实现？</h2><h2 id="多线程的应用场景"><a href="#多线程的应用场景" class="headerlink" title="多线程的应用场景"></a>多线程的应用场景</h2><h2 id="如何创建线程池？为什么要使用线程池？"><a href="#如何创建线程池？为什么要使用线程池？" class="headerlink" title="如何创建线程池？为什么要使用线程池？"></a>如何创建线程池？为什么要使用线程池？</h2><h2 id="如何解决线程安全问题？"><a href="#如何解决线程安全问题？" class="headerlink" title="如何解决线程安全问题？"></a>如何解决线程安全问题？</h2><h2 id="了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）"><a href="#了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）" class="headerlink" title="了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）"></a>了解自旋锁、乐观锁、悲观锁吗？（自旋锁不会。。。）</h2><h2 id="SpringBoot的常用注解"><a href="#SpringBoot的常用注解" class="headerlink" title="SpringBoot的常用注解"></a>SpringBoot的常用注解</h2><h2 id="Component和Bean注解的区别？"><a href="#Component和Bean注解的区别？" class="headerlink" title="Component和Bean注解的区别？"></a>Component和Bean注解的区别？</h2><h2 id="Spring的设计模式有哪些？"><a href="#Spring的设计模式有哪些？" class="headerlink" title="Spring的设计模式有哪些？"></a>Spring的设计模式有哪些？</h2><h2 id="怎么部署Java服务？"><a href="#怎么部署Java服务？" class="headerlink" title="怎么部署Java服务？"></a>怎么部署Java服务？</h2><h2 id="查看cpu、进程、内存命令"><a href="#查看cpu、进程、内存命令" class="headerlink" title="查看cpu、进程、内存命令"></a>查看cpu、进程、内存命令</h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot;&gt;&lt;a href=&quot;#最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot; class=&quot;headerlink&quot; title=&quot;最高QPS是承受多少？服务器部署位置？目前是单体应用？&quot;&gt;&lt;/a&gt;最高QPS</summary>
-      
-    
-    
-    
-    
-    <category term="面经" scheme="http://xiaobazeo.github.io/tags/%E9%9D%A2%E7%BB%8F/"/>
     
   </entry>
   
@@ -386,75 +431,6 @@
     
     
     <category term="Docker" scheme="http://xiaobazeo.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微布开发-微信三方接口文本校验校验开发思路</title>
-    <link href="http://xiaobazeo.github.io/2023/05/27/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/"/>
-    <id>http://xiaobazeo.github.io/2023/05/27/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91-%E5%BE%AE%E4%BF%A1%E4%B8%89%E6%96%B9%E6%8E%A5%E5%8F%A3%E6%96%87%E6%9C%AC%E6%A0%A1%E9%AA%8C%E6%A0%A1%E9%AA%8C%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF/</id>
-    <published>2023-05-27T02:12:14.000Z</published>
-    <updated>2023-08-03T02:42:13.449Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="根据文档要求总结分为以下的情况："><a href="#根据文档要求总结分为以下的情况：" class="headerlink" title="根据文档要求总结分为以下的情况："></a>根据文档要求总结分为以下的情况：</h3><ol><li>文本内容正常 (suggest: “pass”, label: 100)：<ol><li>情况处理：如果文本内容被判定为正常，可以允许发布该文本内容。</li></ol></li><li>文本内容命中关键词，但不违规 (suggest: “pass”, label: 20006)：<ol><li>情况处理：如果文本内容命中自定义关键词但不违规，可以允许发布该文本内容，同时可能根据需要记录命中的关键词和概率信息。</li></ol></li><li>文本内容建议审核 (suggest: “review”)：<ol><li>情况处理：如果文本内容被建议进行审核，您可以将该内容设置为待审核状态，让人工审核来决定是否发布该内容。</li></ol></li><li>文本内容命中违规标签 (suggest: “risky”)：<ol><li>情况处理：如果文本内容被判定为违规，应禁止发布该内容，并通知用户违规原因。</li></ol></li><li>文本内容属于广告 (label: 10001)：<ol><li>情况处理：如果文本内容被判定为广告，应禁止发布该内容，并通知用户不允许发布广告内容。</li></ol></li><li>文本内容属于色情、辱骂、违法犯罪等 (label: 20002, 20003, 20006等)：<ol><li>情况处理：如果文本内容被判定为色情、辱骂、违法犯罪等，应禁止发布该内容，并根据需要采取进一步的处理措施，比如记录日志或进行用户封禁等。</li></ol></li></ol><h3 id="开发思路如下："><a href="#开发思路如下：" class="headerlink" title="开发思路如下："></a>开发思路如下：</h3><ol><li>从Redis中获取到AccessToken</li><li>查库获取发布者微信的openid</li><li>调用<a href="https://api.weixin.qq.com/wxa/msg_sec_check?access_token=%E6%8E%A5%E5%8F%A3%EF%BC%8C%E6%A0%A1%E9%AA%8C%E8%BF%94%E5%9B%9E%E5%8F%82%E6%95%B0">https://api.weixin.qq.com/wxa/msg_sec_check?access_token=接口，校验返回参数</a><ol><li>errocode == 0<ol><li>获取result对象的suggest参数值并进行比较<ol><li>如果文本内容建议审核，则根据实际需求执行人工审核流程，”review”.equals(suggest)</li><li>如果文本内容正常或命中关键词但不违规，允许发布，”pass”.equals(suggest)</li><li>如果文本内容被判定为违规，禁止发布，并输出违规信息，”risky”.equals(suggest)<ol><li>此时可以遍历detail数组，并获取对应的prob如果其中有敏感词汇prob&gt;50就不准发布。</li></ol></li></ol></li></ol></li></ol></li></ol><h3 id="大致代码逻辑如下："><a href="#大致代码逻辑如下：" class="headerlink" title="大致代码逻辑如下："></a>大致代码逻辑如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">handleResult</span><span class="params">(String result)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (result != <span class="literal">null</span>) &#123;</span><br><span class="line">          <span class="type">JSONObject</span> <span class="variable">responseJson</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>(result);</span><br><span class="line">          <span class="type">int</span> <span class="variable">errcode</span> <span class="operator">=</span> responseJson.getInt(<span class="string">&quot;errcode&quot;</span>);</span><br><span class="line">          <span class="type">String</span> <span class="variable">errmsg</span> <span class="operator">=</span> responseJson.getString(<span class="string">&quot;errmsg&quot;</span>);</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (errcode == <span class="number">0</span>) &#123;</span><br><span class="line">              <span class="comment">// 获取综合结果信息</span></span><br><span class="line">              <span class="type">JSONObject</span> <span class="variable">resultObject</span> <span class="operator">=</span> responseJson.getJSONObject(<span class="string">&quot;result&quot;</span>);</span><br><span class="line">              <span class="type">String</span> <span class="variable">suggest</span> <span class="operator">=</span> resultObject.getString(<span class="string">&quot;suggest&quot;</span>);</span><br><span class="line">              <span class="type">int</span> <span class="variable">label</span> <span class="operator">=</span> resultObject.getInt(<span class="string">&quot;label&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 输出综合结果信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;综合结果：&quot;</span>);</span><br><span class="line">              System.out.println(<span class="string">&quot;建议：&quot;</span> + suggest);</span><br><span class="line">              System.out.println(<span class="string">&quot;标签：&quot;</span> + label);</span><br><span class="line"></span><br><span class="line">              <span class="comment">// 如果文本内容建议审核，则根据实际需求执行人工审核流程</span></span><br><span class="line">              <span class="keyword">if</span> (<span class="string">&quot;review&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;该文本内容建议进行人工审核！&quot;</span>);</span><br><span class="line">                  <span class="comment">// 可以将内容设置为待审核状态，由人工审核决定是否发布</span></span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;pass&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容正常或命中关键词但不违规，允许发布</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容合规，可以发布！&quot;</span>);</span><br><span class="line">              &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;risky&quot;</span>.equals(suggest)) &#123;</span><br><span class="line">                  <span class="comment">// 如果文本内容被判定为违规，禁止发布，并输出违规信息</span></span><br><span class="line">                  System.out.println(<span class="string">&quot;文本内容违规，请修改后重新提交！&quot;</span>);</span><br><span class="line">                  <span class="type">JSONArray</span> <span class="variable">detailArray</span> <span class="operator">=</span> responseJson.getJSONArray(<span class="string">&quot;detail&quot;</span>);</span><br><span class="line">                  <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; detailArray.length(); i++) &#123;</span><br><span class="line">                      <span class="type">JSONObject</span> <span class="variable">detailObject</span> <span class="operator">=</span> detailArray.getJSONObject(i);</span><br><span class="line">                      <span class="type">String</span> <span class="variable">strategy</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;strategy&quot;</span>);</span><br><span class="line">                      <span class="keyword">if</span> (<span class="string">&quot;keyword&quot;</span>.equals(strategy)) &#123;</span><br><span class="line">                          <span class="type">String</span> <span class="variable">keyword</span> <span class="operator">=</span> detailObject.getString(<span class="string">&quot;keyword&quot;</span>);</span><br><span class="line">                          <span class="type">int</span> <span class="variable">prob</span> <span class="operator">=</span> detailObject.getInt(<span class="string">&quot;prob&quot;</span>);</span><br><span class="line">                          System.out.println(<span class="string">&quot;命中关键词：&quot;</span> + keyword + <span class="string">&quot;，概率：&quot;</span> + prob);</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  System.out.println(<span class="string">&quot;未知建议类型：&quot;</span> + suggest);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 输出错误信息</span></span><br><span class="line">              System.out.println(<span class="string">&quot;接口调用失败，错误码：&quot;</span> + errcode + <span class="string">&quot;，错误信息：&quot;</span> + errmsg);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          System.out.println(<span class="string">&quot;接口调用失败！&quot;</span>);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;根据文档要求总结分为以下的情况：&quot;&gt;&lt;a href=&quot;#根据文档要求总结分为以下的情况：&quot; class=&quot;headerlink&quot; title=&quot;根据文档要求总结分为以下的情况：&quot;&gt;&lt;/a&gt;根据文档要求总结分为以下的情况：&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;文本内容正常 (</summary>
-      
-    
-    
-    
-    
-    <category term="微布开发思路总结" scheme="http://xiaobazeo.github.io/tags/%E5%BE%AE%E5%B8%83%E5%BC%80%E5%8F%91%E6%80%9D%E8%B7%AF%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>备份hexo-_o-U盘篇</title>
-    <link href="http://xiaobazeo.github.io/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/"/>
-    <id>http://xiaobazeo.github.io/2023/05/16/%E5%A4%87%E4%BB%BDhexo-o-U%E7%9B%98%E7%AF%87/</id>
-    <published>2023-05-16T07:06:32.000Z</published>
-    <updated>2023-08-03T02:21:34.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="新机环境搭建"><a href="#新机环境搭建" class="headerlink" title="新机环境搭建"></a>新机环境搭建</h2><p>​    1、安装Node.js</p><p>​    2、安装Git</p><p>​    3、新建存放Blog的文件夹</p><h2 id="拷贝旧机器中得文件-文件夹"><a href="#拷贝旧机器中得文件-文件夹" class="headerlink" title="拷贝旧机器中得文件/文件夹"></a>拷贝旧机器中得文件/文件夹</h2><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"><span class="keyword">package</span>.json</span><br><span class="line">scaffolds/</span><br><span class="line"><span class="keyword">source</span>/</span><br><span class="line">themes/</span><br><span class="line">其中/代表拷贝的是文件夹</span><br></pre></td></tr></table></figure><h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><p>右键打开Git bash，依次输入下列命令之后，安装相关依赖</p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>安装hexo</span><br><span class="line">   <span class="built_in">npm</span> install -g hexo</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>本地测试的时候需要用hexo server</span><br><span class="line">   <span class="built_in">npm</span> i hexo-server</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>将文章部署到github上的模块</span><br><span class="line">   <span class="built_in">npm</span> install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>安装RSS插件</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-feed --save</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>添加Sitemap,加速网页收录速度</span><br><span class="line">   <span class="built_in">npm</span> install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure><h2 id="本地查看效果"><a href="#本地查看效果" class="headerlink" title="本地查看效果"></a>本地查看效果</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo s -g == hexo g + hexo s</span><br></pre></td></tr></table></figure><p>在浏览器打开<a href="http://localhost:4000/">http://localhost:4000</a>查看效果</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;新机环境搭建&quot;&gt;&lt;a href=&quot;#新机环境搭建&quot; class=&quot;headerlink&quot; title=&quot;新机环境搭建&quot;&gt;&lt;/a&gt;新机环境搭建&lt;/h2&gt;&lt;p&gt;​    1、安装Node.js&lt;/p&gt;
-&lt;p&gt;​    2、安装Git&lt;/p&gt;
-&lt;p&gt;​    3、新建存</summary>
-      
-    
-    
-    
-    
-    <category term="程序人生" scheme="http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>网络基础篇</title>
-    <link href="http://xiaobazeo.github.io/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    <id>http://xiaobazeo.github.io/2023/05/16/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%AF%87/</id>
-    <published>2023-05-15T18:25:03.000Z</published>
-    <updated>2023-05-16T08:27:01.373Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="TCP-IP网络模型有哪几层？"><a href="#TCP-IP网络模型有哪几层？" class="headerlink" title="TCP/IP网络模型有哪几层？"></a>TCP/IP网络模型有哪几层？</h2><h3 id="应用层："><a href="#应用层：" class="headerlink" title="应用层："></a>应用层：</h3><p>&emsp;&emsp;用户直接接触到的就是<strong>应用层</strong>，应用层专注于用户提供应用功能，例如：HTTP、FTP、DNS、Telnet、SMTP等。</p><p>&emsp;&emsp;应用层工作在操作系统中得<strong>用户态</strong>，<strong>传输层及以下</strong>则工作在<strong>内核态</strong>。</p><h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>&emsp;&emsp;应用层的数据包会传给传输层，传输层是为应用层提供网络支持。传输层的两个协议：<strong>TCP</strong>和<strong>UDP</strong>。</p><p>&emsp;&emsp;TCP（传输控制协议），TCP相较于UDP的特性，比如：<strong>流量控制，超时重传，拥塞控制</strong>等，为了保证数据包能可靠的传输给对方。</p><p>&emsp;&emsp;UDP只负责发送数据包，<strong>不保证</strong>数据包是否能抵达对方，但是<strong>实时性</strong>相对较好，<strong>传输效率</strong>也较高。如果要实现UDP的可靠传输，可以把TCP的特性在应用层实现。</p><p>&emsp;&emsp;应用传输数据过大，传输层的数据包大小超过MSS(TCP最大报文段长度)，需要将数据包分块，如果中途有一个分块丢失或损坏，只需重新发送此分块即可，而不需要发送整个数据包。在TCP协议中，<strong>每个分块称为一个TCP段</strong>（TCP Segment）。</p><p>&emsp;&emsp;传输层负责把数据包传给应用，但是一台设备上可能会有很多应用在接收或者传输数据，此时需要用一个编号将应用区分开，这个编号就是端口。例如：Web服务器通常使用80端口，22端口通常是远程登录服务器的端口。</p><h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>&emsp;&emsp;实现传输功能的是<strong>网络层</strong>，传输层只是作为数据传输的媒介，帮助应用到应用的通信。</p><p>&emsp;&emsp;常见协议是IP协议（Internet Protocol），IP协议会将传输层的报文作为数据部分，再加上IP包头部组装成IP报文，如果IP报文大小超过MTU（一般默认1500Bytes）会<strong>再次进行分片</strong>，得到一个即将发送的到网络的IP报文。</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/12.jpg" alt="选自小林coding"></p><h4 id="IP协议寻址功能："><a href="#IP协议寻址功能：" class="headerlink" title="IP协议寻址功能："></a>IP协议寻址功能：</h4><p>&emsp;&emsp;由于网络层需要有区分设备的编号，一般使用IP地址给设备进行编号，对于IPv4协议，IP地址共32位，分为四段（比如：192.168.100.1），每段8位。由于IPv4地址有设备上限，无法做到一个设备一个IP地址，所以会将IP地址分成两种意义：</p><ul><li>一个是<strong>网络号</strong>，负责标识该IP地址是属于哪个<strong>子网</strong>的</li><li>一个是<strong>主机号</strong>，负责标识<strong>同一子网</strong>下的<strong>不同主机</strong></li></ul><p>此时需要<strong>子网掩码</strong>才能计算出IP地址的网络号和主机号，比如：10.100.122.0/24，后面的/24表示就是255.255.255.0子网掩码，255.255.255.0二进制就是11111111-11111111-11111111-00000000，24个1，为了简化子网掩码的表示，就会用/24代替255.255.255.0</p><p><strong>网络号</strong>将 10.100.122.2 和 255.255.255.0 <strong>按位与运算</strong>。</p><p><img src="https://pengzihao166.oss-cn-beijing.aliyuncs.com/blog/16.jpg" alt="取自小林coding"></p><p><strong>主机号：</strong>将 255.255.255.0 <strong>取反</strong>后与IP地址进行进行<strong>按位与运算</strong>。</p><p>在寻址过程中，先匹配相同的网络号（表示要找到同一个子网），才会去找对应的主机号。</p><h4 id="IP协议路由功能"><a href="#IP协议路由功能" class="headerlink" title="IP协议路由功能"></a>IP协议路由功能</h4><p>当数据包到达一个网络节点，就需要通过路由算法决定下一步走哪条路径。</p><p>IP协议的寻址是告诉我们去往下一个目的地朝哪个方向走，路由是根据下一个目的地选择路径。</p><h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><p>网络接口层会在IP头部的前面加上MAC头部，并封装成数据帧发送到网络上。网络接口层主要是为网络层提供链路级别传输的服务，负责以太网、WiFi这样的底层网络上发送原始数据包，工作在网卡这个层次，使用MAC地址来表示网络上的设备。</p><p>MAC头部是以以太网的头部，包含了接收方和发送方的MAC地址等信息，可以通过ARP协议获取对方的MAC地址。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>网络接口层的传输单位是帧，IP的传输单位是包，TCP层传输单位是段，HTTP传输单位是消息或报文，每一层的封装格式如下：</p><p><img src="https://cdn.xiaolincoding.com/gh/xiaolincoder/ImageHost3@main/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B5%AE%E7%82%B9/%E5%B0%81%E8%A3%85.png" alt="取自小林coding"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;TCP-IP网络模型有哪几层？&quot;&gt;&lt;a href=&quot;#TCP-IP网络模型有哪几层？&quot; class=&quot;headerlink&quot; title=&quot;TCP/IP网络模型有哪几层？&quot;&gt;&lt;/a&gt;TCP/IP网络模型有哪几层？&lt;/h2&gt;&lt;h3 id=&quot;应用层：&quot;&gt;&lt;a href</summary>
-      
-    
-    
-    
-    
-    <category term="计网" scheme="http://xiaobazeo.github.io/tags/%E8%AE%A1%E7%BD%91/"/>
     
   </entry>
   
