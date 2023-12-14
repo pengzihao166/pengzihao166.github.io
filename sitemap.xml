@@ -596,13 +596,6 @@
 
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2023-12-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -610,7 +603,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
+    <loc>http://xiaobazeo.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -624,7 +617,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/MySQL/</loc>
+    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -638,14 +631,14 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/</loc>
+    <loc>http://xiaobazeo.github.io/tags/Java/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Java/</loc>
+    <loc>http://xiaobazeo.github.io/tags/MySQL/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -660,6 +653,13 @@
   
   <url>
     <loc>http://xiaobazeo.github.io/tags/Spring/</loc>
+    <lastmod>2023-12-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2023-12-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
