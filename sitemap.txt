@@ -1,3 +1,5 @@
+http://xiaobazeo.github.io/2023/12/12/web-coursePushErrorSolution/
+http://xiaobazeo.github.io/2023/12/01/Java-Basics/
 http://xiaobazeo.github.io/2023/02/02/%E8%B0%88%E8%B0%88wx%E5%92%8Cwss/
 http://xiaobazeo.github.io/2023/10/26/web-timetableServerDown/
 http://xiaobazeo.github.io/2023/10/26/web-slowSQLSearchOptimize/
@@ -62,13 +64,14 @@ http://xiaobazeo.github.io/2022/02/04/URI/
 http://xiaobazeo.github.io/2022/01/01/2021-backing/
 http://xiaobazeo.github.io/tags/index.html
 http://xiaobazeo.github.io/
-http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/
-http://xiaobazeo.github.io/tags/C-%E7%AC%94%E8%AE%B0/
 http://xiaobazeo.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/
+http://xiaobazeo.github.io/tags/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/
 http://xiaobazeo.github.io/tags/Docker/
-http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/
-http://xiaobazeo.github.io/tags/Go/
+http://xiaobazeo.github.io/tags/C-%E7%AC%94%E8%AE%B0/
 http://xiaobazeo.github.io/tags/MySQL/
+http://xiaobazeo.github.io/tags/Go/
+http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/
+http://xiaobazeo.github.io/tags/Java/
 http://xiaobazeo.github.io/tags/Netty/
 http://xiaobazeo.github.io/tags/Spring/
 http://xiaobazeo.github.io/tags/SpringBoot/
