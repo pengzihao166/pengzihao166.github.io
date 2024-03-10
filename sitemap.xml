@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiaobazeo.github.io/2024/03/10/mhy-test01/</loc>
+    
+    <lastmod>2024-03-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://xiaobazeo.github.io/2023/12/19/MySQL-summaryTwo/</loc>
     
     <lastmod>2024-03-10</lastmod>
@@ -621,7 +630,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
+    <loc>http://xiaobazeo.github.io/tags/C-%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -635,21 +644,7 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/Java/</loc>
-    <lastmod>2024-03-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2024-03-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://xiaobazeo.github.io/tags/MySQL/</loc>
+    <loc>http://xiaobazeo.github.io/tags/Docker/</loc>
     <lastmod>2024-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -663,7 +658,21 @@
   </url>
   
   <url>
-    <loc>http://xiaobazeo.github.io/tags/C-%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://xiaobazeo.github.io/tags/Java/</loc>
+    <lastmod>2024-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaobazeo.github.io/tags/MySQL/</loc>
+    <lastmod>2024-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaobazeo.github.io/tags/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2024-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -699,6 +708,13 @@
   
   <url>
     <loc>http://xiaobazeo.github.io/tags/leetcode/</loc>
+    <lastmod>2024-03-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://xiaobazeo.github.io/tags/%E7%AC%94%E8%AF%95/</loc>
     <lastmod>2024-03-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
